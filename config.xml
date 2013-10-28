@@ -3,14 +3,14 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "il.co.icc"
         version   = "1.0.0">
-  <name>Cal4u</name>
+  <name>Cal יציל</name>
 
   <description>
-    Cal4u
+    Cal יציל
   </description>
 
   <author href="http://icc.co.il" email="support@icc.co.il">
-    Cal4u
+    Cal יציל
   </author>
 
   <feature name="http://api.phonegap.com/1.0/device" />
