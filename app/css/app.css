@@ -405,13 +405,13 @@ form {
 
 .controls,
 .rtl .controls.top {
-    text-align: right;
+    text-align: center;
     width: 100%;
 }
 
 .rtl .controls,
 .controls.top {
-    text-align: left;
+    text-align: center;
 }
 
 .controls.top {

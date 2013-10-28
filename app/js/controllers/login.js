@@ -1,8 +1,14 @@
 (function(S, C, Y) {
     Y.LoginController = function ($scope, loginManager, network, networkManager, $log) {
         
-        $scope.Username = "mysmallfish@gmail.com";
-        $scope.Password = "1234";
+        $scope.$root.header = "Login";
+        $scope.$root.hideFooter = true;
+        //$scope.Username = "mysmallfish@gmail.com";
+        //$scope.Password = "1234";
+        var forgotPasswordLink = "http://google.com";
+        $scope.forgotPassword = function () {
+            window.open(forgotPasswordLink);
+        }
         function navigate() {
             location.href = "#/";
         }
