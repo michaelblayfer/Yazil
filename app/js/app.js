@@ -3,6 +3,8 @@
     var yazilModule = angular.module("Cal.Yazil", ["ngRoute", "Simple"]);
 
     yazilModule.service("loginManager", Y.LoginManager);
+    yazilModule.service("accountManager", Y.AccountManager);
+
     yazilModule.directive("toolbar", function () {
         return Y.ToolbarDirective;
     });
@@ -10,6 +12,17 @@
     yazilModule.directive("appHeader", function () {
         return Y.AppHeaderDirective;
     });
+
+    yazilModule.directive('preventDefault', function () {
+        return function (scope, element, attrs) {
+            $(element).click(function (event) {
+                event.preventDefault();
+            });
+        }
+    });
+
+    yazilModule.filter("previousCredits", Y.PreviousCreditsFilter);
+    yazilModule.filter("accountDescription", Y.AccountDescriptionFilter);
 
     yazilModule.controller("AppCtrl", Y.AppController);
     yazilModule.controller("LoginCtrl", Y.LoginController);
@@ -39,7 +52,11 @@
         };
 
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
-            loginManager.isUserLoggedIn().catch(function () {
+            loginManager.isUserLoggedIn().then(function () {
+                $rootScope.isLoggedIn = true;
+                
+            }, function () {
+                $rootScope.isLoggedIn = false;
                 // no logged user, we should be going to #login
                 if (next.templateUrl == "views/login.html") {
                     // already going to #login, no redirect needed
@@ -60,7 +77,16 @@
             "Password": "סיסמה",
             "Logout": "יציאה",
             "ForgotPassword": "שכחתי שם משתמש / סיסמה",
-            "AuthenticationFailed": "שם המשתמש או הסיסמה שגויים או שאינך רשום"
+            "AuthenticationFailed": "שם המשתמש או הסיסמה שגויים או שאינך רשום",
+            "NextCredit": "זיכוי קרוב",
+            "PreviousCredit": "זיכוי קודם",
+            "BalanceComment": '(סה"כ יתרות - כולל זיכוי קרוב)',
+            "TotalBalance": 'סה"כ יתרות',
+            "BalanceValueDate": "נכון לתאריך",
+            "GoToAccountDetails": "לצפייה בפירוט חשבונות",
+            "NoPreviousCredits": "אין זיכויים קודמים",
+            "PreviousCredits": "זיכוי/ים קודמים",
+            "NextCredits":"זיכויים קרובים"
         });
     });
 

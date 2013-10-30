@@ -1,1 +1,18 @@
-﻿ 
+﻿<div class="credits">
+    <div class="title">{{"NextCredit"|l10n}}</div>
+    <div class="creditValue next">{{nextCreditAmount | currency:"₪"}}</div>
+    <div class="date">{{nextCreditDate|date:"dd/MM/yy"}}</div>
+    <hr />
+    <div class="title">{{"PreviousCredit"|l10n}}</div>
+    <div class="creditValue previous">{{previousCreditAmount | currency:"₪"}}</div>
+    <div class="date">{{previousCreditDate|date:"dd/MM/yy"}}</div>
+</div>
+
+<div class="balance">
+    <div class="title">{{"TotalBalance"|l10n}}</div>
+    <div class="creditValue balance">{{totalBalance|currency:"₪"}}</div>
+        <div class="date">{{"BalanceComment"|l10n}}</div>
+        <div class="date">{{"BalanceValueDate"|l10n}}</div>
+        <div class="date">{{balanceValueDate|date:"dd/MM/yy"}}</div>
+    </div>
+<a href="#/Account">{{"GoToAccountDetails"|l10n}}</a>

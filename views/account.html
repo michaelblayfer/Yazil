@@ -1,1 +1,39 @@
-﻿
+﻿<div class="credits">
+    <div class="title">{{"NextCredits"|l10n}}</div>
+    <div class="creditValue">{{selectedAccount.totalNextCredit|currency:"₪"}}</div>
+    <a href="#">Details</a>
+    <div class="account-details">
+        <table>
+            <tbody>
+                <tr ng-repeat="credit in selectedAccount.nextCredits">
+                    <td>{{credit.date|date:"dd/MM/yy"}}</td>
+                    <td>{{credit.day}}</td>
+                    <td>{{credit.amount|currency:"₪"}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="credits">
+    <div class="title">{{selectedAccount.previousCreditsCount|previousCredits}}</div>
+    <div class="creditValue">{{selectedAccount.totalPreviousCredit|currency:"₪"}}</div>
+    <a href="#">Details</a>
+    <div class="account-details">
+        <table>
+            <tbody>
+                <tr ng-repeat="credit in selectedAccount.previousCredits">
+                    <td>{{credit.date|date:"dd/MM/yy"}}</td>
+                    <td>{{credit.day}}</td>
+                    <td>{{credit.amount|currency:"₪"}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="accounts">
+    <ul>
+        <li ng-repeat="account in accounts"><a href="#" prevent-default ng-click="selectAccount($index)">{{account|accountDescription}}</a></li>
+    </ul>
+</div>

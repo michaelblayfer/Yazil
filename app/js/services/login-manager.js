@@ -46,14 +46,15 @@
 
         function isUserLoggedIn(){
             var result = $q.defer();
+
             if (currentUser) {
-                result.resolve();
+                result.resolve(currentUser);
             } else {
                 var userInfo = sessionInfo().then(function (info) {
                     if (info) {
                         if (isValidToken(info)) {
                             currentUser = info;
-                            result.resolve();
+                            result.resolve(info);
                         } else {
                             result.reject();
                         }
