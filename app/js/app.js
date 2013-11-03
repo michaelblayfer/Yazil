@@ -23,7 +23,8 @@
 
     yazilModule.filter("previousCredits", Y.PreviousCreditsFilter);
     yazilModule.filter("accountDescription", Y.AccountDescriptionFilter);
-
+    yazilModule.filter("intCurrency", Y.IntegerCurrencyFilter);
+    
     yazilModule.controller("AppCtrl", Y.AppController);
     yazilModule.controller("LoginCtrl", Y.LoginController);
     yazilModule.controller("HomeCtrl", Y.HomeController);
@@ -34,7 +35,7 @@
     yazilModule.config(function ($routeProvider) {
         $routeProvider
             .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { header: function () { return "Home"; } }})
-            .when("/Login", { templateUrl: "views/login.html", controller: "LoginCtrl", resolve: { header: function () { return "Login"; } } })
+            .when("/Login", { templateUrl: "views/login.html", controller: "LoginCtrl", resolve: { header: function () { return "Login"; }, hideFooter: function () { return true; } } })
             .when("/Account", { templateUrl: "views/account.html", controller: "AccountCtrl", resolve: { header: function () { return "Account"; } } })
             .when("/LegalTerms", { templateUrl: "views/legal-terms.html", controller: "MoreInfoCtrl", resolve: { header: function () { return "Terms"; } } })
             .when("/Security", { templateUrl: "views/security.html", controller: "MoreInfoCtrl", resolve: { header: function () { return "Security"; } } })
@@ -86,7 +87,9 @@
             "GoToAccountDetails": "לצפייה בפירוט חשבונות",
             "NoPreviousCredits": "אין זיכויים קודמים",
             "PreviousCredits": "זיכוי/ים קודמים",
-            "NextCredits":"זיכויים קרובים"
+            "NextCredits": "זיכויים קרובים",
+            "LegalTerms": "תנאים משפטיים",
+            "InfoSecurity":"אבטחת מידע"
         });
     });
 

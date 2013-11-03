@@ -160,9 +160,9 @@
         ];
 
         var accountSummaryTest = {
-            nextCreditAmount: 30274,
+            nextCreditAmount: 9999999,
             nextCreditDate: new Date(),
-            previousCreditAmount: 59458,
+            previousCreditAmount: 9999999,
             previousCreditDate: new Date(),
             totalBalance: 48465,
             balanceValueDate: new Date()

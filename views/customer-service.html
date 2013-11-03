@@ -1,1 +1,13 @@
-﻿
+﻿<div class="customer_service">
+    <div class="row" ng-repeat="item in items">
+        <div class="icon" ng-class="{{item.cssClass}}"></div>
+        <div class="content">
+        <div class="title">
+            {{item.title}}
+        </div>
+            <div class="text" ng-bind-html="item.text">
+
+            </div>
+        </div>
+    </div>
+</div>
