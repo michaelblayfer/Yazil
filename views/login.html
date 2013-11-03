@@ -1,22 +1,22 @@
 ﻿
 <div class="login-box">
     <form name="Login" ng-submit="login()">
-        <div>
+        <div class="center">
             <input type="text" name="userName" ng-model="Username" placeholder="{{ 'Username' | l10n }}" required="required" maxlength="200" />
         </div>
-        <div>
+        <div class="center">
             <input type="password" name="password" ng-model="Password" placeholder="{{ 'Password' | l10n }}" required="required" maxlength="20" />
         </div>
-        <p class="message" ng-show="loginError">{{ loginError | l10n }}</p>
-        <div>
-            <a href="#" ng-click="forgotPassword()">{{ 'ForgotPassword' | l10n }}</a>
+        <div class="center">
+            <p class="message" ng-show="loginError">{{ loginError | l10n }}</p>
         </div>
-        <div class="controls">
+        <div class="center">
+            <a href="#" class="forgot_password" ng-click="forgotPassword()">{{ 'ForgotPassword' | l10n }}</a>
+        </div>
+        <div class="center">
             <button class="button large-button" type="submit" ng-disabled="Login.$invalid">{{ "Login"|l10n}}</button>
         </div>
     </form>
-
-    <footer>
-        <button type="button" ng-click="navigateToCustomerService()">Cust SVC</button>
-    </footer>
 </div>
+
+

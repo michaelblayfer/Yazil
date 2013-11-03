@@ -51,7 +51,7 @@
                 $location.path("Login");
             });
         };
-
+        var anonymousAllowed = ["views/login.html", "views/customer-service.html"];
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             loginManager.isUserLoggedIn().then(function () {
                 $rootScope.isLoggedIn = true;
@@ -59,7 +59,7 @@
             }, function () {
                 $rootScope.isLoggedIn = false;
                 // no logged user, we should be going to #login
-                if (next.templateUrl == "views/login.html") {
+                if (anonymousAllowed.indexOf(next.templateUrl) >=0) {
                     // already going to #login, no redirect needed
                 } else {
                     // not going to #login, we should redirect now

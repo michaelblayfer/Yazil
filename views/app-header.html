@@ -2,4 +2,5 @@
     <div class="logo"></div>
     <div class="title">{{header}}</div>
     <div class="header_button" ng-show="isLoggedIn" ng-click="logout()">{{"Logout"|l10n}}</div>
+    <div class="header_button" ng-show="!isLoggedIn" ng-hide="hideFooter" ng-click="navigateToHome()">{{"Back"|l10n}}</div>
 </header>
