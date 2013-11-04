@@ -663,11 +663,17 @@ footer, .dock_bottom {
     left:0;
     right:0;
 }
+footer{
+    background-color:black;
+    color: lime;
+}
 footer button,
 .customer_service_button{
+    background-color:transparent;
     height:64px;
     width:20%;
     display:inline-block;
+    color: lime;
 }
 
 .accounts ul{
