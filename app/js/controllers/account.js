@@ -4,6 +4,7 @@
         accountManager.getAccounts().then(function(accounts){
             $scope.accounts = accounts;
             if (accounts.length > 0) {
+                $scope.selectedAccountIndex = 0;
                 selectAccount(0);
             }
         });       

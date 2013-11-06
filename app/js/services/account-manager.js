@@ -154,6 +154,21 @@
                            day: "יום ה'",
                            date: new Date(),
                            amount: 432
+                       },
+                       {
+                           day: "יום ב'",
+                           date: new Date(),
+                           amount: 666
+                       },
+                       {
+                           day: "יום ד'",
+                           date: new Date(),
+                           amount: 423
+                       },
+                       {
+                           day: "יום ה'",
+                           date: new Date(),
+                           amount: 432
                        }
                    ]
                }

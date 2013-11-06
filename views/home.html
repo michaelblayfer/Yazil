@@ -1,30 +1,31 @@
-﻿<div class="credits">
-    <div class="title">{{"PreviousCredit"|l10n}}</div>
-    <div class="creditValue previous">{{previousCreditAmount | intCurrency:"₪"}}</div>
-    <div class="date">{{previousCreditDate|date:"dd/MM/yy"}}</div>
+﻿<div class="home_container">
+    <div class="credits">
+        <div class="title next">{{"NextCredit"|l10n}}</div>
+        <div class="creditValue next">{{nextCreditAmount | intCurrency:"₪"}}</div>
+        <div class="date next">{{nextCreditDate|date:"dd/MM/yy"}}</div>
 
+        <div class="title previous">{{"PreviousCredit"|l10n}}</div>
+        <div class="creditValue previous">{{previousCreditAmount | intCurrency:"₪"}}</div>
+        <div class="date previous">{{previousCreditDate|date:"dd/MM/yy"}}</div>
 
-    <div class="title">{{"NextCredit"|l10n}}</div>
-    <div class="creditValue next">{{nextCreditAmount | intCurrency:"₪"}}</div>
-    <div class="date">{{nextCreditDate|date:"dd/MM/yy"}}</div>
-
-</div>
-
-<div class="balance">
-    <div class="right">
-        <div class="title">{{"TotalBalance"|l10n}}</div>
-        <div class="creditValue">{{totalBalance|intCurrency:"₪"}}</div>
-        
     </div>
-    <div class="left">
-        <div class="title">{{"BalanceValueDate"|l10n}}</div>
-        <div class="date">{{balanceValueDate|date:"dd/MM/yy"}}</div>
+
+    <div class="balance">
+        <div class="right">
+            <div class="title">{{"TotalBalance"|l10n}}</div>
+            <div class="creditValue">{{totalBalance|intCurrency:"₪"}}</div>
+
+        </div>
+        <div class="left">
+            <div class="title">{{"BalanceValueDate"|l10n}}</div>
+            <div class="date">{{balanceValueDate|date:"dd/MM/yy"}}</div>
+        </div>
+        <div class="comment">{{"BalanceComment"|l10n}}</div>
     </div>
-</div>
-<div class="comment">{{"BalanceComment"|l10n}}</div>
 
-<div class="inner-button">
-    <a href="#/Account">{{"GoToAccountDetails"|l10n}}</a>
-</div>
+    <div class="inner-button">
+        <a href="#/Account">{{"GoToAccountDetails"|l10n}}</a>
+    </div>
 
-<div class="clearfix"></div>
+    <div class="clearfix"></div>
+</div>

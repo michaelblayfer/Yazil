@@ -34,12 +34,12 @@
 
     yazilModule.config(function ($routeProvider) {
         $routeProvider
-            .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { header: function () { return "Home"; } }})
-            .when("/Login", { templateUrl: "views/login.html", controller: "LoginCtrl", resolve: { header: function () { return "Login"; }, hideFooter: function () { return true; } } })
-            .when("/Account", { templateUrl: "views/account.html", controller: "AccountCtrl", resolve: { header: function () { return "Account"; } } })
+            .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { header: function () { return "MyAccounts"; } }})
+            .when("/Login", { templateUrl: "views/login.html", controller: "LoginCtrl", resolve: { header: function () { return "Welcome"; }, hideFooter: function () { return true; } } })
+            .when("/Account", { templateUrl: "views/account.html", controller: "AccountCtrl", resolve: { header: function () { return "MyAccounts"; } } })
             .when("/LegalTerms", { templateUrl: "views/legal-terms.html", controller: "MoreInfoCtrl", resolve: { header: function () { return "Terms"; } } })
             .when("/Security", { templateUrl: "views/security.html", controller: "MoreInfoCtrl", resolve: { header: function () { return "Security"; } } })
-            .when("/MoreInfo", { templateUrl: "views/more-info.html", controller: "MoreInfoCtrl", resolve: { header: function () { return "More Info"; } } })
+            .when("/MoreInfo", { templateUrl: "views/more-info.html", controller: "MoreInfoCtrl", resolve: { header: function () { return "MoreInfo"; } } })
             .when("/CustomerService", { templateUrl: "views/customer-service.html", controller: "CustomerServiceCtrl", resolve: { header: function () { return "CustomerService"; } } })
             .otherwise({ redirectTo: "/" });
     });
@@ -74,6 +74,7 @@
             "Back": "חזור",
             "SystemLogin": "כניסה למערכת",
             "Login": "כניסה",
+            "Welcome": "ברוכים הבאים",
             "Username": "שם משתמש",
             "Password": "סיסמה",
             "Logout": "יציאה",
@@ -89,7 +90,10 @@
             "PreviousCredits": "זיכוי/ים קודמים",
             "NextCredits": "זיכויים קרובים",
             "LegalTerms": "תנאים משפטיים",
-            "InfoSecurity":"אבטחת מידע"
+            "InfoSecurity": "אבטחת מידע",
+            "CustomerService": "שירות לקוחות",
+            "MyAccounts": "החשבונות שלי",
+            "MoreInfo":"עוד"
         });
     });
 
