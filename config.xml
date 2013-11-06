@@ -57,8 +57,8 @@
   --><!--
 
   -->
-  <gap:splash src="app/img/splash.jpg"  gap:platform="ios"     width="320" height="480" />
-  <gap:splash src="app/img/splash.jpg"  gap:platform="android" gap:density="hdpi" />
+  <gap:splash src="app/img/splash.png"  gap:platform="ios"     width="320" height="480" />
+  <gap:splash src="app/img/splash.png"  gap:platform="android" gap:density="hdpi" />
   <!--<gap:plugin name="com.phonegap.plugins.barcodescanner" />-->
 
   <gap:platform name="ios" />
