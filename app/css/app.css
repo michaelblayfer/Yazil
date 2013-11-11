@@ -43,16 +43,29 @@ background: linear-gradient(to bottom,  rgba(124,195,217,1) 0%,rgba(2,45,88,1) 1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7cc3d9', endColorstr='#022d58',GradientType=0 ); /* IE6-9 */
 
 }
-.container
-{
-    min-width: 320px;
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
 
+header, footer{
+    position:absolute;
+    left:0;
+    right:0;
 }
 
+header{
+    top:0;
+}
+footer{
+    bottom:0;
+}
+
+
+.main-content{
+    overflow:auto;
+    position:absolute;
+    top: 52px;
+    bottom: 64px;
+    left:0;
+    right:0;
+}
 body.rtl
 {
     direction: rtl;
@@ -105,7 +118,8 @@ label {
     
     
 }
-.home_container{
+.home_container,
+.details_container{
     height:100%;
     background-color:white;
 }
@@ -147,9 +161,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6dc3e', end
 
 
 header{
-    height: 64px;
+    height: 51px;
     border-bottom: solid 1px #DDD;
-    position:relative;
     background-color:white;
     color:#135b95;
     opacity:0.95;
@@ -158,7 +171,7 @@ header{
 header .logo{
     position:absolute;
     top:0;
-    height: 64px;
+    height: 50px;
     background-position:center center;
     background-repeat:no-repeat;
 
@@ -170,7 +183,7 @@ header .logo{
 header .logo_cal{
     right:auto;
     left:0;
-    width: 64px;
+    width: 48px;
     background-image: url(../img/logo_cal.png);
 }
 
@@ -178,7 +191,7 @@ header .title{
     margin-left:64px;
     margin-right:64px;
     font-size: 20pt;
-    line-height: 60px;
+    line-height: 50px;
     text-align:center;
     overflow:hidden;
 }
@@ -188,11 +201,11 @@ header .header_button{
     position:absolute;
     left:0;
     top:0;
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     text-align:center;
     cursor:pointer;
-    line-height: 60px;
+    line-height: 50px;
     color:white;
 }
 
@@ -202,33 +215,16 @@ header .header_button{
     background-color:navy;
     color:white;
     overflow-y:auto;
-    max-height:200px;
 }
 .credits_container{
-    height: 300px;
     overflow:hidden;
-
 }
 .credits_container .credits{
     min-height:130px;
 }
 .creditValue{
     text-align:right;
-}
-.creditValue.next{
-    font-size: 36pt;
-}
-.creditValue.previous{
-    font-size: 28pt;
-}
-
-
-    
-.creditValue.previous,
-.title.previous,
-.date.previous{
-    text-align:left;
-    color:#D5D5D5;
+    font-size:24pt;
 }
 
 .credits_container .credits .creditValue.previous,
@@ -281,11 +277,22 @@ footer{
 footer button,
 .customer_service_button{
     background-color:transparent;
-    height:64px;
-    width:20%;
+    
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width:23%;
     display:inline-block;
+    text-align:center;
+    border-left: solid 1px #EEE;
 }
 
+footer button:last-child{
+    border:none;
+}
+
+footer button div{
+    display:inline-block;
+}
 .accounts ul{
     margin:0;
     padding:0;
@@ -333,11 +340,15 @@ footer button,
 }
 
 .expand_collapse{
-    position:absolute;
+/*    position:absolute;
     left:20px;
     width: 36px;
     top:0;
     bottom:0px;
+    */
+width: 64px;
+display:table-cell;
+vertical-align:middle;
     background-position: center center;
     background-repeat:no-repeat;
     background-color: transparent;
@@ -355,9 +366,9 @@ footer button,
 }
 
 .customer_service .row{
-    height: 84px;
-    margin-top:2%;
-    margin-bottom:2%;
+    min-height: 72px;
+    margin-top:12px;
+    margin-bottom:12px;
     clear:both;
 }
 
@@ -388,7 +399,7 @@ footer button,
 
 .i{
     width:64px;
-    height:64px;
+    height:48px;
     background-repeat:no-repeat;
     background-position:center center;
 }
@@ -435,3 +446,73 @@ footer button,
 
 
 
+.credits{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+}
+.details_container .credits{
+    bottom: 54px;
+}
+.home_container .credits {
+    bottom: 180px;
+}
+
+.credit_table{
+    display:table;
+    height:100%;
+    width:100%;
+}
+.credit_row{
+    display:table-row;
+}
+.credit{
+    display:table-cell;
+    vertical-align:middle;
+}
+.balance_container{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    height: 180px;
+}
+
+.balance{
+    height: 65%;
+}
+
+.balance_container .inner-button{
+    height: 15%;
+}
+
+.credit{
+    clear:both;
+    height:40%;
+    padding-top: 10px;
+}
+.home_container .credit > div{
+    float:right;
+}
+.home_container .credit .creditValue{
+    float:left;
+}
+.credits_container{
+    position:absolute;
+    top:0px;
+    left:0;
+    right:0;
+    bottom:54px;
+}
+.account_container{
+    position:absolute;
+    bottom:0;
+    height:50px;
+    left:0;
+    right:0;
+}
+.content .title{
+    font-weight:bold;
+    
+}

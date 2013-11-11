@@ -1,36 +1,41 @@
-﻿<div class="home_container">
-    <div class="credits_container">
-        <div class="credits">
-            <div class="title">{{"NextCredits"|l10n}}</div>
-            <div class="creditValue next">{{selectedAccount.totalNextCredit|intCurrency:"₪"}}</div>
-            <div class="expand_collapse" ng-class="{'expanded':nextCreditExpanded, 'collapsed': !nextCreditExpanded}" ng-click="toggleExpand('next')"></div>
-            <div class="account-details" ng-show="nextCreditExpanded">
-                <table>
-                    <tbody>
-                        <tr ng-repeat="credit in selectedAccount.nextCredits">
-                            <td>{{credit.date|date:"dd/MM/yy"}}</td>
-                            <td>{{credit.day}}</td>
-                            <td>{{credit.amount|intCurrency:"₪"}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+﻿<div class="details_container">
+    <div class="credits">
+        <div class="credit_table">
+            <div class="credit_row">
+                <div class="credit">
+                    <div class="title">{{"NextCredits"|l10n}}</div>
+                    <div class="creditValue next">{{selectedAccount.totalNextCredit|intCurrency:"₪"}}</div>
+                    <div class="account-details" ng-show="nextCreditExpanded">
+                        <table>
+                            <tbody>
+                                <tr ng-repeat="credit in selectedAccount.nextCredits">
+                                    <td>{{credit.date|date:"dd/MM/yy"}}</td>
+                                    <td>{{credit.day}}</td>
+                                    <td>{{credit.amount|intCurrency:"₪"}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="expand_collapse" ng-class="{'expanded':nextCreditExpanded, 'collapsed': !nextCreditExpanded}" ng-click="toggleExpand('next')"></div>
             </div>
-        </div>
-
-        <div class="credits">
-            <div class="title">{{selectedAccount.previousCreditsCount|previousCredits}}</div>
-            <div class="creditValue previous">{{selectedAccount.totalPreviousCredit|intCurrency:"₪"}}</div>
-            <div class="expand_collapse" ng-class="{'expanded':nextCreditExpanded, 'collapsed': !nextCreditExpanded}" ng-click="toggleExpand('previous')"></div>
-            <div class="account-details" ng-show="previousCreditExpanded">
-                <table>
-                    <tbody>
-                        <tr ng-repeat="credit in selectedAccount.previousCredits">
-                            <td>{{credit.date|date:"dd/MM/yy"}}</td>
-                            <td>{{credit.day}}</td>
-                            <td>{{credit.amount|currency:"₪"}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="credit_row">
+                <div class="credit">
+                    <div class="title">{{selectedAccount.previousCreditsCount|previousCredits}}</div>
+                    <div class="creditValue previous">{{selectedAccount.totalPreviousCredit|intCurrency:"₪"}}</div>
+                    <div class="account-details" ng-show="previousCreditExpanded">
+                        <table>
+                            <tbody>
+                                <tr ng-repeat="credit in selectedAccount.previousCredits">
+                                    <td>{{credit.date|date:"dd/MM/yy"}}</td>
+                                    <td>{{credit.day}}</td>
+                                    <td>{{credit.amount|currency:"₪"}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="expand_collapse" ng-class="{'expanded':nextCreditExpanded, 'collapsed': !nextCreditExpanded}" ng-click="toggleExpand('previous')"></div>
             </div>
         </div>
     </div>

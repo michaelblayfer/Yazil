@@ -34,13 +34,13 @@
 
     yazilModule.config(function ($routeProvider) {
         $routeProvider
-            .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { header: function () { return "MyAccounts"; } }})
-            .when("/Login", { templateUrl: "views/login.html", controller: "LoginCtrl", resolve: { header: function () { return "Welcome"; }, hideFooter: function () { return true; } } })
-            .when("/Account", { templateUrl: "views/account.html", controller: "AccountCtrl", resolve: { header: function () { return "MyAccounts"; } } })
-            .when("/LegalTerms", { templateUrl: "views/legal-terms.html", controller: "MoreInfoCtrl", resolve: { header: function () { return "Terms"; } } })
-            .when("/Security", { templateUrl: "views/security.html", controller: "MoreInfoCtrl", resolve: { header: function () { return "Security"; } } })
-            .when("/MoreInfo", { templateUrl: "views/more-info.html", controller: "MoreInfoCtrl", resolve: { header: function () { return "MoreInfo"; } } })
-            .when("/CustomerService", { templateUrl: "views/customer-service.html", controller: "CustomerServiceCtrl", resolve: { header: function () { return "CustomerService"; } } })
+            .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { pageInfo: function () { return { header: "MyAccounts" }; } } })
+            .when("/Login", { templateUrl: "views/login.html", controller: "LoginCtrl", resolve: { pageInfo: function () { return { header: "Welcome", hideFooter: true }; } } })
+            .when("/Account", { templateUrl: "views/account.html", controller: "AccountCtrl", resolve: { pageInfo: function () { return { header: "MyAccounts" }; } } })
+            .when("/LegalTerms", { templateUrl: "views/legal-terms.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "Terms" }; } } })
+            .when("/Security", { templateUrl: "views/security.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "Security" }; } } })
+            .when("/MoreInfo", { templateUrl: "views/more-info.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "MoreInfo" }; } } })
+            .when("/CustomerService", { templateUrl: "views/customer-service.html", controller: "CustomerServiceCtrl", resolve: { pageInfo: function () { return { header: "CustomerService" }; } } })
             .otherwise({ redirectTo: "/" });
     });
 

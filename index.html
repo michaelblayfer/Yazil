@@ -6,78 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="app/css/app.css" />
-    
     <script type="text/javascript" src="phonegap.js"></script>
-    
 </head>
-    <body class="rtl" ng-controller="AppCtrl">
-        <app-header></app-header>
-
-        <div class="container">
+<body class="rtl" ng-controller="AppCtrl">
+    <app-header></app-header>
+    <div class="main-content-container">
+        
+        <div class="container-fluid main-content">
             <ng-view></ng-view>
         </div>
-        <toolbar></toolbar>
-
-
-        <script src="lib/underscore/underscore.1.5.2.min.js"></script>
-
-        <script src="lib/jquery/jquery-2.0.3.min.js"></script>
-
-        <script src="lib/angular/angular.js"></script>
-        <script src="lib/angular/angular-route.min.js"></script>
-        <script src="lib/angular/angular-touch.min.js"></script>
-
-        <script src="lib/simple/simple.js"></script>
-        <!-- Services -->
-        <script src="lib/simple/services/utils.js"></script>
-        <script src="lib/simple/services/file-utils.js"></script>
-        <script src="lib/simple/services/attachments-manager.js"></script>
-        <script src="lib/simple/services/phonegap.js"></script>
-        <script src="lib/simple/services/null-camera-service.js"></script>
-        <script src="lib/simple/services/phonegap-camera-service.js"></script>
-        <script src="lib/simple/services/phonegap-remote-storage.js"></script>
-        <script src="lib/simple/services/phonegap-file-manager.js"></script>
-        <script src="lib/simple/services/queue-manager.js"></script>
-        <script src="lib/simple/services/geo-location.js"></script>
-        <script src="lib/simple/services/storage-service.js"></script>
-        <script src="lib/simple/services/language.js"></script>
-        <script src="lib/simple/services/text-resources.js"></script>
-        <script src="lib/simple/services/safe-apply.js"></script>
-        <script src="lib/simple/services/network-service.js"></script>
-        <script src="lib/simple/services/network-manager.js"></script>
-        <!-- Filters -->
-        <script src="lib/simple/filters/localize.js"></script>
-        <script src="lib/simple/filters/new-line-to-br.js"></script>
-        <script src="lib/simple/filters/gps-location.js"></script>
-        <script src="lib/simple/filters/entity-description.js"></script>
-
-       <script src="lib/simple/simple-module.js"></script>
+        
+    </div>
+    <toolbar></toolbar>
     
-    
-        <script src="app/js/cal.js"></script>
-        <!-- Services -->
-        <script src="app/js/services/login-manager.js"></script>
-        <script src="app/js/services/account-manager.js"></script>
-        
-        <!-- Filters -->
-        <script src="app/js/filters/previous-credits.js"></script>
-        <script src="app/js/filters/account-description.js"></script>
-        <script src="app/js/filters/int-currency.js"></script>
-        
 
-        <!-- Directives -->
-        <script src="app/js/directives/toolbar.js"></script>
-        <script src="app/js/directives/app-header.js"></script>
 
-        <!-- Controllers -->
-        <script src="app/js/controllers/app.js"></script>
-        <script src="app/js/controllers/login.js"></script>
-        <script src="app/js/controllers/home.js"></script>
-        <script src="app/js/controllers/customer-service.js"></script>
-        <script src="app/js/controllers/account.js"></script>
-        <script src="app/js/controllers/more-info.js"></script>
-        
-        <script src="app/js/app.js"></script>
+    <script src="lib/underscore/underscore.1.5.2.min.js"></script>
 
-    </body>
+    <script src="lib/jquery/jquery-2.0.3.min.js"></script>
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.min.js"></script>
+    <script src="lib/angular/angular-touch.min.js"></script>
+
+    <script src="lib/simple/simple.js"></script>
+    <!-- Services -->
+    <script src="lib/simple/services/utils.js"></script>
+    <script src="lib/simple/services/file-utils.js"></script>
+    <script src="lib/simple/services/attachments-manager.js"></script>
+    <script src="lib/simple/services/phonegap.js"></script>
+    <script src="lib/simple/services/null-camera-service.js"></script>
+    <script src="lib/simple/services/phonegap-camera-service.js"></script>
+    <script src="lib/simple/services/phonegap-remote-storage.js"></script>
+    <script src="lib/simple/services/phonegap-file-manager.js"></script>
+    <script src="lib/simple/services/queue-manager.js"></script>
+    <script src="lib/simple/services/geo-location.js"></script>
+    <script src="lib/simple/services/storage-service.js"></script>
+    <script src="lib/simple/services/language.js"></script>
+    <script src="lib/simple/services/text-resources.js"></script>
+    <script src="lib/simple/services/safe-apply.js"></script>
+    <script src="lib/simple/services/network-service.js"></script>
+    <script src="lib/simple/services/network-manager.js"></script>
+    <!-- Filters -->
+    <script src="lib/simple/filters/localize.js"></script>
+    <script src="lib/simple/filters/new-line-to-br.js"></script>
+    <script src="lib/simple/filters/gps-location.js"></script>
+    <script src="lib/simple/filters/entity-description.js"></script>
+
+    <script src="lib/simple/simple-module.js"></script>
+
+
+    <script src="app/js/cal.js"></script>
+    <!-- Services -->
+    <script src="app/js/services/login-manager.js"></script>
+    <script src="app/js/services/account-manager.js"></script>
+
+    <!-- Filters -->
+    <script src="app/js/filters/previous-credits.js"></script>
+    <script src="app/js/filters/account-description.js"></script>
+    <script src="app/js/filters/int-currency.js"></script>
+
+
+    <!-- Directives -->
+    <script src="app/js/directives/toolbar.js"></script>
+    <script src="app/js/directives/app-header.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/js/controllers/app.js"></script>
+    <script src="app/js/controllers/login.js"></script>
+    <script src="app/js/controllers/home.js"></script>
+    <script src="app/js/controllers/customer-service.js"></script>
+    <script src="app/js/controllers/account.js"></script>
+    <script src="app/js/controllers/more-info.js"></script>
+
+    <script src="app/js/app.js"></script>
+
+</body>
 </html>

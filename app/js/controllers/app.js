@@ -4,8 +4,8 @@
 
         $rootScope.$on("$routeChangeSuccess", function (scope, next) {
             if (next && next.locals) {
-                $scope.header = $filter("l10n")(next.locals.header);
-                $scope.hideFooter = $filter("l10n")(next.locals.hideFooter);
+                console.log("PH", next.locals.pageInfo);
+                $scope.header = $filter("l10n")(next.locals.pageInfo.header);
             }
         });
         $rootScope.navigateToCustomerService = function () {
