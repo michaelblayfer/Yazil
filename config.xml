@@ -30,7 +30,7 @@
   <preference name="webviewbounce" value="false" />
   <preference name="detect-data-types" value="false" />
   <access origin="*" />
-  <icon src="app/img/logo.png" />
+  <icon src="app/img/app-icon.png" />
   <!----><!--<icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
   <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
   <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
