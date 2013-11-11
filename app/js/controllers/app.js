@@ -3,9 +3,9 @@
     Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter) {
 
         $rootScope.$on("$routeChangeSuccess", function (scope, next) {
-            if (next && next.locals) {
-                console.log("PH", next.locals.pageInfo);
+            if (next && next.locals && next.locals.pageInfo) {
                 $scope.header = $filter("l10n")(next.locals.pageInfo.header);
+                $scope.hideFooter = next.locals.pageInfo.hideFooter;
             }
         });
         $rootScope.navigateToCustomerService = function () {

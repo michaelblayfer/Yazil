@@ -2,22 +2,34 @@
     <div class="credits">
         <div class="credit_table">
             <div class="credit_row">
-                <div class="credit">
-                    <div>
-                        <div class="title next">{{"NextCredit"|l10n}}</div>
-                        <div class="date next">{{nextCreditDate|date:"dd/MM/yy"}}</div>
-                    </div>
-                    <div class="creditValue next">{{nextCreditAmount | intCurrency:"₪"}}</div>
+                <div class="c_credit">
+                    <div class="c_row">
+                        <div class="c_cell">
+                            <div>
+                                <div class="title next">{{"NextCredit"|l10n}}</div>
+                                <div class="date next">{{nextCreditDate|date:"dd/MM/yy"}}</div>
+                            </div>
 
+                        </div>
+                        <div class="c_cell">
+                            <div class="creditValue next">{{nextCreditAmount | intCurrency:"₪"}}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="credit_row">
-                <div class="credit">
-                    <div>
-                        <div class="title previous">{{"PreviousCredit"|l10n}}</div>
-                        <div class="date previous">{{previousCreditDate|date:"dd/MM/yy"}}</div>
+                <div class="c_credit">
+                    <div class="c_row">
+                        <div class="c_cell">
+                            <div>
+                                <div class="title previous">{{"PreviousCredit"|l10n}}</div>
+                                <div class="date previous">{{previousCreditDate|date:"dd/MM/yy"}}</div>
+                            </div>
+                        </div>
+                        <div class="c_cell">
+                            <div class="creditValue previous">{{previousCreditAmount | intCurrency:"₪"}}</div>
+                        </div>
                     </div>
-                    <div class="creditValue previous">{{previousCreditAmount | intCurrency:"₪"}}</div>
                 </div>
             </div>
         </div>

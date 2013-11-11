@@ -62,7 +62,7 @@ footer{
     overflow:auto;
     position:absolute;
     top: 52px;
-    bottom: 64px;
+    bottom: 52px;
     left:0;
     right:0;
 }
@@ -138,7 +138,8 @@ label {
 .inner-button a,
 .inner-button a:hover,
 .inner-button a:visited,
-.inner-button a:active{
+.inner-button a:active,
+.inner-button button{
     
     padding:4px;
     padding-right:24px;
@@ -210,7 +211,6 @@ header .header_button{
 }
 
 .credits{
-    padding:6px;
     position:relative;
     background-color:navy;
     color:white;
@@ -224,7 +224,8 @@ header .header_button{
 }
 .creditValue{
     text-align:right;
-    font-size:24pt;
+    font-size:28pt;
+
 }
 
 .credits_container .credits .creditValue.previous,
@@ -277,22 +278,46 @@ footer{
 footer button,
 .customer_service_button{
     background-color:transparent;
-    
-    margin-top: 8px;
-    margin-bottom: 8px;
-    width:23%;
+    width:25%;
     display:inline-block;
     text-align:center;
-    border-left: solid 1px #EEE;
+}
+footer button:first-child,
+footer button:last-child{
+    width:18%;
+}
+button{
+    position:relative;
+}
+button .label{
+    font-size:8pt;
+    text-align:center;
+    color:white;
 }
 
+footer button .sep{
+position:absolute;
+left:0;
+top:4px;
+width:1px;
+height: 40px;
+font-size:1px;
+        background: rgb(39,39,39); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(39,39,39,1) 1%, rgba(62,62,62,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(39,39,39,1)), color-stop(100%,rgba(62,62,62,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(39,39,39,1) 1%,rgba(62,62,62,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(39,39,39,1) 1%,rgba(62,62,62,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(39,39,39,1) 1%,rgba(62,62,62,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(39,39,39,1) 1%,rgba(62,62,62,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#272727', endColorstr='#3e3e3e',GradientType=0 ); /* IE6-9 */
+}
 footer button:last-child{
     border:none;
 }
-
-footer button div{
-    display:inline-block;
+footer button .label {
+    color: #8bbd27;
 }
+
 .accounts ul{
     margin:0;
     padding:0;
@@ -340,20 +365,24 @@ footer button div{
 }
 
 .expand_collapse{
-/*    position:absolute;
-    left:20px;
-    width: 36px;
+    width: 64px;
+    position:absolute;
+    left:0;
     top:0;
-    bottom:0px;
-    */
-width: 64px;
-display:table-cell;
-vertical-align:middle;
+    bottom:0;
+    
     background-position: center center;
     background-repeat:no-repeat;
     background-color: transparent;
 }
 
+.account-details .expand_collapse{
+    position:relative;
+    height:64px;
+    left:auto;
+    right:auto;
+    background-position: center center;
+}
 .expand_collapse.expanded{
     background-image: url(../img/button_close.png);
 }
@@ -398,10 +427,11 @@ vertical-align:middle;
 }
 
 .i{
-    width:64px;
-    height:48px;
+    
+    min-width:32px;
+    height:32px;
     background-repeat:no-repeat;
-    background-position:center center;
+    background-position:top center;
 }
 
 .i-home{
@@ -460,14 +490,34 @@ vertical-align:middle;
 }
 
 .credit_table{
-    display:table;
     height:100%;
     width:100%;
 }
 .credit_row{
+    position:relative;
+    height:50%;
+background: rgb(9,61,118); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(9,61,118,1) 0%, rgba(3,41,85,1) 70%, rgba(1,22,45,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(9,61,118,1)), color-stop(70%,rgba(3,41,85,1)), color-stop(100%,rgba(1,22,45,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(9,61,118,1) 0%,rgba(3,41,85,1) 70%,rgba(1,22,45,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(9,61,118,1) 0%,rgba(3,41,85,1) 70%,rgba(1,22,45,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(9,61,118,1) 0%,rgba(3,41,85,1) 70%,rgba(1,22,45,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(9,61,118,1) 0%,rgba(3,41,85,1) 70%,rgba(1,22,45,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', endColorstr='#01162d',GradientType=0 ); /* IE6-9 */
+
+}
+
+.credit_row.collapsed{
+    height:auto;
+}
+.c_credit{
+    display:table;
+    height:100%;
+}
+.c_row{
     display:table-row;
 }
-.credit{
+.c_cell{
     display:table-cell;
     vertical-align:middle;
 }
@@ -515,4 +565,91 @@ vertical-align:middle;
 .content .title{
     font-weight:bold;
     
+}
+.center input[type="password"],
+.center input[type="text"] {
+    display:block;
+    width: 90%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.forgot_password,
+.forgot_password:active,
+.forgot_password:hover,
+.forgot_password:visited{
+    color:white;
+}
+
+.currency{
+    font-size:12pt;
+}
+
+table{
+    border:none;
+    border-collapse:collapse;
+    width:100%;
+}
+
+.account-details{
+    width:100%;
+}
+.account-details thead th{
+    font-size:16pt;
+    text-align:right;
+    vertical-align:middle;
+    font-weight:normal;
+    width:44%;
+}
+
+.account-details thead th:last-child{
+    width: 48px;
+    
+}
+.account-details thead th.caption{
+    text-align:center;
+    font-size:12pt;
+}
+
+.account-details tbody tr{
+    background-color: #eef3f8;
+    color:#135B95;
+    font-size:   14pt;
+    line-height: 24px;
+}
+
+.account-details tbody tr:nth-child(2n+1) {
+    background-color: #cfd9e3;
+    
+}
+
+.account-details tbody td{
+    font-size: 10pt;
+    font-weight:bold;
+}
+.account-details tbody td:last-child{
+    font-size: 12pt;
+}
+
+button:focus{
+    outline:none;
+}
+
+.info{
+    color:white;
+    padding:4px;
+}
+
+
+.home_container .c_credit{
+    width:100%;
+    
+}
+.home_container .c_cell{
+    padding:6px;
+}
+
+.date{
+    color:#9ebad2;
+    font-family:Tahoma;
 }
