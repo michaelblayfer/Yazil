@@ -129,8 +129,6 @@ label {
     
     width:auto;
     display:block;
-   margin-top: 8px;
-   margin-bottom: 4px;
    clear:both;
    
 }
@@ -224,7 +222,7 @@ header .header_button{
 }
 .creditValue{
     text-align:right;
-    font-size:24pt;
+    font-size:22pt;
 
 }
 
@@ -317,26 +315,34 @@ footer button:last-child{
 footer button .label {
     color: #8bbd27;
 }
+.account_container{
+                    user-select:none;
+            -webkit-user-select:none;
 
+}
 .accounts ul{
     margin:0;
     padding:0;
     margin-top:8px;
     margin-bottom:8px;
     text-align:center;
+
 }
 .accounts li{
     display:inline-block;
     width: 8px;
     height:8px;
-    background-color: darkblue;
+    background-color: #073568;
     border-radius: 8px;
     margin:4px;
 }
 
+.accounts li.selected{
+    background-color:#8cbf29;
+}
 .selected_account{
     position:relative;
-    height: 50px;
+    height: 70px;
 }
 .selected_account .title{
     text-align:center;
@@ -344,6 +350,7 @@ footer button .label {
     margin-right:36px;
     font-weight:bold;
     font-size:12pt;
+    line-height:32px;
 }
 .selected_account .account_nav{
     position:absolute;
@@ -351,7 +358,7 @@ footer button .label {
     background-repeat:no-repeat;
     width: 36px;    
     top:0;
-    bottom:8px;
+    bottom:4px;
 
 }
 
@@ -483,7 +490,7 @@ footer button .label {
     right:0;
 }
 .details_container .credits{
-    bottom: 54px;
+    bottom: 74px;
 }
 .home_container .credits {
     bottom: 180px;
@@ -523,10 +530,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', end
 }
 .balance_container{
     position:absolute;
-    bottom:0;
+    bottom:20px;
     left:0;
     right:0;
-    height: 180px;
+    height: 160px;
 }
 
 .balance{
@@ -557,8 +564,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', end
 }
 .account_container{
     position:absolute;
-    bottom:0;
-    height:52px;
+    bottom:0px;
+    height:72px;
     left:0;
     right:0;
 }
@@ -653,3 +660,4 @@ button:focus{
     color:#9ebad2;
     font-family:Tahoma;
 }
+

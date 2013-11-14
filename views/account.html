@@ -76,9 +76,9 @@
             <div class="account_nav previous" ng-click="previousAccount()"></div>
             <div class="title">
                 {{selectedAccount|accountDescription}}
-                <div class="accounts">
+                <div class="accounts" ng-swipe-left="previousAccount()" ng-swipe-right="nextAccount()">
                     <ul>
-                        <li ng-repeat="account in accounts"><a href="#" prevent-default ng-click="selectAccount($index)"></a></li>
+                        <li ng-repeat="account in accounts" ng-class="{'selected':$index==selectedAccountIndex}"><a href="#" prevent-default ng-click="selectAccount($index)"></a></li>
                     </ul>
                 </div>
             </div>
