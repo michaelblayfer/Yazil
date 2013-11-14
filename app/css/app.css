@@ -661,3 +661,8 @@ button:focus{
     font-family:Tahoma;
 }
 
+@media(max-width:321px){
+    button .label {
+        font-size: 7.5pt;
+    }
+}
