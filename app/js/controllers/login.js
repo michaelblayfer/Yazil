@@ -1,5 +1,5 @@
 (function(S, C, Y) {
-    Y.LoginController = function ($scope, loginManager, network, networkManager, $log) {
+    Y.LoginController = function ($scope, loginManager, network, networkManager, $log, textResource) {
         //$scope.Username = "mysmallfish@gmail.com";
         //$scope.Password = "1234";
         var forgotPasswordLink = "http://google.com";
@@ -14,9 +14,12 @@
             navigate();
         });
 
-        $scope.networkStatus = "Unknown";
+        $scope.isOnline = false;
         function updateNetworkStatus() {
-            $scope.networkStatus = network.isOnline() ? "Online" : "Offline";
+            $scope.isOnline = network.isOnline();
+            if (!network.isOnline()) {
+                $scope.loginError = textResource.get("NoNetworkError");
+            }
         }
         $scope.$on("Simple.NetworkStatusChanged", function (args) {
             updateNetworkStatus();

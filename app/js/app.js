@@ -96,7 +96,8 @@
             "Home":"דף הבית",
             "MoreInfo": "עוד...",
             "CreditDate": "תאריך",
-            "CreditAmount": "סכום"
+            "CreditAmount": "סכום",
+            "NoNetworkError":"אין חיבור רשת, לא ניתן לבצע כניסה"
         });
     });
 

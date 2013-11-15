@@ -666,3 +666,7 @@ button:focus{
         font-size: 7.5pt;
     }
 }
+
+.buttons .inner-button{
+    margin-top:12px;
+}
