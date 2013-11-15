@@ -71,12 +71,13 @@
             </div>
         </div>
     </div>
-    <div class="account_container">
+    <!--ng-swipe-left="prevCard()" ng-swipe-right="nextCard()"-->
+    <div class="account_container" ng-swipe-left="previousAccount()" ng-swipe-right="nextAccount()">
         <div class="selected_account">
             <div class="account_nav previous" ng-click="previousAccount()"></div>
             <div class="title">
                 {{selectedAccount|accountDescription}}
-                <div class="accounts" ng-swipe-left="previousAccount()" ng-swipe-right="nextAccount()">
+                <div class="accounts">
                     <ul>
                         <li ng-repeat="account in accounts" ng-class="{'selected':$index==selectedAccountIndex}"><a href="#" prevent-default ng-click="selectAccount($index)"></a></li>
                     </ul>
