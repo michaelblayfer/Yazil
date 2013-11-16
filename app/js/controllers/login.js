@@ -1,7 +1,10 @@
 (function(S, C, Y) {
-    Y.LoginController = function ($scope, loginManager, network, networkManager, $log, textResource) {
-        //$scope.Username = "mysmallfish@gmail.com";
-        //$scope.Password = "1234";
+    Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource) {
+        if (!$scope.$root.alreadyStarted) {
+            $location.path("/Splash");
+            $scope.$root.alreadyStarted = true;
+        }
+
         var forgotPasswordLink = "http://google.com";
         $scope.forgotPassword = function () {
             window.open(forgotPasswordLink);
@@ -13,12 +16,12 @@
         loginManager.isUserLoggedIn().then(function() {
             navigate();
         });
-
+        
         $scope.isOnline = false;
         function updateNetworkStatus() {
             $scope.isOnline = network.isOnline();
             if (!network.isOnline()) {
-                $scope.loginError = textResource.get("NoNetworkError");
+                $scope.loginError = "NoNetworkError";
             }
         }
         $scope.$on("Simple.NetworkStatusChanged", function (args) {

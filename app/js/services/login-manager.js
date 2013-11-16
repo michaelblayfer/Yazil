@@ -1,5 +1,6 @@
 (function(S, C, Y) {
-    Y.LoginManager = function(storageService, $q) {
+
+    Y.LoginManager = function(storageService, $q, metadataService) {
         var currentUser = null;
 
         function authenticate(userName, password) {
@@ -15,9 +16,19 @@
             //}, function(error) {
             //    result.reject(error);
             //});
-            result.resolve({
-                Usernmame: "anon",
-                Name: "Anonymous"
+            metadataService.getMetadata().then(function (metadata) {
+                console.log("LOAD?", metadata.LoadDataOperation);
+                if (userName == "1") {
+                    result.resolve({
+                        Usernmame: "anon",
+                        Name: "Anonymous"
+                    });
+                } else {
+                    result.reject({
+                        status: "W",
+                        code: 7
+                    });
+                }
             });
             return result.promise;
         }

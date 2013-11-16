@@ -1,27 +1,27 @@
 ﻿<footer ng-show="isLoggedIn && !hideFooter">
     <button type="button" ng-click="navigateToHome()">
         <div class="i i-home"></div>
-        <div class="label">{{"Home"|l10n}}</div>
+        <div class="buttonLabel">{{"Home"|l10n}}</div>
         <div class="sep"></div>
     </button>
     <button type="button" ng-click="navigateToAccount()">
         <div class="i i-account"></div>
-        <div class="label">{{"MyAccounts"|l10n}}</div>
+        <div class="buttonLabel">{{"MyAccounts"|l10n}}</div>
         <div class="sep"></div>
     </button>
     <button type="button" ng-click="navigateToCustomerService()">
         <div class="i i-customer-service"></div>
-        <div class="label">{{"CustomerService"|l10n}}</div>
+        <div class="buttonLabel">{{"CustomerService"|l10n}}</div>
         <div class="sep"></div>
     </button>
     <button type="button" ng-click="navigateToMoreInfo()"><div class="i i-more-info"></div>
-        <div class="label">{{"MoreInfo"|l10n}}</div></button>
+        <div class="buttonLabel">{{"MoreInfo"|l10n}}</div></button>
 </footer>
 
 <div class="center dock_bottom" ng-show="!isLoggedIn && hideFooter">
     <button type="button" class="customer_service_button" ng-click="navigateToCustomerService()">
         <div class="i i-customer-service">
         </div>
-        <div class="label">{{"CustomerService"|l10n}}</div>
+        <div class="buttonLabel">{{"CustomerService"|l10n}}</div>
     </button>
 </div>
