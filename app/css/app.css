@@ -36,6 +36,7 @@ body, textarea
 }
 .details_container{
     user-select:none;
+    -webkit-user-drag: none;
 }
 .container-fluid{
     padding:0;
@@ -775,4 +776,12 @@ input.ng-dirty.ng-invalid{
     font-size: 10px;
     text-align:center;
     line-height:18px;
+}
+
+.logo-splash{
+    height:100%;
+    width: 100%;
+    background-image: url(../img/logo-splash.png);
+    background-position: center center;
+    background-repeat:no-repeat;
 }

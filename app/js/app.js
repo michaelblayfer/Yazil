@@ -1,6 +1,6 @@
 ﻿(function (S, C, Y) {
 
-    var yazilModule = angular.module("Cal.Yazil", ["ngRoute","$strap", "Simple"]);
+    var yazilModule = angular.module("Cal.Yazil", ["ngRoute", "ngTouch","$strap", "Simple"]);
 
     yazilModule.service("loginManager", Y.LoginManager);
     yazilModule.service("accountManager", Y.AccountManager);
@@ -42,7 +42,7 @@
             .when("/LegalTerms", { templateUrl: "views/legal-terms.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "LegalTerms" }; } } })
             .when("/Security", { templateUrl: "views/security.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "InfoSecurity" }; } } })
             .when("/MoreInfo", { templateUrl: "views/more-info.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "MoreInfo" }; } } })
-            .when("/Splash", { templateUrl: "views/splash.html", controller: "SplashCtrl", resolve: { pageInfo: function () { return { header: "Splash" }; } } })
+            .when("/Splash", { templateUrl: "views/splash.html", controller: "SplashCtrl", resolve: { pageInfo: function () { return { header: false }; } } })
             .when("/CustomerService", { templateUrl: "views/customer-service.html", controller: "CustomerServiceCtrl", resolve: { pageInfo: function () { return { header: "CustomerService" }; } } })
             .otherwise({ redirectTo: "/" });
     });
@@ -51,21 +51,26 @@
         // register listener to watch route changes
         $rootScope.logout = function () {   
             loginManager.logout().then(function () {
+                
                 $location.path("Login");
             });
         };
         var anonymousAllowed = ["views/login.html", "views/customer-service.html", "views/splash.html"];
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
+            
             loginManager.isUserLoggedIn().then(function () {
                 $rootScope.isLoggedIn = true;
-                
+            
             }, function () {
                 $rootScope.isLoggedIn = false;
-                // no logged user, we should be going to #login
-                if (anonymousAllowed.indexOf(next.templateUrl) >=0) {
+                if (anonymousAllowed.indexOf(next.templateUrl) >= 0) {
                 } else {
-                    
-                    $location.path("/Login");
+                    if (!$rootScope.alreadyStarted) {
+                        $location.path("/Splash");
+                        $rootScope.alreadyStarted = true;
+                    } else {
+                        $location.path("/Login");
+                    }
                 }
             });
         });

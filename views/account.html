@@ -1,4 +1,4 @@
-﻿<div class="details_container" ng-swipe-left="previousAccount()" ng-swipe-right="nextAccount()">
+﻿<div class="details_container" >
     <div class="credits">
         <div class="credit_table">
             <div class="credit_row" ng-class="{ 'collapsed': nextCreditExpanded || previousCreditExpanded}">
@@ -75,8 +75,8 @@
     <div class="account_container">
         <div class="selected_account">
             <div class="account_nav previous" ng-click="previousAccount()"></div>
-            <div class="title">
-                {{selectedAccount|accountDescription}}
+            <div class="title" ng-swipe-left="previousAccount()" ng-swipe-right="nextAccount()">
+                <div>{{selectedAccount|accountDescription}}</div>
                 <div class="accounts">
                     <ul>
                         <li ng-repeat="account in accounts" ng-class="{'selected':$index==selectedAccountIndex}"><a href="#" prevent-default ng-click="selectAccount($index)"></a></li>

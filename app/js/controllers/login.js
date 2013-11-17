@@ -1,9 +1,6 @@
 (function(S, C, Y) {
     Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource) {
-        if (!$scope.$root.alreadyStarted) {
-            $location.path("/Splash");
-            $scope.$root.alreadyStarted = true;
-        }
+
 
         var forgotPasswordLink = "http://google.com";
         $scope.forgotPassword = function () {
@@ -36,6 +33,7 @@
             }
 
             function authenticationFailed(error) {
+
                 $scope.loginError = "AuthenticationFailed";
             }
 

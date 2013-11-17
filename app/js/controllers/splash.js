@@ -3,6 +3,7 @@
     Y.SplashController = function ($scope, $location, accountManager, metadataService, alertService) {
 
         metadataService.fetchMetadata().then(function(){
+            console.log("FETCH");
             $location.path("/Login");
         }, function (error) {
             if (error.Severity == C.Severity.Error) {

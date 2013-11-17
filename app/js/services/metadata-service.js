@@ -40,7 +40,7 @@
                 
                 return storageService.prefix("Yazil").local("Metadata", metadata);
 
-            }, 100);
+            }, 3000);
         }
 
         return {
