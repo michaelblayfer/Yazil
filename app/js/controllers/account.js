@@ -10,7 +10,7 @@
         });       
 
         $scope.nextAccount = function () {
-            console.log("NExt accoutn, current: ", $scope.selectedAccountIndex);
+            console.log("NExt account, current: ", $scope.selectedAccountIndex);
             if ($scope.selectedAccountIndex < $scope.accounts.length -1) {
                 $scope.selectedAccountIndex++;
             } else {
@@ -20,7 +20,7 @@
         }
 
         $scope.previousAccount = function () {
-            console.log("PRev accoutn, current: ", $scope.selectedAccountIndex);
+            console.log("PRev account, current: ", $scope.selectedAccountIndex);
             if ($scope.selectedAccountIndex > 0) {
                 $scope.selectedAccountIndex--;
             } else {

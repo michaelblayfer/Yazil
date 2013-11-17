@@ -34,6 +34,9 @@ body, textarea
     color:black;
     line-height:normal;
 }
+.details_container{
+    user-select:none;
+}
 .container-fluid{
     padding:0;
 }
@@ -349,6 +352,7 @@ footer button,
     width:25%;
     display:inline-block;
     text-align:center;
+    padding:0;
 }
 footer button:first-child,
 footer button:last-child{
@@ -412,7 +416,7 @@ footer button .buttonLabel {
 }
 .selected_account{
     position:relative;
-    height: 70px;
+    height: 54px;
 }
 .selected_account .title{
     text-align:center;
@@ -420,7 +424,7 @@ footer button .buttonLabel {
     margin-right:36px;
     font-weight:bold;
     font-size:12pt;
-    line-height:32px;
+    line-height:24px;
 }
 .selected_account .account_nav{
     position:absolute;
@@ -765,4 +769,10 @@ input.ng-dirty.ng-invalid{
 }
 .modal.fade.in {
     top:80%;
+}
+
+.lastLoginInfo{
+    font-size: 10px;
+    text-align:center;
+    line-height:18px;
 }
