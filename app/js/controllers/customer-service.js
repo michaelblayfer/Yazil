@@ -5,7 +5,7 @@
         metadataService.getMetadata().then(function (metadata) {
             $scope.items = [{
                 title: "חייג",
-                text: $sce.trustAsHtml(metadata.ServicePhone1),
+                text: $sce.trustAsHtml("<a href='tel:" + metadata.ServicePhone1 + "'>" + metadata.ServicePhone1 + "</a>"),
                 cssClass: "i-phone"
             },
              {

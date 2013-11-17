@@ -1,13 +1,17 @@
 (function(S, C, Y) {
-    Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource) {
+    Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource, metadataService) {
 
 
-        var forgotPasswordLink = "http://google.com";
+        var forgotPasswordLink = "http://cal-online.co.il";
+        metadataService.getMetadata().then(function (metadata) {
+            forgotPasswordLink = metadata.ForgotUserPasswordURL;
+        });
+
         $scope.forgotPassword = function () {
             window.open(forgotPasswordLink);
         }
         function navigate() {
-            location.href = "#/";
+            $location.path("/");
         }
 
         loginManager.isUserLoggedIn().then(function() {

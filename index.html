@@ -86,6 +86,21 @@
     <script src="app/js/controllers/more-info.js"></script>
 
     <script src="app/js/app.js"></script>
+    <script>
+        document.addEventListener("deviceready", onDeviceReady, false);
 
+        function onDeviceReady() {
+            document.addEventListener("backbutton", function (e) {
+                alert("HASH:" + location.hash);
+                if (location.hash == "#/" || location.hash == "#/Login") {
+                    e.preventDefault();
+                    navigator.app.exitApp();
+                }
+                else {
+                    navigator.app.backHistory()
+                }
+            }, false);
+        }
+    </script>
 </body>
 </html>
