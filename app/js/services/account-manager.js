@@ -180,7 +180,9 @@
             previousCreditAmount: 999999999,
             previousCreditDate: new Date(),
             totalBalance: 48465,
-            balanceValueDate: new Date()
+            balanceValueDate: new Date(),
+            accountOwnerName: "יאיר כהן",
+            lastLoginDate:"23/10/13"
         };
 
         function getAccounts() {

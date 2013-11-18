@@ -10,7 +10,7 @@
             $scope.totalBalance = summary.totalBalance;
             $scope.balanceValueDate = summary.balanceValueDate;
             $scope.lastLoginDate = summary.lastLoginDate;
-            $scope.customerName = summary.accountOwnerName;
+            $scope.accountOwnerName = summary.accountOwnerName;
         }).finally($scope.notifyProgressCompleted);
     };
     

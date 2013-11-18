@@ -91,7 +91,6 @@
 
         function onDeviceReady() {
             document.addEventListener("backbutton", function (e) {
-                alert("HASH:" + location.hash);
                 if (location.hash == "#/" || location.hash == "#/Login") {
                     e.preventDefault();
                     navigator.app.exitApp();

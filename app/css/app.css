@@ -472,7 +472,11 @@ footer button .buttonLabel {
 .expand_collapse.collapsed{
     background-image: url(../img/button_open.png);
 }
-.customer_service{
+.customer_service,
+.customer_service a,
+.customer_service a:active,
+.customer_service:visited,
+.customer_service:hover{
     color:white;
     overflow:hidden;
 }
@@ -566,7 +570,7 @@ footer button .buttonLabel {
     right:0;
 }
 .details_container .credits{
-    bottom: 74px;
+    bottom: 54px;
 }
 .home_container .credits {
     bottom: 180px;
@@ -641,9 +645,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', end
 .account_container{
     position:absolute;
     bottom:0px;
-    height:72px;
+    height:54px;
     left:0;
     right:0;
+    overflow:hidden;
 }
 .content .title{
     font-weight:bold;
