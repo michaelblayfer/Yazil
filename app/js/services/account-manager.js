@@ -179,7 +179,7 @@
             nextCreditDate: new Date(),
             previousCreditAmount: 999999999,
             previousCreditDate: new Date(),
-            totalBalance: 48465,
+            totalBalance: 999999999,
             balanceValueDate: new Date(),
             accountOwnerName: "יאיר כהן",
             lastLoginDate:"23/10/13"

@@ -157,7 +157,11 @@ label {
 
 .message {
     font-size:12pt;
-    margin:4px;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:3%;
+    margin-bottom:3%;
+    width: 75%;
     
 }
 
@@ -177,11 +181,15 @@ label {
 }
 .balance{
     clear:both;
-    
     padding:4px;
-    padding-top: 12px;
-    
-    
+    margin-bottom: 20px;   
+    margin-right:auto;
+    margin-left:auto;
+    width:86%;
+}
+
+.balance .left {
+    text-align:left;
 }
 .home_container,
 .details_container{
@@ -204,13 +212,12 @@ label {
 .inner-button a:active,
 .inner-button button{
     
-    padding:4px;
-    padding-right:24px;
-    padding-left:24px;
     text-decoration:none;
     color:white;
-    min-width: 80%;
+    min-width: 76%;
+    font-size: 14pt;
     display:inline-block;
+    line-height: 32px;
 
 background: rgb(166,220,62); /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(166,220,62,1) 0%, rgba(127,177,30,1) 100%); /* FF3.6+ */
@@ -334,7 +341,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', end
 
 
 .balance .creditValue{
-    font-size: 28pt;
+    font-size: 22pt;
 }
 
 footer, .dock_bottom {
@@ -508,17 +515,13 @@ footer button .buttonLabel {
     font-size:9pt;
 }
 
-.login-box .center{
-    margin-top: 6px;
-    margin-bottom: 6px;
-}
 
 .i{
     
     min-width:32px;
     height:32px;
     background-repeat:no-repeat;
-    background-position:top center;
+    background-position:center center;
 }
 
 .i-home{
@@ -607,21 +610,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', end
 .c_cell{
     display:table-cell;
     vertical-align:middle;
+    padding:4px;
 }
 .balance_container{
     position:absolute;
-    bottom:20px;
+    bottom: 24px;
+
     left:0;
     right:0;
-    height: 160px;
+    
 }
-
-.balance{
-    height: 65%;
-}
-
-.balance_container .inner-button{
-    height: 15%;
+.balance_container,
+.balance_container .creditValue, 
+.balance_container .date{
+    color: #08396e;
 }
 
 .credit{
@@ -657,9 +659,36 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', end
 .center input[type="password"],
 .center input[type="text"] {
     display:block;
-    width: 90%;
+    width: 75%;
     margin-left:auto;
     margin-right:auto;
+    color: #135b95;
+    border-radius: 0;
+    border: solid 1px #EEE;
+    box-shadow:none;
+    line-height: 24px;
+    height: 32px;
+    margin-top: 3%;
+}
+    .center input[type="text"]:first-child     {
+        margin-top: 6%;
+    }
+
+    .login-box .inner-button{
+        margin-top: 6%;
+    }
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #135b95;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #135b95;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #135b95;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #135b95;
 }
 
 .forgot_password,
@@ -712,11 +741,12 @@ table{
 }
 
 .account-details tbody td{
-    font-size: 10pt;
-    font-weight:bold;
+    font-size: 12pt;
+    
+    line-height: 20pt;
 }
 .account-details tbody td:last-child{
-    font-size: 12pt;
+    font-size: 16pt;
 }
 
 button:focus{
@@ -784,9 +814,44 @@ input.ng-dirty.ng-invalid{
 }
 
 .logo-splash{
+    margin-top: -20px;
     height:100%;
     width: 100%;
     background-image: url(../img/logo-splash.png);
     background-position: center center;
     background-repeat:no-repeat;
+}
+
+.creditValue:before{
+    content: "₪";
+    display:inline;
+    font-size: 14pt;
+    margin-right: 4px;
+}
+
+td.creditValue:before{
+    font-size: 10pt;
+}
+
+.creditValue.dollar:before{
+    content: "$";
+}
+
+.creditValue.euro:before{
+    content: "€";
+}
+
+.creditValue.pound:before{
+    content: "£";
+}
+
+.customer_service .i{
+    background-position:top center;
+}
+
+.customer_service .text{
+    font-size:12pt;
+}
+.small-title{
+    font-size:8pt;
 }

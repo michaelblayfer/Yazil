@@ -36,9 +36,9 @@
 
     yazilModule.config(function ($routeProvider) {
         $routeProvider
-            .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { pageInfo: function () { return { header: "MyAccounts" }; } } })
+            .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { pageInfo: function () { return { header: "MyAccountsTitle" }; } } })
             .when("/Login", { templateUrl: "views/login.html", controller: "LoginCtrl", resolve: { pageInfo: function () { return { header: "Welcome", hideFooter: true }; } } })
-            .when("/Account", { templateUrl: "views/account.html", controller: "AccountCtrl", resolve: { pageInfo: function () { return { header: "MyAccounts" }; } } })
+            .when("/Account", { templateUrl: "views/account.html", controller: "AccountCtrl", resolve: { pageInfo: function () { return { header: "MyAccountsTitle" }; } } })
             .when("/LegalTerms", { templateUrl: "views/legal-terms.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "LegalTerms" }; } } })
             .when("/Security", { templateUrl: "views/security.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "InfoSecurity" }; } } })
             .when("/MoreInfo", { templateUrl: "views/more-info.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "MoreInfo" }; } } })
@@ -99,15 +99,17 @@
             "LegalTerms": "תנאים משפטיים",
             "InfoSecurity": "אבטחת מידע",
             "CustomerService": "שירות לקוחות",
+            "MyAccountsTitle": "החשבונות שלי",
             "MyAccounts": "פירוט חשבונות",
             "Home":"דף הבית",
             "MoreInfo": "עוד...",
-            "CreditDate": "תאריך",
+            "CreditDate": "תאריך זיכוי",
             "CreditAmount": "סכום",
             "NoNetworkError": "אין חיבור רשת, לא ניתן לבצע כניסה",
             "AlertTitle": "הודעה",
             "AlertConfirm":"אישור",
-            "AlertCancel": "ביטול"
+            "AlertCancel": "ביטול",
+            "AccountNumber":"חשבון מס'"
         });
     });
 
