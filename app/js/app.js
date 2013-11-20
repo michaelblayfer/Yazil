@@ -109,7 +109,8 @@
             "AlertTitle": "הודעה",
             "AlertConfirm":"אישור",
             "AlertCancel": "ביטול",
-            "AccountNumber":"חשבון מס'"
+            "AccountNumber": "חשבון מס'",
+            "InvalidUsernameOrPassword":"יש להזין אותיות באנגלית או מספרים בלבד"
         });
     });
 

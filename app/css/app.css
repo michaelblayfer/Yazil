@@ -563,8 +563,15 @@ footer button .buttonLabel {
 .i-clock{
     background-image:url(../img/icon_clock.png);
 }
+.i-security{
+    background-image:url(../img/icon_legal_security.png);
+    float:right;
+}
 
-
+.i-terms{
+    background-image:url(../img/icon_legal_terms.png);
+    float:right;
+}
 
 .credits{
     position:absolute;
@@ -854,4 +861,10 @@ td.creditValue:before{
 }
 .small-title{
     font-size:8pt;
+}
+
+.validationMessage{
+    font-size:8pt;
+    line-height: 9pt;
+    color:white;
 }

@@ -1,11 +1,13 @@
 ﻿
 <div class="login-box">
-    <form name="Login" ng-submit="login()">
+    <form name="Login" ng-submit="login()" novalidate>
         <div class="center">
-            <input type="text" name="userName" ng-model="Username" placeholder="{{ 'Username' | l10n }}" required="required" maxlength="200" />
+            <input type="text" name="userName" ng-model="Username" placeholder="{{ 'Username' | l10n }}" required="required" maxlength="8" ng-pattern="/^[a-zA-Z\d]+$/" />
+            <div class="validationMessage" ng-show="Login.userName.$invalid && Login.userName.$dirty">{{"InvalidUsernameOrPassword"|l10n}}</div>
         </div>
         <div class="center">
-            <input type="password" name="password" ng-model="Password" placeholder="{{ 'Password' | l10n }}" required="required" maxlength="20" />
+            <input type="password" name="password" ng-model="Password" placeholder="{{ 'Password' | l10n }}" required="required" maxlength="20" ng-pattern="/^[a-zA-Z\d]+$/" />
+            <div class="validationMessage" ng-show="Login.password.$invalid && Login.password.$dirty">{{"InvalidUsernameOrPassword"|l10n}}</div>
         </div>
         <div class="center">
             <a href="#" class="forgot_password" ng-click="forgotPassword()">{{ 'ForgotPassword' | l10n }}</a>
