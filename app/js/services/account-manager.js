@@ -177,12 +177,13 @@
         var accountSummaryTest = {
             nextCreditAmount: 999999999,
             nextCreditDate: new Date(),
-            previousCreditAmount: 999999999,
+            previousCreditAmount: 0,
             previousCreditDate: new Date(),
-            totalBalance: 999999999,
+            totalBalance: 0,
             balanceValueDate: new Date(),
             accountOwnerName: "יאיר כהן",
-            lastLoginDate:"23/10/13"
+            lastLoginDate: "23/10/13",
+            noActiveAccounts: false
         };
 
         function getAccounts() {

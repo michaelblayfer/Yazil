@@ -852,6 +852,10 @@ td.creditValue:before{
     content: "£";
 }
 
+.creditValue.empty:before{
+    content:none;
+}
+
 .customer_service .i{
     background-position:top center;
 }
@@ -867,4 +871,8 @@ td.creditValue:before{
     font-size:8pt;
     line-height: 9pt;
     color:white;
+}
+
+.creditValue.empty{
+    font-size:14pt;
 }

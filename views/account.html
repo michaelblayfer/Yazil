@@ -6,7 +6,8 @@
                     <div class="c_row">
                         <div class="c_cell">
                             <div class="title">{{"NextCredits"|l10n}}</div>
-                            <div class="creditValue next">{{selectedAccount.totalNextCredit|intCurrency:""}}</div>
+                            <div class="creditValue next" ng-show="selectedAccount.totalNextCredit">{{selectedAccount.totalNextCredit|intCurrency:""}}</div>
+                            <div class="creditValue next empty" ng-hide="selectedAccount.totalNextCredit">{{"NoAmount"|l10n}}</div>
                         </div>
                     </div>
                 </div>
@@ -40,7 +41,8 @@
                     <div class="c_row">
                         <div class="c_cell">
                             <div class="title">{{selectedAccount.previousCreditsCount|previousCredits}}</div>
-                            <div class="creditValue previous">{{selectedAccount.totalPreviousCredit|intCurrency:""}}</div>
+                            <div class="creditValue previous" ng-show="selectedAccount.totalPreviousCredit">{{selectedAccount.totalPreviousCredit|intCurrency:""}}</div>
+                            <div class="creditValue previous empty" ng-hide="selectedAccount.totalPreviousCredit">{{"NoAmount"|l10n}}</div>
                         </div>
                     </div>
                 </div>

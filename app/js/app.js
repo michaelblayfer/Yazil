@@ -110,7 +110,8 @@
             "AlertConfirm":"אישור",
             "AlertCancel": "ביטול",
             "AccountNumber": "חשבון מס'",
-            "InvalidUsernameOrPassword":"יש להזין אותיות באנגלית או מספרים בלבד"
+            "InvalidUsernameOrPassword": "יש להזין אותיות באנגלית או מספרים בלבד",
+            "NoAmount":"אין נתונים להצגה"
         });
     });
 

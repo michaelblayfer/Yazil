@@ -12,7 +12,8 @@
 
                         </div>
                         <div class="c_cell">
-                            <div class="creditValue next">{{nextCreditAmount|intCurrency:"" }}</div>
+                            <div class="creditValue next" ng-show="nextCreditAmount">{{nextCreditAmount|intCurrency:"" }}</div>
+                            <div class="creditValue next empty" ng-hide="nextCreditAmount">{{"NoAmount"|l10n }}</div>
                         </div>
                     </div>
                 </div>
@@ -27,7 +28,8 @@
                             </div>
                         </div>
                         <div class="c_cell">
-                            <div class="creditValue previous">{{previousCreditAmount |intCurrency:""}}</div>
+                            <div class="creditValue previous" ng-show="previousCreditAmount">{{previousCreditAmount |intCurrency:""}}</div>
+                            <div class="creditValue previous empty" ng-hide="previousCreditAmount">{{"NoAmount"|l10n }}</div>
                         </div>
                     </div>
                 </div>
@@ -38,7 +40,8 @@
         <div class=" balance">
             <div class="right">
                 <div class="title">{{"TotalBalance"|l10n}}</div>
-                <div class="creditValue">{{totalBalance|intCurrency:""}}</div>
+                <div class="creditValue" ng-show="totalBalance">{{totalBalance|intCurrency:""}}</div>
+                <div class="creditValue empty" ng-hide="totalBalance">{{"NoAmount"|l10n }}</div>
 
             </div>
             <div class="left">
@@ -49,7 +52,7 @@
         </div>
 
         <div class="inner-button">
-            <a href="#/Account">{{"GoToAccountDetails"|l10n}}</a>
+            <button ng-click="gotoAccountDetails()" ng-disabled="noActiveAccounts">{{"GoToAccountDetails"|l10n}}</button>
         </div>
         <div class="lastLoginInfo">
             שלום <span>{{ accountOwnerName }}</span>, כניסתך האחרונה לאתר בוצעה בתאריך <span>{{ lastLoginDate }}</span>

@@ -3,15 +3,12 @@
     Y.HomeController = function ($scope, $location, $rootScope, accountManager) {
         $scope.notifyProgressStarted();
         accountManager.getAccountSummary().then(function (summary) {
-            $scope.nextCreditAmount = summary.nextCreditAmount;
-            $scope.nextCreditDate = summary.nextCreditDate;
-            $scope.previousCreditAmount = summary.previousCreditAmount;
-            $scope.previousCreditDate = summary.previousCreditDate;
-            $scope.totalBalance = summary.totalBalance;
-            $scope.balanceValueDate = summary.balanceValueDate;
-            $scope.lastLoginDate = summary.lastLoginDate;
-            $scope.accountOwnerName = summary.accountOwnerName;
+            _.extend($scope, summary);
         }).finally($scope.notifyProgressCompleted);
+
+        $scope.gotoAccountDetails = function () {
+            $location.path("/Account");
+        };
     };
     
 })(Simple, Cal, Cal.Yazil);
