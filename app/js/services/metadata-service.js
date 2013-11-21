@@ -1,6 +1,6 @@
 ﻿(function(S, C, Y) {
 
-    Y.MetadataService = function ($q, $timeout, storageService) {
+    Y.MetadataService = function ($q, $timeout, storageService, yazilServiceClient) {
 
         function getMetadata() {
             return storageService.prefix("Yazil").local("Metadata").then(function (metadata) {
@@ -19,6 +19,9 @@
             //    Number: "1"
             //});
             //return result.promise;
+            return yazilServiceClient.getMetadata().then(function(metadata){
+                return storageService.prefix("Yazil").local("Metadata", metadata);
+            });
             return $timeout(function () {
                 var metadata = {
                     ServicePhone1: "03-9221544",

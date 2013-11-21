@@ -1,7 +1,12 @@
 ﻿(function (S, C, Y) {
 
     var yazilModule = angular.module("Cal.Yazil", ["ngRoute", "ngTouch","$strap", "Simple"]);
-
+    
+    yazilModule.service("calConfiguration", C.Configuration);
+    yazilModule.service("calServiceClient", C.ServiceClient);
+    
+    yazilModule.service("yazilServiceClient", Y.ServiceClient);
+    
     yazilModule.service("loginManager", Y.LoginManager);
     yazilModule.service("accountManager", Y.AccountManager);
     yazilModule.service("metadataService", Y.MetadataService);
