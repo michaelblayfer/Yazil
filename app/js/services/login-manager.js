@@ -1,36 +1,28 @@
 (function(S, C, Y) {
 
-    Y.LoginManager = function(storageService, $q, metadataService) {
+    Y.LoginManager = function(storageService, $q, metadataService, yazilServiceClient) {
         var currentUser = null;
 
         function authenticate(userName, password) {
 
-            var result = $q.defer();
-            //var users = zumoClient.getTable("Users");
+            return metadataService.getMetadata().then(function (metadata) {
+                return yazilServiceClient.authenticate(userName, password, metadata.LoadDataOperation);
+                //var result = $q.defer();
 
-            //users.insert({
-            //    userName: userName,
-            //    password: password
-            //}).then(function(userInfo) {
-            //    result.resolve(userInfo);
-            //}, function(error) {
-            //    result.reject(error);
-            //});
-            metadataService.getMetadata().then(function (metadata) {
-                console.log("LOAD?", metadata.LoadDataOperation);
-                if (userName == "1") {
-                    result.resolve({
-                        Usernmame: "anon",
-                        Name: "Anonymous"
-                    });
-                } else {
-                    result.reject({
-                        status: "W",
-                        code: 7
-                    });
-                }
+                //if (userName == "1") {
+                //    result.resolve({
+                //        Usernmame: "anon",
+                //        Name: "Anonymous"
+                //    });
+                //} else {
+                //    result.reject({
+                //        status: "W",
+                //        code: 7
+                //    });
+                //}
+                //return result.promise;
             });
-            return result.promise;
+            
         }
         
         function sessionInfo(value){

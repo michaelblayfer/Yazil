@@ -4,27 +4,34 @@
             var httpConfig ={
                 url: [calConfiguration.baseUrl, url].join("/"),
                 method: method,
-                data: parameters,
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 }
             };
+
+            if (method == "GET") {
+                httpConfig.params = parameters;
+            } else {
+                httpConfig.data = parameters;
+            }
             
             if (token){
                 httpConfig.headers["Authorization"] = "CalAuthScheme " + token;
             }
             
             return $http(httpConfig).then(function(results){
+                var data = results.data;
                 var result = $q.defer();
-                var response = results.Response;
-                delete results.Response;
-                if (response.Status == C.Severity.Warning || response.Status == C.Severity.Error){
+                var response = data.Response;
+                var status = response.Status;
+                delete data.Response;
+                if (!status.Succeeded) {
                     result.reject({
                         response: response
                     });
                 } else {
-                    result.resolve(results);
+                    result.resolve(data);
                 }
                 return result.promise;
             });

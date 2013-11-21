@@ -3,7 +3,7 @@
     Y.ServiceClient = function(calConfiguration, calServiceClient){
         
         function authenticate(userName, password, loadDataOperation){
-            return calServiceClient.run("POST", 
+            return calServiceClient.run("POST",
                                         "YazilAuthenticator", 
                                         { UserName: userName, Password: password, LoadDataOperation: loadDataOperation});
         }

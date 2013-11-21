@@ -5,7 +5,11 @@
         function getMetadata() {
             return storageService.prefix("Yazil").local("Metadata").then(function (metadata) {
                 if (metadata) {
-                    return metadata;
+                    return _.extend(metadata, {
+                        AddressLine1: "רחוב תפוצות ישראל 13",
+                        AddressLine2: 'אזה"ת כורוזין',
+                        City: "גבעתיים"
+                    });
                 } else {
                     return fetchMetadata().then(getMetadata);
                 }

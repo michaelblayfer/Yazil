@@ -10,7 +10,7 @@
             },
              {
                  title: "פקס",
-                 text: $sce.trustAsHtml(metadata.ServiceFax),
+                 text: $sce.trustAsHtml(metadata.ServicePhone2),
                  cssClass: "i-fax"
              },
              {

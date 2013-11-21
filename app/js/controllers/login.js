@@ -37,8 +37,7 @@
             }
 
             function authenticationFailed(error) {
-
-                $scope.loginError = "AuthenticationFailed";
+                $scope.loginError = error.response.Status.Description;
             }
 
             authResult.then(loginUser, authenticationFailed);
