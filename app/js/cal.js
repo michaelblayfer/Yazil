@@ -2,7 +2,9 @@
     Severity: {
         Success: "S",
         Warning: "W",
-        Error:"E"
+        Error: "E",
+        Information: "I"
+        
     },
     Yazil: {}
 };

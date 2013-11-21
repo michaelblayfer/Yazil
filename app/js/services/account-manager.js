@@ -1,5 +1,6 @@
 ﻿(function (S, C, Y) {
-    Y.AccountManager = function ($q) {
+    Y.AccountManager = function ($q, yazilServiceClient) {
+        var bankAccounts = [];
         var testAccounts = [
                 {
                     totalNextCredit: 12333,
@@ -187,12 +188,63 @@
         };
 
         function getAccounts() {
+            
             var result = $q.defer();
-            result.resolve(testAccounts);
+            
+            result.resolve(bankAccounts);
             return result.promise;
         }
 
         function getAccountSummary() {
+            return yazilServiceClient.getAccountSummary().then(function (creditSummary) {
+                var summary = creditSummary.BusinessCreditSummary;
+                bankAccounts = [];
+                _.each(creditSummary.BankAccounts, function (bankAccount) {
+                    var account = {
+                        bankAccountNumber: bankAccount.AccountNumber,
+                        bankNumber: bankAccount.BankNum,
+                        bankBranchNumber: bankAccount.BankBranchNumber
+                    };
+                    bankAccounts.push(account);
+                    yazilServiceClient.getAccountTransactions(bankAccount.AccountNumber, bankAccount.Mislaka).then(function (transactions) {
+                        var summary = transactions.CreditTransactionsSummary;
+                        account.totalNextCredit = summary.TotalNextCreditForAccount.Value;
+                        account.totalPreviousCredit = summary.TotalPreviousCreditForAccount.Value;
+                        account.previousCreditsCount = summary.NumOfPreviousCredits;
+
+                        function mapCreditDetails(creditDetails) {
+                            return {
+                                day: creditDetails.CreditDay,
+                                date: creditDetails.CreditDate,
+                                amount: creditDetails.CreditSum.Value
+                            };
+                        }
+
+                        if (transactions.LastCreditsDetails) {
+                            account.nextCredits = _.map(transactions.LastCreditsDetails, mapCreditDetails);
+                        }
+
+                        if (transactions.PreviousCreditsDetails) {
+                            account.previousCredits = _.map(transactions.PreviousCreditsDetails, mapCreditDetails);
+                        }
+
+
+
+                    });
+                });
+                
+                return {
+                    nextCreditAmount: summary.TotalNextCredit.Value,
+                    nextCreditDate: summary.NextCreditDate,
+                    previousCreditAmount: summary.TotalPreviousCredit.Value,
+                    previousCreditDate: summary.PreviousCreditDate,
+                    totalBalance: summary.TotalBalanceForCustomer.Value,
+                    balanceValueDate: new Date(),
+                    accountOwnerName: summary.AccOwnerName,
+                    lastLoginDate: summary.LastLoginDate,
+                    noActiveAccounts: !summary.HasAccounts
+                };
+            });
             var result = $q.defer();
             result.resolve(accountSummaryTest);
             return result.promise;

@@ -1,5 +1,5 @@
 (function(S, C, Y) {
-    Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource, metadataService) {
+    Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager) {
 
 
         var forgotPasswordLink = "http://cal-online.co.il";
@@ -14,7 +14,7 @@
             $location.path("/");
         }
 
-        loginManager.isUserLoggedIn().then(function() {
+        sessionManager.isUserLoggedIn().then(function () {
             navigate();
         });
         

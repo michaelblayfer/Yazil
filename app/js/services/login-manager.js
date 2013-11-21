@@ -1,7 +1,7 @@
 (function(S, C, Y) {
 
-    Y.LoginManager = function(storageService, $q, metadataService, yazilServiceClient) {
-        var currentUser = null;
+    Y.LoginManager = function(storageService, $q, metadataService, yazilServiceClient, sessionManager) {
+        
 
         function authenticate(userName, password) {
 
@@ -25,53 +25,22 @@
             
         }
         
-        function sessionInfo(value){
-            return storageService.prefix("Cal.Yazil").session("User", value);
-        }
         function login(user) {
-            var result = sessionInfo(user).then(function () {
-                currentUser = user;
-            });
+            var result = sessionManager.start(user);
            
            return result;
         }
         
-        function isValidToken(user) {
-            return true;
-            //var now = new Date();
-            //return now < moment(token.expiredAt).add("d", 5);
-        }
+
 
         function logout() {
-            currentUser = null;
-            return sessionInfo(null);
+            
+            return sessionManager.end();
         }
 
-        function isUserLoggedIn(){
-            var result = $q.defer();
-
-            if (currentUser) {
-                result.resolve(currentUser);
-            } else {
-                var userInfo = sessionInfo().then(function (info) {
-                    if (info) {
-                        if (isValidToken(info)) {
-                            currentUser = info;
-                            result.resolve(info);
-                        } else {
-                            result.reject();
-                        }
-                    } else {
-                        result.reject();
-                    }
-                });
-            }
-            return result.promise;
-        }
 
         
         return {
-            isUserLoggedIn: isUserLoggedIn,
             login: login,
             logout: logout,
             authenticate: authenticate

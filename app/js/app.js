@@ -4,6 +4,7 @@
     
     yazilModule.service("calConfiguration", C.Configuration);
     yazilModule.service("calServiceClient", C.ServiceClient);
+    yazilModule.service("sessionManager", Y.SessionManager);
     
     yazilModule.service("yazilServiceClient", Y.ServiceClient);
     
@@ -52,20 +53,19 @@
             .otherwise({ redirectTo: "/" });
     });
     
-    yazilModule.run(function ($rootScope, $location, loginManager) {
+    yazilModule.run(function ($rootScope, $location, loginManager, sessionManager) {
         // register listener to watch route changes
         $rootScope.logout = function () {   
-            loginManager.logout().then(function () {
-                
+            loginManager.logout().then(function () {                
                 $location.path("Login");
             });
         };
         var anonymousAllowed = ["views/login.html", "views/customer-service.html", "views/splash.html"];
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             
-            loginManager.isUserLoggedIn().then(function () {
+            sessionManager.isUserLoggedIn().then(function (user) {
                 $rootScope.isLoggedIn = true;
-            
+                sessionManager.start(user);
             }, function () {
                 $rootScope.isLoggedIn = false;
                 if (anonymousAllowed.indexOf(next.templateUrl) >= 0) {
