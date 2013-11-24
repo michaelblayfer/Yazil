@@ -1,14 +1,13 @@
 ﻿html, body{
     height:100%;
-    -webkit-touch-callout: none !important;
 }
-
+/*
 div {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-user-drag: none;
     -webkit-user-select: none !important;
 }
-
+    */
 /*.clearfix:after {
 	content: ".";
 	display: block;
@@ -563,6 +562,7 @@ footer button[disabled] .i-account {
     background-image:url(../img/nav_icon_service.png);
 }
 .customer_service_button {
+    z-index: -1;
     width: 50%;
 }
 .customer_service_button .buttonLabel {
