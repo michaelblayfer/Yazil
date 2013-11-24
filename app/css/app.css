@@ -3,7 +3,7 @@
     -webkit-touch-callout: none !important;
 }
 
-* {
+div {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-user-drag: none;
     -webkit-user-select: none !important;
