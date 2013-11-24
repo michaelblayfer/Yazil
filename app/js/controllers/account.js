@@ -7,25 +7,25 @@
                 $scope.selectedAccountIndex = 0;
                 selectAccount(0);
             }
-        });       
+        });
 
-        $scope.nextAccount = function () {
-            if ($scope.selectedAccountIndex < $scope.accounts.length -1) {
+        $scope.nextAccount = function() {
+            if ($scope.selectedAccountIndex < $scope.accounts.length - 1) {
                 $scope.selectedAccountIndex++;
             } else {
                 $scope.selectedAccountIndex = 0;
             }
             selectAccount($scope.selectedAccountIndex);
-        }
+        };
 
-        $scope.previousAccount = function () {
+        $scope.previousAccount = function() {
             if ($scope.selectedAccountIndex > 0) {
                 $scope.selectedAccountIndex--;
             } else {
                 $scope.selectedAccountIndex = $scope.accounts.length - 1;
             }
             selectAccount($scope.selectedAccountIndex);
-        }
+        };
 
         function selectAccount(index) {
             if ($scope.accounts && index >= 0 && index < $scope.accounts.length) {
@@ -34,20 +34,21 @@
         }
         $scope.nextCreditExpanded =false;
         $scope.previousCreditExpanded =false;
-        $scope.toggleExpand = function (type) {
-            if (type == "next") {
-                $scope.nextCreditExpanded = !$scope.nextCreditExpanded;
-                if ($scope.nextCreditExpanded) {
-                    $scope.previousCreditExpanded = false;
+        $scope.toggleExpand = function (type, condition) {
+            if (condition) {
+                if (type == "next") {
+                    $scope.nextCreditExpanded = !$scope.nextCreditExpanded;
+                    if ($scope.nextCreditExpanded) {
+                        $scope.previousCreditExpanded = false;
+                    }
+                } else {
+                    $scope.previousCreditExpanded = !$scope.previousCreditExpanded;
+                    if ($scope.previousCreditExpanded) {
+                        $scope.nextCreditExpanded = false;
+                    }
                 }
-            } else {
-                $scope.previousCreditExpanded = !$scope.previousCreditExpanded;
-                if ($scope.previousCreditExpanded) {
-                    $scope.nextCreditExpanded = false;
-                }
-
             }
-        }
+        };
     };
 
 })(Simple, Cal, Cal.Yazil);

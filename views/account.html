@@ -1,7 +1,7 @@
-﻿<div class="details_container" >
-    <div class="credits" ng-swipe-left="previousAccount()" ng-swipe-right="nextAccount()">
-        <div class="credit_table">
-            <div class="credit_row" ng-class="{ 'collapsed': nextCreditExpanded || previousCreditExpanded}">
+﻿<div class="details_container" ng-swipe-left="previousAccount()" ng-swipe-right="nextAccount()">
+    <div class="credits">
+        <div class="credit_table" ng-class="{'allCollapsed': !nextCreditExpanded && !previousCreditExpanded}">
+            <div class="credit_row" ng-class="{ 'collapsed': !nextCreditExpanded, 'expanded':nextCreditExpanded}" ng-click="toggleExpand('next', selectedAccount.totalNextCredit)">
                 <div class="c_credit" ng-hide="nextCreditExpanded">
                     <div class="c_row">
                         <div class="c_cell">
@@ -11,14 +11,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="expand_collapse" ng-hide="nextCreditExpanded" ng-class="{'expanded':nextCreditExpanded, 'collapsed': !nextCreditExpanded}" ng-click="toggleExpand('next')"></div>
+                <div class="expand_collapse" ng-hide="nextCreditExpanded || !selectedAccount.totalNextCredit" ng-class="{'expanded':nextCreditExpanded, 'collapsed': !nextCreditExpanded}"></div>
                 <div class="account-details" ng-show="nextCreditExpanded">
                     <table>
                         <thead>
                             <tr>
                                 <th colspan="3" class="caption">{{"NextCredits"|l10n}}</th>
                                 <th rowspan="2">
-                                    <div class="expand_collapse" ng-class="{'expanded':nextCreditExpanded, 'collapsed': !nextCreditExpanded}" ng-click="toggleExpand('next')"></div>
+                                    <div class="expand_collapse" ng-class="{'expanded':nextCreditExpanded, 'collapsed': !nextCreditExpanded}"></div>
                                 </th>
                             </tr>
                             <tr>
@@ -36,7 +36,7 @@
                     </table>
                 </div>
             </div>
-            <div class="credit_row" ng-class="{ 'collapsed': nextCreditExpanded || previousCreditExpanded}">
+            <div class="credit_row" ng-class="{ 'collapsed': !previousCreditExpanded, 'expanded':previousCreditExpanded}" ng-click="toggleExpand('previous', selectedAccount.totalPreviousCredit)">
                 <div class="c_credit" ng-hide="previousCreditExpanded">
                     <div class="c_row">
                         <div class="c_cell">
@@ -46,14 +46,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="expand_collapse" ng-hide="previousCreditExpanded" ng-class="{'expanded':previousCreditExpanded, 'collapsed': !previousCreditExpanded}" ng-click="toggleExpand('previous')"></div>
+                <div class="expand_collapse" ng-hide="previousCreditExpanded || !selectedAccount.totalPreviousCredit" ng-class="{'expanded':previousCreditExpanded, 'collapsed': !previousCreditExpanded}"></div>
                 <div class="account-details" ng-show="previousCreditExpanded">
                     <table>
                         <thead>
                             <tr>
                                 <th colspan="3" class="caption">{{selectedAccount.previousCreditsCount|previousCredits}}</th>
                                 <th rowspan="2">
-                                    <div class="expand_collapse" ng-class="{'expanded':previousCreditExpanded, 'collapsed': !previousCreditExpanded}" ng-click="toggleExpand('previous')"></div>
+                                    <div class="expand_collapse" ng-class="{'expanded':previousCreditExpanded, 'collapsed': !previousCreditExpanded}"></div>
                                 </th>
                             </tr>
                             <tr>
@@ -77,7 +77,7 @@
     <div class="account_container">
         <div class="selected_account">
             <div class="account_nav previous" ng-click="previousAccount()"></div>
-            <div class="title" >
+            <div class="title">
                 <div><span class="small-title">{{"AccountNumber"|l10n}}</span> {{selectedAccount|accountDescription}}</div>
                 <div class="accounts">
                     <ul>

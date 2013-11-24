@@ -3,7 +3,7 @@
     -webkit-touch-callout: none !important;
 }
 
-a {
+* {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-user-drag: none;
     -webkit-user-select: none !important;
@@ -562,6 +562,17 @@ footer button[disabled] .i-account {
 .i-customer-service{
     background-image:url(../img/nav_icon_service.png);
 }
+.customer_service_button {
+    width: 50%;
+}
+.customer_service_button .buttonLabel {
+    font-size: 12pt;
+}
+.customer_service_button .i-customer-service{
+    background-image:url(../img/nav_icon_service-big.png);
+    height: 92px;
+}
+
 
 .i-more-info{
     background-image:url(../img/nav_icon_more.png);
@@ -631,8 +642,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', end
 
 }
 
-.credit_row.collapsed{
-    height:auto;
+
+.credit_row.expanded {
+    height: 75%;
+}
+.credit_row.collapsed {
+    height: 25%;
+}
+.allCollapsed .credit_row.collapsed {
+    height: 50%;
 }
 .c_credit{
     display:table;
@@ -730,6 +748,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', end
 .forgot_password:hover,
 .forgot_password:visited{
     color:white;
+    font-size: 12pt;
 }
 
 .currency{
