@@ -52,7 +52,7 @@
         </div>
 
         <div class="inner-button">
-            <button ng-click="gotoAccountDetails()" ng-disabled="noActiveAccounts">{{"GoToAccountDetails"|l10n}}</button>
+            <button ng-click="gotoAccountDetails()" ng-disabled="!loaded || noActiveAccounts">{{"GoToAccountDetails"|l10n}}</button>
         </div>
         <div class="lastLoginInfo">
             שלום <span>{{ accountOwnerName }}</span>, כניסתך האחרונה לאתר בוצעה בתאריך <span>{{ lastLoginDate }}</span>

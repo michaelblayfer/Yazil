@@ -1,21 +1,23 @@
 ﻿<footer ng-show="isLoggedIn && !hideFooter">
-    <button type="button" ng-click="navigateToHome()">
+    <button type="button" ng-click="navigateToHome()" ng-class="{'selected': isButtonSelected('HomeCtrl') }">
         <div class="i i-home"></div>
         <div class="buttonLabel">{{"Home"|l10n}}</div>
         <div class="sep"></div>
     </button>
-    <button type="button" ng-click="navigateToAccount()">
+    <button type="button" ng-disabled="!loaded" ng-click="navigateToAccount()" ng-class="{'selected': isButtonSelected('AccountCtrl') }">
         <div class="i i-account"></div>
         <div class="buttonLabel">{{"MyAccounts"|l10n}}</div>
         <div class="sep"></div>
     </button>
-    <button type="button" ng-click="navigateToCustomerService()">
+    <button type="button" ng-click="navigateToCustomerService()" ng-class="{'selected': isButtonSelected('CustomerServiceCtrl') }">
         <div class="i i-customer-service"></div>
         <div class="buttonLabel">{{"CustomerService"|l10n}}</div>
         <div class="sep"></div>
     </button>
-    <button type="button" ng-click="navigateToMoreInfo()"><div class="i i-more-info"></div>
-        <div class="buttonLabel">{{"MoreInfo"|l10n}}</div></button>
+    <button type="button" ng-click="navigateToMoreInfo()" ng-class="{'selected': isButtonSelected('MoreInfoCtrl') }">
+        <div class="i i-more-info"></div>
+        <div class="buttonLabel">{{"MoreInfo"|l10n}}</div>
+    </button>
 </footer>
 
 <div class="center dock_bottom" ng-show="!isLoggedIn && hideFooter">

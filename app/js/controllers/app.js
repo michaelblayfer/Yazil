@@ -22,16 +22,20 @@
             }
         });
         $rootScope.navigateToCustomerService = function () {
-            $location.path("CustomerService")
+            $location.path("CustomerService");
         };
         $rootScope.navigateToHome = function () {
-            $location.path("/")
+            $location.path("/");
         };
         $rootScope.navigateToAccount = function () {
-            $location.path("Account")
+            $location.path("Account");
         };
         $rootScope.navigateToMoreInfo = function () {
-            $location.path("MoreInfo")
+            $location.path("MoreInfo");
+        };
+
+        $rootScope.isButtonSelected = function (name) {
+            return $route.current.controller == name;
         };
     };
 
