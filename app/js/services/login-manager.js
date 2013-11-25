@@ -34,8 +34,9 @@
 
 
         function logout() {
-            
-            return sessionManager.end();
+            return sessionManager.end().then(function() {
+                return yazilServiceClient.logout();
+            });
         }
 
 
