@@ -12,6 +12,12 @@
     <script type="text/javascript" src="phonegap.js"></script>
 </head>
 <body class="rtl" ng-controller="AppCtrl">
+    <div class="loading" ng-show="isInProgress">
+    </div>
+    <div class="loading-icon" ng-show="isInProgress">
+        <h3>{{"Loading"|l10n}} ...</h3>
+    </div>
+
     <app-header></app-header>
     <div class="main-content-container">
         
@@ -21,6 +27,8 @@
         
     </div>
     <toolbar></toolbar>
+
+    
     
 
 
@@ -32,6 +40,7 @@
     <script src="lib/angular/angular-route.js"></script>
     <script src="lib/angular/angular-touch.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="lib/moment/moment.min.js"></script>
     
     <script src="lib/angular-strap/angular-strap.js"></script>
     <script src="lib/simple/simple.js"></script>

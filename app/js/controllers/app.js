@@ -9,11 +9,11 @@
         };
 
         $rootScope.$on("progress-started", function () {
-            $rootScope.isInProgress = true;
+            $scope.isInProgress = true;
             
         });
         $rootScope.$on("progress-completed", function () {
-            $rootScope.isInProgress = false;
+            $scope.isInProgress = false;
         });
         $rootScope.$on("$routeChangeSuccess", function (scope, next) {
             if (next && next.locals && next.locals.pageInfo) {

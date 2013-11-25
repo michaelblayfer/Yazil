@@ -1,5 +1,5 @@
 (function(S, C, Y) {
-    Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager) {
+    Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager, alertService) {
 
 
         var forgotPasswordLink = "http://cal-online.co.il";
@@ -31,16 +31,29 @@
 
         updateNetworkStatus();
         $scope.login = function () {
-            var authResult = loginManager.authenticate($scope.Username, $scope.Password);
+            $scope.notifyProgressStarted();
+            var password = $scope.Password;
+            $scope.Password = "";
+            var authResult = loginManager.authenticate($scope.Username, password);
+            
             function loginUser(user) {
                 loginManager.login(user).then(navigate);
             }
 
             function authenticationFailed(error) {
-                $scope.loginError = error.response.Status.Description;
+                $scope.loginError = error.Message;
+                if (C.isError(error, Y.Errors.LockedUser)) {
+                    alertService.show(error.Dialog);
+                } else if (C.isError(error, Y.Errors.PasswrodChangeRequired)) {
+                    alertService.show(error.Dialog).then(function(result) {
+                        if (result.status == "Confirm") {
+                            window.open(error.ReturnUrl);
+                        }
+                    });
+                }
             }
 
-            authResult.then(loginUser, authenticationFailed);
+            authResult.then(loginUser, authenticationFailed).finally($scope.notifyProgressCompleted);
 
         };
     };

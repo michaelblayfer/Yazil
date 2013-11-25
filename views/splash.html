@@ -1,1 +1,12 @@
-﻿<div class="logo-splash"></div>
+﻿<div class="logo-splash" ng-hide="errorText"></div>
+
+<div class="metadata-error" ng-show="errorText">
+    <h3>{{"MetadataError"|l10n}}</h3>
+    <h4>{{ errorText }}</h4>
+    <div class="logo-splash" ></div>
+</div>
+
+<div class="metadata-error" ng-show="versionUpdateUrl">
+    {{ "VersionUpdateRequired" | l10n}}:
+    <a ng-href="{{versionUpdateUrl}}">{{"ClickToUpdateVersion"|l10n}}</a>
+</div>

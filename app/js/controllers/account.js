@@ -1,12 +1,18 @@
 ﻿(function (S, C, Y) {
 
-    Y.AccountController = function ($scope, $location, accountManager) {
+    Y.AccountController = function ($scope, $location, accountManager, alertService) {
         accountManager.getAccounts().then(function(accounts){
             $scope.accounts = accounts;
             if (accounts.length > 0) {
                 $scope.selectedAccountIndex = 0;
                 selectAccount(0);
+            } else {
+                $location.path("home");
             }
+        }, function (error) {
+            alertService.show(error.Dialog).then(function () {
+                $rootScope.logout();
+            });
         });
 
         $scope.nextAccount = function() {

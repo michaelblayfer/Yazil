@@ -8,7 +8,8 @@
                     return _.extend(metadata, {
                         AddressLine1: "רחוב תפוצות ישראל 13",
                         AddressLine2: 'אזה"ת כורוזין',
-                        City: "גבעתיים"
+                        City: "גבעתיים",
+                        MaxCacheAge: 6
                     });
                 } else {
                     return fetchMetadata().then(getMetadata);

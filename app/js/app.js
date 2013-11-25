@@ -21,11 +21,11 @@
     });
 
     yazilModule.directive('preventDefault', function () {
-        return function (scope, element, attrs) {
-            $(element).click(function (event) {
+        return function(scope, element, attrs) {
+            $(element).click(function(event) {
                 event.preventDefault();
             });
-        }
+        };
     });
 
     yazilModule.filter("previousCredits", Y.PreviousCreditsFilter);
@@ -99,7 +99,7 @@
             "BalanceValueDate": "נכון לתאריך",
             "GoToAccountDetails": "לצפייה בפירוט חשבונות",
             "NoPreviousCredits": "אין זיכויים קודמים",
-            "PreviousCredits": "זיכוי/ים קודמים",
+            "PreviousCredits": "זיכויים קודמים",
             "NextCredits": "זיכויים קרובים",
             "LegalTerms": "תנאים משפטיים",
             "InfoSecurity": "אבטחת מידע",
@@ -116,7 +116,11 @@
             "AlertCancel": "ביטול",
             "AccountNumber": "חשבון מס'",
             "InvalidUsernameOrPassword": "יש להזין אותיות באנגלית או מספרים בלבד",
-            "NoAmount":"אין נתונים להצגה"
+            "NoAmount": "אין נתונים להצגה",
+            "VersionUpdateRequired": "נדרש עדכון גרסה ע\"מ להשתמש באפליקציה",
+            "ClickToUpdateVersion": "לחץ לעדכון גרסה",
+            "MetadataError": "שגיאה בהפעלת האפליקציה",
+            "Loading":"טוען"
         });
     });
 
