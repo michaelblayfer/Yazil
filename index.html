@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="app/css/animations.css" />
     <script type="text/javascript" src="phonegap.js"></script>
 </head>
-<body class="rtl" ng-controller="AppCtrl">
+<body class="rtl" ng-controller="AppCtrl" ng-class="{'page-animations-enabled': animations.page, 'swipe-animations-enabled': animations.swipe }">
     <div class="loading" ng-show="isInProgress">
     </div>
     <div class="loading-icon" ng-show="isInProgress">
@@ -21,16 +21,16 @@
 
     <app-header></app-header>
     <div class="main-content-container">
-        
+
         <div ng-view class="container-fluid main-content">
 
         </div>
-        
+
     </div>
     <toolbar></toolbar>
 
-    
-    
+
+
 
 
     <script src="lib/underscore/underscore.1.5.2.min.js"></script>
@@ -43,7 +43,7 @@
     <script src="lib/angular/angular-animate.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="lib/moment/moment.min.js"></script>
-    
+
     <script src="lib/angular-strap/angular-strap.js"></script>
     <script src="lib/simple/simple.js"></script>
     <!-- Services -->

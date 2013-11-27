@@ -1,9 +1,9 @@
-﻿.main-content.ng-enter {
+﻿.page-animations-enabled .main-content.ng-enter {
   -webkit-animation: enter linear 0.9s;
   animation: enter linear 0.9s;
 }
 
-.main-content.ng-leave {
+.page-animations-enabled .main-content.ng-leave {
   -webkit-animation: enter linear 0.5s reverse;
   animation: enter linear 0.5s reverse;
 }
@@ -84,13 +84,13 @@
 }
 
 
-.next-animation {
+.swipe-animations-enabled .next-animation {
     position: relative;  
     -webkit-animation: left linear 0.5s;
     animation: left linear 0.5s;
 }
 
-.previous-animation {
+.swipe-animations-enabled .previous-animation {
     position: relative;  
     -webkit-animation: right linear 0.5s;
     animation: right linear 0.5s;
