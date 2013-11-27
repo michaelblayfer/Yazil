@@ -29,6 +29,7 @@
     });
 
     yazilModule.filter("previousCredits", Y.PreviousCreditsFilter);
+    yazilModule.filter("nextCredits", Y.NextCreditsFilter);
     yazilModule.filter("accountDescription", Y.AccountDescriptionFilter);
     yazilModule.filter("intCurrency", Y.IntegerCurrencyFilter);
     
@@ -95,13 +96,13 @@
             "ForgotPassword": "שכחתי שם משתמש / סיסמה",
             "AuthenticationFailed": "שם המשתמש או הסיסמה שגויים או שאינך רשום",
             "NextCredit": "זיכוי קרוב",
-            "PreviousCredit": "זיכוי קודם",
+            "PreviousCredit": "זיכוי אחרון",
             "BalanceComment": '(סה"כ יתרות - כולל זיכוי קרוב)',
             "TotalBalance": 'סה"כ יתרות',
             "BalanceValueDate": "נכון לתאריך",
             "GoToAccountDetails": "לצפייה בפירוט חשבונות",
-            "NoPreviousCredits": "אין זיכויים קודמים",
-            "PreviousCredits": "זיכויים קודמים",
+            "NoPreviousCredits": "אין זיכויים אחרונים",
+            "PreviousCredits": "זיכויים אחרונים",
             "NextCredits": "זיכויים קרובים",
             "LegalTerms": "תנאים משפטיים",
             "InfoSecurity": "אבטחת מידע",

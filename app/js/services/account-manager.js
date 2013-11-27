@@ -64,7 +64,7 @@
                 totalBalance: summary.TotalBalanceForCustomer.Value,
                 balanceValueDate: new Date(),
                 accountOwnerName: summary.AccOwnerName,
-                lastLoginDate: summary.LastLoginDate,
+                lastLoginDate: summary.LastLogInDate,
                 noActiveAccounts: !summary.HasAccounts
             };
         }
@@ -87,9 +87,6 @@
                             bankBranchNumber: bankAccount.BankBranchNumber,
                             mislaka: bankAccount.Mislaka
                         };
-                        bankAccounts.push(account);
-                        bankAccounts.push(account);
-                        bankAccounts.push(account);
                         bankAccounts.push(account);
                     });
                     summaryCache = mapAccountSummary(summary);

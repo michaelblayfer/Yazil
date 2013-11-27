@@ -1,14 +1,24 @@
 ﻿(function (S, C, Y) {
 
     Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService) {
+        
         $scope.animations = {
             page: false,
             swipe: false
         };
 
-        metadataService.getMetadata().then(function (metadata) {
-            $scope.animations.page = metadata.PageAnimationEnabled;
-            $scope.animations.swipe = metadata.SwipeAnimationEnabled;
+        $rootScope.$on("Cal.Yazil.SessionStarted", function() {
+            metadataService.getMetadata().then(function (metadata) {
+                $scope.animations.page = metadata.PageAnimationEnabled;
+                $scope.animations.swipe = metadata.SwipeAnimationEnabled;
+            });
+        });
+
+        $rootScope.$on("Cal.Yazil.SessionEnded", function() {
+            $scope.animations = {
+                page: false,
+                swipe: false
+            };
         });
 
         $rootScope.notifyProgressStarted = function () {

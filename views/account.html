@@ -8,7 +8,7 @@
                 <div class="c_credit" ng-hide="nextCreditExpanded">
                     <div class="c_row">
                         <div class="c_cell">
-                            <div class="title">{{"NextCredits"|l10n}}</div>
+                            <div class="title">{{selectedAccount.nextCreditsCount|nextCredits}}</div>
                             <div class="creditValue next" ng-show="selectedAccount.totalNextCredit">{{selectedAccount.totalNextCredit|intCurrency:""}}</div>
                             <div class="creditValue next empty" ng-hide="selectedAccount.totalNextCredit">{{"NoAmount"|l10n}}</div>
                         </div>
