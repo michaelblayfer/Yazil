@@ -10,7 +10,7 @@
                         AddressLine2: 'אזה"ת כורוזין',
                         City: "גבעתיים",
                         MaxCacheAge: 6,
-                        PageAnimationEnabled: true,
+                        PageAnimationEnabled: false,
                         SwipeAnimationEnabled: true
                     });
                 } else {

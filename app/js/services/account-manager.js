@@ -1,8 +1,9 @@
 ﻿(function (S, C, Y) {
     Y.AccountManager = function($q, yazilServiceClient, metadataService) {
-        var bankAccounts = [], loadedAt, summaryCache, maxCacheAge = 5 /*minutes*/;
+        var bankAccounts = [], loadedAt, summaryCache, maxCacheAge = 5 /*minutes*/, currentDate = new Date();
 
         metadataService.getMetadata().then(function(metadata) {
+            currentDate = metadata.CurrentDate || new Date();
             if (metadata && metadata.MaxCacheAge) {
                 maxCacheAge = metadata.MaxCacheAge;
             }
@@ -34,6 +35,7 @@
                 account.totalNextCredit = transSummary.TotalNextCreditForAccount.Value;
                 account.totalPreviousCredit = transSummary.TotalPreviousCreditForAccount.Value;
                 account.previousCreditsCount = transSummary.NumOfPreviousCredits;
+                account.nextCreditsCount = transSummary.NumOfNextCredits;
 
 
                 if (transactions.LastCreditsDetails) {
@@ -62,7 +64,7 @@
                 previousCreditAmount: summary.TotalPreviousCredit.Value,
                 previousCreditDate: summary.PreviousCreditDate,
                 totalBalance: summary.TotalBalanceForCustomer.Value,
-                balanceValueDate: new Date(),
+                balanceValueDate: summary.CurrentDate || currentDate,
                 accountOwnerName: summary.AccOwnerName,
                 lastLoginDate: summary.LastLogInDate,
                 noActiveAccounts: !summary.HasAccounts

@@ -101,7 +101,7 @@
             "TotalBalance": 'סה"כ יתרות',
             "BalanceValueDate": "נכון לתאריך",
             "GoToAccountDetails": "לצפייה בפירוט חשבונות",
-            "NoPreviousCredits": "אין זיכויים אחרונים",
+            "NoPreviousCredits": "Sזיכויים אחרונים",
             "PreviousCredits": "זיכויים אחרונים",
             "NextCredits": "זיכויים קרובים",
             "LegalTerms": "תנאים משפטיים",
@@ -125,7 +125,8 @@
             "MetadataError": "שגיאה בהפעלת האפליקציה",
             "Loading": "טוען",
             "Message": "הודעה",
-            "ErrorMessage":"אירעה שגיאה בלתי צפויה"
+            "ErrorMessage": "אירעה שגיאה בלתי צפויה",
+            "NoNextCredits":"זיכויים קרובים"
         });
     });
 
