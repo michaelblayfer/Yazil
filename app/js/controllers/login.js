@@ -1,23 +1,23 @@
 (function(S, C, Y) {
     Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager, alertService) {
 
-
-        var forgotPasswordLink = "http://cal-online.co.il";
-        metadataService.getMetadata().then(function (metadata) {
-            forgotPasswordLink = metadata.ForgotUserPasswordURL;
-        });
-
-        $scope.forgotPassword = function () {
-            window.open(forgotPasswordLink);
-        }
         function navigate() {
             $location.path("/");
         }
 
-        sessionManager.isUserLoggedIn().then(function () {
-            navigate();
+        var forgotPasswordLink = "http://cal-online.co.il";
+        metadataService.getMetadata().then(function (metadata) {
+            forgotPasswordLink = metadata.ForgotUserPasswordURL;
+            sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function () {
+                navigate();
+            });
         });
-        
+
+        $scope.forgotPassword = function() {
+            window.open(forgotPasswordLink);
+        };
+
+       
         $scope.isOnline = false;
         function updateNetworkStatus() {
             $scope.isOnline = network.isOnline();

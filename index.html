@@ -9,6 +9,7 @@
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="app/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="app/css/animations.css" />
     <script type="text/javascript" src="phonegap.js"></script>
 </head>
 <body class="rtl" ng-controller="AppCtrl">
@@ -21,8 +22,8 @@
     <app-header></app-header>
     <div class="main-content-container">
         
-        <div class="container-fluid main-content">
-            <ng-view></ng-view>
+        <div ng-view class="container-fluid main-content">
+
         </div>
         
     </div>
@@ -39,6 +40,7 @@
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular/angular-route.js"></script>
     <script src="lib/angular/angular-touch.js"></script>
+    <script src="lib/angular/angular-animate.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="lib/moment/moment.min.js"></script>
     

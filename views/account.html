@@ -1,7 +1,10 @@
-﻿<div class="details_container" ng-swipe-left="previousAccount()" ng-swipe-right="nextAccount()">
+﻿<div class="details_container"
+     ng-swipe-left="previousAccount()"
+     ng-swipe-right="nextAccount()">
+    
     <div class="credits">
-        <div class="credit_table" ng-class="{'allCollapsed': !nextCreditExpanded && !previousCreditExpanded}">
-            <div class="credit_row" ng-class="{ 'collapsed': !nextCreditExpanded, 'expanded':nextCreditExpanded}" ng-click="toggleExpand('next', selectedAccount.totalNextCredit)">
+        <div class="credit_table" ng-class="{ 'allCollapsed': !nextCreditExpanded && !previousCreditExpanded}">
+            <div class="credit_row" ng-class="{ 'next-animation' : movedToNext, 'previous-animation' : movedToPrevious, 'collapsed': !nextCreditExpanded, 'expanded':nextCreditExpanded}" ng-click="toggleExpand('next', selectedAccount.totalNextCredit)">
                 <div class="c_credit" ng-hide="nextCreditExpanded">
                     <div class="c_row">
                         <div class="c_cell">
@@ -36,7 +39,7 @@
                     </table>
                 </div>
             </div>
-            <div class="credit_row" ng-class="{ 'collapsed': !previousCreditExpanded, 'expanded':previousCreditExpanded}" ng-click="toggleExpand('previous', selectedAccount.totalPreviousCredit)">
+            <div class="credit_row" ng-class="{ 'next-animation' : movedToNext, 'previous-animation' : movedToPrevious, 'collapsed': !previousCreditExpanded, 'expanded':previousCreditExpanded}" ng-click="toggleExpand('previous', selectedAccount.totalPreviousCredit)">
                 <div class="c_credit" ng-hide="previousCreditExpanded">
                     <div class="c_row">
                         <div class="c_cell">
@@ -81,7 +84,7 @@
                 <div><span class="small-title">{{"AccountNumber"|l10n}}</span> {{selectedAccount|accountDescription}}</div>
                 <div class="accounts">
                     <ul>
-                        <li ng-repeat="account in accounts" ng-class="{'selected':$index==selectedAccountIndex}"><a href="#" prevent-default ng-click="selectAccount($index)"></a></li>
+                        <li ng-repeat="account in accounts track by $index" ng-class="{'selected':$index==selectedAccountIndex}"><a href="#" prevent-default ng-click="selectAccount($index)"></a></li>
                     </ul>
                 </div>
             </div>

@@ -44,6 +44,7 @@ body, textarea
 .details_container{
     user-select:none;
     -webkit-user-drag: none;
+    
 }
 .container-fluid{
     padding:0;
@@ -628,6 +629,7 @@ footer button[disabled] .i-account {
 .credit_table{
     height:100%;
     width:100%;
+    overflow-x: hidden;
 }
 .credit_row{
     position:relative;
@@ -656,6 +658,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', end
 .c_credit{
     display:table;
     height:100%;
+    width: 100%;
 }
 .c_row{
     display:table-row;

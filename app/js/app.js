@@ -1,6 +1,6 @@
 ﻿(function (S, C, Y) {
 
-    var yazilModule = angular.module("Cal.Yazil", ["ngRoute", "ngTouch","$strap", "Simple"]);
+    var yazilModule = angular.module("Cal.Yazil", ["ngRoute", "ngTouch", "ngAnimate","$strap", "Simple"]);
     
     yazilModule.service("calConfiguration", C.Configuration);
     yazilModule.service("calServiceClient", C.ServiceClient);
@@ -53,31 +53,33 @@
             .otherwise({ redirectTo: "/" });
     });
     
-    yazilModule.run(function ($rootScope, $location, loginManager, sessionManager) {
+    yazilModule.run(function ($rootScope, $location, loginManager, sessionManager, metadataService) {
         // register listener to watch route changes
         $rootScope.logout = function () {   
-            loginManager.logout().then(function () {                
+            loginManager.logout().finally(function () {                
                 $location.path("Login");
             });
         };
         var anonymousAllowed = ["views/login.html", "views/customer-service.html", "views/splash.html"];
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
-            
-            sessionManager.isUserLoggedIn().then(function (user) {
-                $rootScope.isLoggedIn = true;
-                sessionManager.start(user);
-            }, function () {
-                $rootScope.isLoggedIn = false;
-                if (anonymousAllowed.indexOf(next.templateUrl) >= 0) {
-                } else {
-                    if (!$rootScope.alreadyStarted) {
-                        $location.path("/Splash");
-                        $rootScope.alreadyStarted = true;
+            metadataService.getMetadata().then(function (metadata) {
+                sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function (user) {
+                    $rootScope.isLoggedIn = true;
+                    sessionManager.start(user, metadata.SessionTimeout);
+                }, function () {
+                    $rootScope.isLoggedIn = false;
+                    if (anonymousAllowed.indexOf(next.templateUrl) >= 0) {
                     } else {
-                        $location.path("/Login");
+                        if (!$rootScope.alreadyStarted) {
+                            $location.path("/Splash");
+                            $rootScope.alreadyStarted = true;
+                        } else {
+                            $location.path("/Login");
+                        }
                     }
-                }
+                });
             });
+            
         });
     });
 
@@ -120,7 +122,9 @@
             "VersionUpdateRequired": "נדרש עדכון גרסה ע\"מ להשתמש באפליקציה",
             "ClickToUpdateVersion": "לחץ לעדכון גרסה",
             "MetadataError": "שגיאה בהפעלת האפליקציה",
-            "Loading":"טוען"
+            "Loading": "טוען",
+            "Message": "הודעה",
+            "ErrorMessage":"אירעה שגיאה בלתי צפויה"
         });
     });
 

@@ -26,9 +26,11 @@
         }
         
         function login(user) {
-            var result = sessionManager.start(user);
-           
-           return result;
+            return metadataService.getMetadata().then(function(metadata) {
+                var result = sessionManager.start(user, metadata.SessionTimeout);
+
+                return result;
+            });
         }
         
 
