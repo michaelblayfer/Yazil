@@ -1,14 +1,27 @@
-﻿<div class="logo-splash" ng-hide="errorText"></div>
-<div class="loading-splash">
-    <div class="loading-icon"></div>
-</div>
-<div class="metadata-error" ng-show="errorText">
-    <h3>{{"MetadataError"|l10n}}</h3>
-    <h4>{{ errorText }}</h4>
-    <div class="logo-splash" ></div>
+﻿<div class="splash-container">
+    
+    <div class="cube1" ng-class="{'show':step>=1}"></div>
+    <div class="cube2" ng-class="{'show':step>=2}"></div>
+    <div class="cube3" ng-class="{'show':step>=3}"></div>
+    <div class="cube4" ng-class="{'show':step>=4}"></div>
+    <div class="yazil" ng-class="{'show':step>=5}"></div>
+    <div class="pharse" ng-class="{'show':step>=6}"></div>
 </div>
 
-<div class="metadata-error" ng-show="versionUpdateUrl">
-    {{ "VersionUpdateRequired" | l10n}}:
-    <a ng-href="{{versionUpdateUrl}}">{{"ClickToUpdateVersion"|l10n}}</a>
+<div style="display:none">
+    <div class="logo-splash" ng-hide="errorText"></div>
+    <div class="loading-splash">
+        <div class="loading-icon"></div>
+    </div>
+    <div class="metadata-error" ng-show="errorText">
+        <h3>{{"MetadataError"|l10n}}</h3>
+        <h4>{{ errorText }}</h4>
+        <div class="logo-splash"></div>
+    </div>
+
+    <div class="metadata-error" ng-show="versionUpdateUrl">
+        {{ "VersionUpdateRequired" | l10n}}:
+        <a ng-href="{{versionUpdateUrl}}">{{"ClickToUpdateVersion"|l10n}}</a>
+    </div>
+
 </div>

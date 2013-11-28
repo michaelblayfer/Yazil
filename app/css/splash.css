@@ -1,0 +1,76 @@
+﻿
+.splash-container {
+    
+    width: 240px;
+    height: 200px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.splash-container div {
+    position: absolute;
+    width: 108px;
+    height: 120px;
+    right: 0;
+    top: 0;
+    background-repeat: no-repeat;
+   
+    -webkit-transition: opacity 0.75s ease-out;
+    opacity: 0; 
+}
+.splash-container div.show {
+    
+    opacity: 1;
+}
+.splash-container div.yazil {
+    left: 0;
+    right: auto;
+    background-position: bottom right;
+    background-image: url(../img/splash/yacil.png);
+    
+}
+
+.splash-container div.cube1 {
+    
+    background-position: center center;
+    background-image: url(../img/splash/cube_1.png);
+    z-index: 4;
+    
+}
+
+.splash-container div.cube2 {
+    
+    background-position: center center;
+    background-image: url(../img/splash/cube_2.png);
+    z-index: 3;
+}
+
+.splash-container div.cube3 {
+    
+
+    background-position: center center;
+    background-image: url(../img/splash/cube_3.png);
+    z-index: 2;
+}
+
+.splash-container div.cube4 {
+    
+
+    background-position: center center;
+    background-image: url(../img/splash/cube_4.png);
+    z-index: 1;
+}
+
+.splash-container div.pharse {
+    
+    left: 0;
+    bottom: 0;
+    top: auto;
+    height: 96px;
+    width: 240px;
+    background-position: center center;
+    background-image: url(../img/splash/slogan.png);
+    
+}
