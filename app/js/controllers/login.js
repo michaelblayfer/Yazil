@@ -5,16 +5,16 @@
             $location.path("/");
         }
 
-        var forgotPasswordLink = "http://cal-online.co.il";
+        $scope.forgotPasswordLink = "http://cal-online.co.il";
         metadataService.getMetadata().then(function (metadata) {
-            forgotPasswordLink = metadata.ForgotUserPasswordURL;
+            $scope.forgotPasswordLink = metadata.ForgotUserPasswordURL;
             sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function () {
                 navigate();
             });
         });
 
         $scope.forgotPassword = function() {
-            window.open(forgotPasswordLink);
+            window.open($scope.forgotPasswordLink);
         };
 
        

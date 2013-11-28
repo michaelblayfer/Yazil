@@ -12,7 +12,7 @@
                     }
                 });
             } else {
-                alertService.show(error.Dialog);
+                alertService.show(error.Dialog || {});
             }
         });
     };

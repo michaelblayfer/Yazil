@@ -16,37 +16,45 @@
         });
 
         $scope.nextAccount = function() {
-            $scope.movedToNext = true;
-            $scope.movedToPrevious = false;
             if ($scope.selectedAccountIndex < $scope.accounts.length - 1) {
                 $scope.selectedAccountIndex++;
             } else {
                 $scope.selectedAccountIndex = 0;
             }
-            selectAccount($scope.selectedAccountIndex);
+            if (selectAccount($scope.selectedAccountIndex)) {
+                $scope.movedToNext = true;
+                $scope.movedToPrevious = false;
+            }
         };
 
         $scope.previousAccount = function() {
-            $scope.movedToNext = false;
-            $scope.movedToPrevious = true;
             if ($scope.selectedAccountIndex > 0) {
                 $scope.selectedAccountIndex--;
             } else {
                 $scope.selectedAccountIndex = $scope.accounts.length - 1;
             }
-            selectAccount($scope.selectedAccountIndex);
+            if (selectAccount($scope.selectedAccountIndex)) {
+                $scope.movedToNext = false;
+                $scope.movedToPrevious = true;
+            }
         };
 
         function selectAccount(index) {
             if ($scope.accounts && index >= 0 && index < $scope.accounts.length) {
                 $scope.nextCreditExpanded = $scope.previousCreditExpanded = false;
                 $scope.selectedAccount = $scope.accounts[index];
+                if ($scope.accounts.length > 1) {
+                    $timeout(function() {
+                        $scope.movedToNext = false;
+                        $scope.movedToPrevious = false;
+                    }, 500);
+
+                    return true;
+                }
             }
-            $timeout(function () {
-                $scope.movedToNext = false;
-                $scope.movedToPrevious = false;
-            }, 500);
+            return false;
         }
+
         $scope.nextCreditExpanded =false;
         $scope.previousCreditExpanded =false;
         $scope.toggleExpand = function (type, condition) {

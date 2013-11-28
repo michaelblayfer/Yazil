@@ -2,15 +2,15 @@
 <div class="login-box">
     <form name="Login" ng-submit="login()" novalidate>
         <div class="center">
-            <input type="text" autofocus="autofocus" name="userName" ng-model="Username" placeholder="{{ 'Username' | l10n }}" required="required" maxlength="8" ng-pattern="/^[a-zA-Z\d]+$/" />
+            <input type="text" autofocus="autofocus" name="userName" ng-model="Username" placeholder="{{ 'Username' | l10n }}" required="required" maxlength="8" ng-pattern="/^[a-zA-Z\d]+$/" autocomplete="off" />
             <div class="validationMessage" ng-show="Login.userName.$invalid && Login.userName.$dirty">{{"InvalidUsernameOrPassword"|l10n}}</div>
         </div>
         <div class="center">
             <input type="password" name="password" ng-model="Password" placeholder="{{ 'Password' | l10n }}" required="required" maxlength="20" ng-pattern="/^[a-zA-Z\d]+$/" />
             <div class="validationMessage" ng-show="Login.password.$invalid && Login.password.$dirty">{{"InvalidUsernameOrPassword"|l10n}}</div>
         </div>
-        <div class="center">
-            <a href="#" class="forgot_password" ng-click="forgotPassword()">{{ 'ForgotPassword' | l10n }}</a>
+        <div class="forgot_password">
+            <a href="#" ng-href="{{forgotPasswordLink}}" target="_blank">{{ 'ForgotPassword' | l10n }}</a>
         </div>
         <div class="center">
             <div class="message alert alert-error " ng-show="loginError">
@@ -22,5 +22,3 @@
         </div>
     </form>
 </div>
-
-
