@@ -38,8 +38,8 @@
                 account.nextCreditsCount = transSummary.NumOfNextCredits;
 
 
-                if (transactions.LastCreditsDetails) {
-                    account.nextCredits = _.map(transactions.LastCreditsDetails, mapCreditDetails);
+                if (transactions.NextCreditsDetails) {
+                    account.nextCredits = _.map(transactions.NextCreditsDetails, mapCreditDetails);
                 }
 
                 if (transactions.PreviousCreditsDetails) {
