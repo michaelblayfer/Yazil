@@ -3,5 +3,5 @@
     <div class="title">{{header}}</div>
     <div class="header_button i i-logout" ng-show="isLoggedIn" ng-click="logout()" ></div>
     <div class="header_button i i-back" ng-show="!isLoggedIn && !hideFooter" ng-click="navigateToHome()"></div>
-    <div class="logo logo_cal" ng-show="!isLoggedIn && hideFooter"></div>
+    <div class="logo logo_cal" ng-show="displayCalLogo && (!isLoggedIn && hideFooter)"></div>
 </header>

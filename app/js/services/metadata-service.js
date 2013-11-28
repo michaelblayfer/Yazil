@@ -5,14 +5,7 @@
         function getMetadata() {
             return storageService.prefix("Yazil").local("Metadata").then(function (metadata) {
                 if (metadata) {
-                    return _.defaults(metadata, {
-                        AddressLine1: "רחוב תפוצות ישראל 13",
-                        AddressLine2: 'אזה"ת כורוזין',
-                        City: "גבעתיים",
-                        MaxCacheAge: 6,
-                        PageAnimationEnabled: false,
-                        SwipeAnimationEnabled: true
-                    });
+                    return metadata;
                 } else {
                     return fetchMetadata().then(getMetadata);
                 }
@@ -26,7 +19,17 @@
             //    Number: "1"
             //});
             //return result.promise;
-            return yazilServiceClient.getMetadata().then(function(metadata){
+            return yazilServiceClient.getMetadata().then(function (metadata) {
+                metadata = _.defaults(metadata, {
+                    AddressLine1: "רחוב תפוצות ישראל 13",
+                    AddressLine2: 'אזה"ת כורוזין',
+                    City: "גבעתיים",
+                    MaxCacheAge: 6,
+                    PageAnimationEnabled: false,
+                    SwipeAnimationEnabled: true,
+                    DisplayCalLogo: false
+                });
+                delete metadata.Response;
                 return storageService.prefix("Yazil").local("Metadata", metadata);
             });
             return $timeout(function () {

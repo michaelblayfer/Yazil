@@ -1,18 +1,22 @@
 ﻿(function (S, C, Y) {
 
     Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService) {
-        
+        $scope.displayCalLogo = true;
         $scope.animations = {
             page: false,
             swipe: false
         };
 
-        $rootScope.$on("Cal.Yazil.SessionStarted", function() {
+        function updateMetadata() {
             metadataService.getMetadata().then(function (metadata) {
                 $scope.animations.page = metadata.PageAnimationEnabled;
                 $scope.animations.swipe = metadata.SwipeAnimationEnabled;
+                $scope.displayCalLogo = metadata.DisplayCalLogo;
             });
-        });
+        }
+
+        updateMetadata();
+        $rootScope.$on("Cal.Yazil.SessionStarted", updateMetadata);
 
         $rootScope.$on("Cal.Yazil.SessionEnded", function() {
             $scope.animations = {
