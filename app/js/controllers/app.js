@@ -45,20 +45,20 @@
                 $scope.hideFooter = next.locals.pageInfo.hideFooter;
             }
         });
-        $rootScope.navigateToCustomerService = function () {
+        $scope.navigateToCustomerService = function () {
             $location.path("CustomerService");
         };
-        $rootScope.navigateToHome = function () {
+        $scope.navigateToHome = function () {
             $location.path("/");
         };
-        $rootScope.navigateToAccount = function () {
+        $scope.navigateToAccount = function () {
             $location.path("Account");
         };
-        $rootScope.navigateToMoreInfo = function () {
+        $scope.navigateToMoreInfo = function () {
             $location.path("MoreInfo");
         };
 
-        $rootScope.isButtonSelected = function (name) {
+        $scope.isButtonSelected = function (name) {
             return $route.current.controller == name;
         };
     };
