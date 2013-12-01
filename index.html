@@ -112,9 +112,11 @@
         var maskElement = document.getElementById("mask");
         function onDeviceReady() {
             document.addEventListener("pause", function (e) {
+                alert("PAUSE!");
                 maskElement.style.display = "block";
             });
             document.addEventListener("resume", function (e) {
+                alert("RESUME!");
                 maskElement.style.display = "none";
             });
             

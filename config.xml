@@ -29,7 +29,7 @@
   <preference name="fullscreen"       value="false" />
   <preference name="webviewbounce" value="false" />
   <preference name="detect-data-types" value="false" />
-  <access origin="*" />
+  <access origin="https://*.cal-online.co.il" />
   <icon src="app/img/app-icon.png" />
   <!----><!--<icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
   <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
