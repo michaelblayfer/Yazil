@@ -112,13 +112,11 @@
         var maskElement = document.getElementById("mask");
         function onDeviceReady() {
             document.addEventListener("pause", function (e) {
-                alert("PAUSE!");
                 maskElement.style.display = "block";
-            });
+            }, false);
             document.addEventListener("resume", function (e) {
-                alert("RESUME!");
                 maskElement.style.display = "none";
-            });
+            }, false);
             
             document.addEventListener("backbutton", function (e) {
                 if (location.hash == "#/" || location.hash == "#/Login") {
