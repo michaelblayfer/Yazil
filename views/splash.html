@@ -8,11 +8,13 @@
     <div class="pharse" ng-class="{'show':step>=6}"></div>
 </div>
 
+<div class="loading-splash" ng-show="step==6">
+    <div class="loading-icon"></div>
+</div>
+
 <div style="display:none">
     <div class="logo-splash" ng-hide="errorText"></div>
-    <div class="loading-splash">
-        <div class="loading-icon"></div>
-    </div>
+
     <div class="metadata-error" ng-show="errorText">
         <h3>{{"MetadataError"|l10n}}</h3>
         <h4>{{ errorText }}</h4>

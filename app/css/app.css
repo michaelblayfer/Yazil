@@ -975,7 +975,7 @@ td.creditValue:before {
 
 .loading-splash .loading-icon {
     top: auto;
-    bottom: 10%;
+    bottom: 5%;
     background-color: transparent;
     background-image: url(../img/white-loading.gif);
 }
@@ -988,3 +988,14 @@ td.creditValue:before {
     text-align: center;
 }
 
+
+.mask {
+    position: absolute;
+    display: none;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    bottom: -100px;
+    right: 0;
+    background-color: #022D58;
+}
