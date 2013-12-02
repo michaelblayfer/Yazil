@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "il.co.icc"
-        version   = "1.0.3">
+        version   = "1.0.4">
   <name>Cal Yazil</name>
 
   <description>
@@ -31,7 +31,7 @@
   <preference name="detect-data-types" value="false" />
   <preference name="android-windowSoftInputMode" value="stateVisible" />
   
-  <access origin="https://*" />
+  <access origin="*" />
   <icon src="app/img/app-icon.png" />
 
   
