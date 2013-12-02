@@ -1,9 +1,10 @@
 ﻿(function (S, C, Y) {
     
-    Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService) {
+    Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService, analytics) {
         $rootScope.loaded = false;
 
         $scope.gotoAccountDetails = function () {
+            analytics.recordClick(Y.AnalyticsEvents.Account);
             $location.path("/Account");
         };
 

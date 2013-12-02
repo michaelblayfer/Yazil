@@ -1,6 +1,6 @@
 ﻿(function (S, C, Y) {
 
-    Y.AccountController = function ($scope, $location, accountManager, alertService, $timeout) {
+    Y.AccountController = function ($scope, $location, accountManager, alertService, $timeout, analytics) {
         accountManager.getAccounts().then(function(accounts){
             $scope.accounts = accounts;
             if (accounts.length > 0) {
@@ -60,11 +60,13 @@
         $scope.toggleExpand = function (type, condition) {
             if (condition) {
                 if (type == "next") {
+                    analytics.recordClick(Y.AnalyticsEvents.NextCredit);
                     $scope.nextCreditExpanded = !$scope.nextCreditExpanded;
                     if ($scope.nextCreditExpanded) {
                         $scope.previousCreditExpanded = false;
                     }
                 } else {
+                    analytics.recordClick(Y.AnalyticsEvents.PreviousCredit);
                     $scope.previousCreditExpanded = !$scope.previousCreditExpanded;
                     if ($scope.previousCreditExpanded) {
                         $scope.nextCreditExpanded = false;
