@@ -97,7 +97,7 @@
             "TotalBalance": 'סה"כ יתרות',
             "BalanceValueDate": "נכון לתאריך",
             "GoToAccountDetails": "לצפייה בפירוט חשבונות",
-            "NoPreviousCredits": "Sזיכויים אחרונים",
+            "NoPreviousCredits": "זיכויים אחרונים",
             "PreviousCredits": "זיכויים אחרונים",
             "NextCredits": "זיכויים קרובים",
             "LegalTerms": "תנאים משפטיים",
