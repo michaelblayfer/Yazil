@@ -1,5 +1,5 @@
 ﻿
-<div class="login-box">
+<div class="login-box" ng-swipe-left="displayVersion = !displayVersion" ng-swipe-right="displayVersion = !displayVersion">
     <form name="Login" ng-submit="login()" novalidate>
         <div class="center">
             <input type="text" autofocus="autofocus" name="userName" ng-model="Username" placeholder="{{ 'Username' | l10n }}" required="required" maxlength="8" ng-pattern="/^[a-zA-Z\d]+$/" autocomplete="off" />
@@ -21,4 +21,7 @@
             <button type="submit" ng-disabled="Login.$invalid">{{ "Login"|l10n}}</button>
         </div>
     </form>
+    <div class="center version" ng-show="displayVersion">
+        Version: {{version}}
+    </div>
 </div>

@@ -16,7 +16,7 @@ body, textarea {
 
 .details_container, .credit_table,
 .c_row, .c_cell, .credit_row, .creditValue,
-.dock_bottom {
+.dock_bottom, login-box {
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     -webkit-user-select: none;
@@ -999,4 +999,9 @@ td.creditValue:before {
     bottom: -100px;
     right: 0;
     background-color: #022D58;
+}
+
+.version {
+    color: white;
+
 }

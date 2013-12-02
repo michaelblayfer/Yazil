@@ -1,6 +1,8 @@
 (function(S, C, Y) {
-    Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager, alertService) {
-
+    Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager, alertService, calConfiguration) {
+        $scope.displayVersion = false;
+        $scope.version = calConfiguration.version;
+        console.log("VERSION", $scope.version);
         function navigate() {
             $location.path("/");
         }

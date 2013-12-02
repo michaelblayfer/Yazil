@@ -9,7 +9,7 @@
         }
 
         function getMetadata() {
-            return calServiceClient.run("GET", "YazilMetaData", { CurrentVersion: calConfiguration.version, OperatingSystem: "IOS" });
+            return calServiceClient.run("GET", "YazilMetaData", { CurrentVersion: calConfiguration.version, OperatingSystem: calConfiguration.os });
         }
 
         function getAccountSummary() {
