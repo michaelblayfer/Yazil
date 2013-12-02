@@ -1,6 +1,6 @@
 ﻿(function (S, C, Y) {
 
-    Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService) {
+    Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService, accountManager) {
         $scope.displayCalLogo = true;
         $scope.animations = {
             page: false,
@@ -23,6 +23,8 @@
                 page: false,
                 swipe: false
             };
+
+            accountManager.clearCache();
         });
 
         $rootScope.notifyProgressStarted = function () {

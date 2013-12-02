@@ -71,6 +71,11 @@
             };
         }
 
+        function clearCache() {
+            bankAccounts = null;
+            summaryCache = null;
+        }
+
         function getAccountSummary() {
             if (accountsCacheValid()) {
                 var result = $q.defer();
@@ -102,7 +107,8 @@
         return {
             getAccounts: getAccounts,
             getAccountSummary: getAccountSummary,
-            loadAccounts: loadAccounts
+            loadAccounts: loadAccounts,
+            clearCache: clearCache
         };
     };
 
