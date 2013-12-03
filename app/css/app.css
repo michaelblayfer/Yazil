@@ -1004,8 +1004,3 @@ td.creditValue:before {
 .version {
     color: white;
 }
-
-input[type=password] {
-    direction: ltr;
-    text-align: right!important;
-}
