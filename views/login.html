@@ -10,7 +10,7 @@
             <div class="validationMessage" ng-show="Login.password.$invalid && Login.password.$dirty">{{"InvalidUsernameOrPassword"|l10n}}</div>
         </div>
         <div class="forgot_password">
-            <a href="#" ng-href="{{forgotPasswordLink}}" target="_blank">{{ 'ForgotPassword' | l10n }}</a>
+            <a href="" ng-href="{{forgotPasswordLink}}" onclick="window.open(this.href,'_system'); return false;">{{ 'ForgotPassword' | l10n }}</a>
         </div>
         <div class="center">
             <div class="message alert alert-error " ng-show="loginError">

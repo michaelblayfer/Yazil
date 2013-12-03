@@ -15,7 +15,7 @@
              },
              {
                  title: "שעות פעילות",
-                 text: $sce.trustAsHtml("בימי א' עד ה'" + "<br/>" + "בין השעות " + metadata.OpeningHoursStart + " - " + metadata.OpeningHoursFinish),
+                 text: $sce.trustAsHtml("בימי א' עד ה'" + "<br/>" + "בין השעות <span style='direction:ltr'>" + metadata.OpeningHoursStart + " - " + metadata.OpeningHoursFinish + "</span>"),
                  cssClass: "i-clock"
              },
              {
