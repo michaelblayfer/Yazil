@@ -1,9 +1,10 @@
 (function(S, C, Y) {
-    Y.LoginController = function ($scope,$location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager, alertService, calConfiguration) {
+    Y.LoginController = function ($scope, $location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager, alertService, calConfiguration, analytics) {
         $scope.displayVersion = false;
         $scope.version = calConfiguration.version;
-        console.log("VERSION", $scope.version);
+        
         function navigate() {
+            analytics.recordClick(Y.AnalyticsEvents.Login);
             $location.path("/");
         }
 

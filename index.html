@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Cal יציל</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="version" content="1.0.5">
+    <meta name="version" content="1.0.6">
     <meta name="base-url" content="https://stage-restservices.cal-online.co.il/YazilRest-Dev">
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
@@ -67,6 +67,7 @@
     <script src="lib/simple/services/network-service.js"></script>
     <script src="lib/simple/services/network-manager.js"></script>
     <script src="lib/simple/services/alert-service.js"></script>
+    <script src="lib/simple/services/analytics-service.js"></script>
     <!-- Filters -->
     <script src="lib/simple/filters/localize.js"></script>
     <script src="lib/simple/filters/new-line-to-br.js"></script>
@@ -107,10 +108,14 @@
 
     <script src="app/js/app.js"></script>
     <script>
+
+        
+
         document.addEventListener("deviceready", onDeviceReady, false);
         // Get the mask element as soon as possible, before phonegap
         var maskElement = document.getElementById("mask");
         function onDeviceReady() {
+            // Initialize Google Analytics
             //document.addEventListener("pause", function (e) {
             //    maskElement.style.display = "block";
             //}, false);

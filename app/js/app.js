@@ -56,11 +56,7 @@
     
     yazilModule.run(function ($rootScope, $location, loginManager, sessionManager, metadataService) {
         // register listener to watch route changes
-        $rootScope.logout = function () {   
-            loginManager.logout().finally(function () {                
-                $location.path("Login");
-            });
-        };
+
         var anonymousAllowed = ["views/login.html", "views/customer-service.html", "views/splash.html"];
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             metadataService.getMetadata().then(function (metadata) {
@@ -101,7 +97,7 @@
             "TotalBalance": 'סה"כ יתרות',
             "BalanceValueDate": "נכון לתאריך",
             "GoToAccountDetails": "לצפייה בפירוט חשבונות",
-            "NoPreviousCredits": "Sזיכויים אחרונים",
+            "NoPreviousCredits": "זיכויים אחרונים",
             "PreviousCredits": "זיכויים אחרונים",
             "NextCredits": "זיכויים קרובים",
             "LegalTerms": "תנאים משפטיים",

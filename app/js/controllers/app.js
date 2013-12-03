@@ -1,6 +1,6 @@
 ﻿(function (S, C, Y) {
 
-    Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService, accountManager) {
+    Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService, accountManager, analytics, loginManager) {
         $scope.displayCalLogo = true;
         $scope.animations = {
             page: false,
@@ -47,16 +47,27 @@
                 $scope.hideFooter = next.locals.pageInfo.hideFooter;
             }
         });
-        $scope.navigateToCustomerService = function () {
+        
+        $rootScope.logout = function () {
+            analytics.recordClick(Y.AnalyticsEvents.Logout);
+            loginManager.logout().finally(function () {
+                $location.path("Login");
+            });
+        };
+        $scope.navigateToCustomerService = function (from) {
+            analytics.recordClick(Y.AnalyticsEvents[(from=="login"?"Login":"") + "CustomerService"]);
             $location.path("CustomerService");
         };
         $scope.navigateToHome = function () {
+            analytics.recordClick(Y.AnalyticsEvents.Home);
             $location.path("/");
         };
         $scope.navigateToAccount = function () {
+            analytics.recordClick(Y.AnalyticsEvents.AccountDetails);
             $location.path("Account");
         };
         $scope.navigateToMoreInfo = function () {
+            analytics.recordClick(Y.AnalyticsEvents.MoreInfo);
             $location.path("MoreInfo");
         };
 
