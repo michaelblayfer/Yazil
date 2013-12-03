@@ -1,10 +1,14 @@
 ﻿(function (S, C, Y) {
     
-    Y.MoreInfoController = function ($scope, $location, metadataService, analytics) {
+    Y.MoreInfoController = function ($scope, $location, metadataService, analytics, alertService) {
         $scope.$root.header = "More Info";
         metadataService.getMetadata().then(function(metadata) {
             $scope.email = metadata.ServiceEmailAdd;
             $scope.fax = metadata.ServicePhone2;
+        }, function (error) {
+            alertService.show(error.Dialog).then(function () {
+                $scope.logout();
+            });
         });
 
         $scope.displayLegalTerms = function() {

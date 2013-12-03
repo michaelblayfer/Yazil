@@ -9,7 +9,7 @@
         }
 
         function getMetadata() {
-            return calServiceClient.run("GET", "YazilMetaData", { CurrentVersion: calConfiguration.version, OperatingSystem: calConfiguration.os });
+            return calServiceClient.run("GET", "YazilMetaData", { CurrentVersion: calConfiguration.version, OperatingSystem: calConfiguration.os == "Other" ? "Android" : calConfiguration.os });
         }
 
         function getAccountSummary() {

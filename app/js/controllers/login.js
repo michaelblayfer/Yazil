@@ -14,6 +14,10 @@
             sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function () {
                 navigate();
             });
+        }, function (error) {
+            alertService.show(error.Dialog).then(function () {
+                $scope.logout();
+            });
         });
 
         $scope.forgotPassword = function() {
