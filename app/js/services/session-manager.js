@@ -39,10 +39,14 @@
 
         function end() {
             stopSessionTimer();
-            return sessionInfo("User", null).then(function () {
-                currentUser = null;
-                $rootScope.$broadcast("Cal.Yazil.SessionEnded");
-            });
+            if (currentUser) {
+                return sessionInfo("User", null).then(function() {
+                    currentUser = null;
+                    $rootScope.$broadcast("Cal.Yazil.SessionEnded");
+                });
+            } else {
+                return $q.when({});
+            }
         }
 
         function get(key) {

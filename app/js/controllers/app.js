@@ -51,7 +51,7 @@
         $rootScope.logout = function () {
             analytics.recordClick(Y.AnalyticsEvents.Logout);
             loginManager.logout().finally(function () {
-                $location.path("Login");
+                $location.path("/Login");
             });
         };
         $scope.navigateToCustomerService = function (from) {
