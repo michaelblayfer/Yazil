@@ -33,9 +33,9 @@
   
   <access origin="*" />
   <icon src="app/img/app-icon.png" />
-
-  
-
+  <icon src="app/img/app-icons/iOS_76x76.png"            gap:platform="ios"        width="76" height="76" />
+  <icon src="app/img/app-icons/iOS_120x120.png"            gap:platform="ios"        width="120" height="120" />
+  <icon src="app/img/app-icons/iOS_152x152.png"            gap:platform="ios"        width="152" height="152" />
   <!----><!--<icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
   <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
   <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
@@ -46,10 +46,7 @@
   <icon src="res/icon/windows-phone/icon-48.png"  gap:platform="winphone" />
   <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />  
   --><!--
-  <icon src="img/ios/mobile.png"            gap:platform="ios"        width="57" height="57" />
-  <icon src="img/ios/tablet.png"            gap:platform="ios"        width="72" height="72" />
-  <icon src="img/ios/mobile2x.png"         gap:platform="ios"        width="114" height="114" />
-  <icon src="img/ios/tabletx2.png"         gap:platform="ios"        width="144" height="144" />
+
 
 
   --><!--
