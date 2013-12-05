@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "il.co.icc"
-        version   = "1.0.9">
+        version   = "1.0.10">
   <name>Cal Yazil</name>
 
   <description>
@@ -13,7 +13,6 @@
     Cal Yazil
   </author>
 
-  <feature name="http://api.phonegap.com/1.0/device" />
   <feature name="http://api.phonegap.com/1.0/device" />
   <feature name="http://api.phonegap.com/1.0/camera"/>
   <feature name="http://api.phonegap.com/1.0/contacts"/>
@@ -33,25 +32,17 @@
   
   <access origin="*" />
   <icon src="app/img/app-icon.png" />
+  <icon src="app/img/app-icons/iOS_76x76.png"            gap:platform="ios"        width="76" height="76" />
+  <icon src="app/img/app-icons/iOS_120x120.png"            gap:platform="ios"        width="120" height="120" />
+  <icon src="app/img/app-icons/iOS_152x152.png"            gap:platform="ios"        width="152" height="152" />
 
-  
-
-  <!----><!--<icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
-  <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
-  <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
-  <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
-  <icon src="res/icon/blackberry/icon-80.png"     gap:platform="blackberry" />
-  <icon src="res/icon/blackberry/icon-80.png"     gap:platform="blackberry" gap:state="hover"/> 
-  <icon src="res/icon/webos/icon-64.png"          gap:platform="webos" />
+  <icon src="app/img/app-icons/Android_48x48.png"   gap:platform="android"    gap:density="ldpi" />
+  <icon src="app/img/app-icons/Android_48x48X1.5.png"   gap:platform="android"    gap:density="mdpi" />
+  <icon src="app/img/app-icons/Android_48x48X2.png"   gap:platform="android"    gap:density="hdpi" />
+  <icon src="app/img/app-icons/Android_48x48X3.png"  gap:platform="android"    gap:density="xhdpi" />
+<!--
   <icon src="res/icon/windows-phone/icon-48.png"  gap:platform="winphone" />
   <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />  
-  --><!--
-  <icon src="img/ios/mobile.png"            gap:platform="ios"        width="57" height="57" />
-  <icon src="img/ios/tablet.png"            gap:platform="ios"        width="72" height="72" />
-  <icon src="img/ios/mobile2x.png"         gap:platform="ios"        width="114" height="114" />
-  <icon src="img/ios/tabletx2.png"         gap:platform="ios"        width="144" height="144" />
-
-
   --><!--
   <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
   <gap:splash src="res/screen/android/screen-mdpi-portrait.png"  gap:platform="android" gap:density="mdpi" />
@@ -64,7 +55,6 @@
   -->
   <gap:splash src="app/img/splash.png"  gap:platform="ios"     width="320" height="480" />
   <gap:splash src="app/img/splash.png"  gap:platform="android" gap:density="hdpi" />
-  <!--<gap:plugin name="com.phonegap.plugins.barcodescanner" />-->
 
   <gap:platform name="ios" />
   <gap:platform name="android" />
