@@ -38,30 +38,40 @@
 
         updateNetworkStatus();
         $scope.login = function () {
-            $scope.notifyProgressStarted();
-            var password = $scope.Password;
-            $scope.Password = "";
-            var authResult = loginManager.authenticate($scope.Username, password);
-            
-            function loginUser(user) {
-                loginManager.login(user).then(navigate);
-            }
+            var rx = /^[a-zA-Z\d]+$/;
+            if (!$scope.Username || $scope.Username == "") {
+                $scope.loginError = textResource.get("MissingUserName");
+            } else if (!$scope.Password || $scope.Password == "") {
+                $scope.loginError = textResource.get("MissingPassword");
+            } else if (!rx.test($scope.Username)) {
+                $scope.loginError = "InvalidUsername";
+            } else if (!rx.test($scope.Password)) {
+                $scope.loginError = "InvalidPassword";
+            } else {
+                $scope.notifyProgressStarted();
+                var password = $scope.Password;
+                $scope.Password = "";
+                var authResult = loginManager.authenticate($scope.Username, password);
 
-            function authenticationFailed(error) {
-                $scope.loginError = error.Message;
-                if (C.isError(error, Y.Errors.LockedUser)) {
-                    alertService.show(error.Dialog);
-                } else if (C.isError(error, Y.Errors.PasswrodChangeRequired)) {
-                    alertService.show(error.Dialog).then(function(result) {
-                        if (result.status == "Confirm") {
-                            window.open(error.ReturnUrl);
-                        }
-                    });
+                function loginUser(user) {
+                    loginManager.login(user).then(navigate);
                 }
+
+                function authenticationFailed(error) {
+                    $scope.loginError = error.Message;
+                    if (C.isError(error, Y.Errors.LockedUser)) {
+                        alertService.show(error.Dialog);
+                    } else if (C.isError(error, Y.Errors.PasswrodChangeRequired)) {
+                        alertService.show(error.Dialog).then(function(result) {
+                            if (result.status == "Confirm") {
+                                window.open(error.ReturnUrl);
+                            }
+                        });
+                    }
+                }
+
+                authResult.then(loginUser, authenticationFailed).finally($scope.notifyProgressCompleted);
             }
-
-            authResult.then(loginUser, authenticationFailed).finally($scope.notifyProgressCompleted);
-
         };
     };
 })(Simple, Cal, Cal.Yazil);

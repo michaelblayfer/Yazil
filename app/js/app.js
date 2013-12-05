@@ -115,6 +115,8 @@
             "AlertCancel": "ביטול",
             "AccountNumber": "חשבון מס'",
             "InvalidUsernameOrPassword": "יש להזין אותיות באנגלית או מספרים בלבד",
+            "InvalidUsername": "יש להזין אותיות באנגלית או מספרים בלבד, בשדה שם משתמש",
+            "InvalidPassword": "יש להזין אותיות באנגלית או מספרים בלבד, בשדה סיסמה",
             "NoAmount": "אין נתונים להצגה",
             "VersionUpdateRequired": "נדרש עדכון גרסה ע\"מ להשתמש באפליקציה",
             "ClickToUpdateVersion": "לחץ לעדכון גרסה",
@@ -122,7 +124,9 @@
             "Loading": "טוען",
             "Message": "הודעה",
             "ErrorMessage": "אירעה שגיאה בלתי צפויה",
-            "NoNextCredits":"זיכויים קרובים"
+            "NoNextCredits": "זיכויים קרובים",
+            "MissingUserName": "נא להזין שם משתמש",
+            "MissingPassword":"נא להזין סיסמה"
         });
     });
 

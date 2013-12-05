@@ -227,14 +227,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', end
         color: #333;       
     }
 
-    .balance_container {
+    .home_container {
         background: rgb(255,255,255); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(239,239,239,1) 90%, rgba(153,153,153,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(90%,rgba(239,239,239,1)), color-stop(100%,rgba(153,153,153,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 90%,rgba(153,153,153,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 90%,rgba(153,153,153,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 90%,rgba(153,153,153,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 90%,rgba(153,153,153,1) 100%); /* W3C */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(239,239,239,1) 95%, rgba(153,153,153,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(95%,rgba(239,239,239,1)), color-stop(100%,rgba(153,153,153,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 95%,rgba(153,153,153,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 95%,rgba(153,153,153,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 95%,rgba(153,153,153,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 95%,rgba(153,153,153,1) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#999999',GradientType=0 ); /* IE6-9 */
     }
 
@@ -1026,4 +1026,22 @@ td.creditValue:before {
 
 .version {
     color: white;
+}
+
+
+.underline {
+    text-decoration: underline;
+}
+
+ol { list-style: decimal inside; }
+ul { list-style: disc inside; }
+
+.ng-click-active .expand_collapse.collapsed
+{
+    background-image: url(../img/button_open-disabled.png);
+}
+
+.ng-click-active .expand_collapse.expanded 
+{
+    background-image: url(../img/button_close-disabled.png);
 }
