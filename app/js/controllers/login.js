@@ -38,20 +38,22 @@
 
         updateNetworkStatus();
         $scope.login = function () {
+            var userName = $scope.Username, password = $scope.Password;
+            $scope.Password = "";
+            $scope.Username = "";
             var rx = /^[a-zA-Z\d]+$/;
-            if (!$scope.Username || $scope.Username == "") {
+            if (!userName || userName == "") {
                 $scope.loginError = textResource.get("MissingUserName");
-            } else if (!$scope.Password || $scope.Password == "") {
+            } else if (!password || password == "") {
                 $scope.loginError = textResource.get("MissingPassword");
-            } else if (!rx.test($scope.Username)) {
+            } else if (!rx.test(userName)) {
                 $scope.loginError = "InvalidUsername";
-            } else if (!rx.test($scope.Password)) {
+            } else if (!rx.test(password)) {
                 $scope.loginError = "InvalidPassword";
             } else {
                 $scope.notifyProgressStarted();
-                var password = $scope.Password;
-                $scope.Password = "";
-                var authResult = loginManager.authenticate($scope.Username, password);
+
+                var authResult = loginManager.authenticate(userName, password);
 
                 function loginUser(user) {
                     loginManager.login(user).then(navigate);
@@ -67,6 +69,8 @@
                                 window.open(error.ReturnUrl);
                             }
                         });
+                    } else if (C.isError(error, Y.Errors.LoginInactiveCustomer)) {
+                        alertService.show(error.Dialog);
                     }
                 }
 

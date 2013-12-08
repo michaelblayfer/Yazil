@@ -1,6 +1,6 @@
 ﻿(function (S, C, Y) {
 
-    Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService, accountManager, analytics, loginManager) {
+    Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService, accountManager, analytics, loginManager, alertService, textResource) {
         $scope.displayCalLogo = true;
         $scope.animations = {
             page: false,
@@ -49,9 +49,18 @@
         });
         
         $rootScope.logout = function () {
-            analytics.recordClick(Y.AnalyticsEvents.Logout);
-            loginManager.logout().finally(function () {
-                $location.path("/Login");
+            alertService.show({
+                message: textResource.get("LogoutMessage"),
+                confirmText: textResource.get("Yes"),
+                cancelText: textResource.get("No")
+            }).then(function (result) {
+                
+                if (result.status == "Confirm") {
+                    analytics.recordClick(Y.AnalyticsEvents.Logout);
+                    loginManager.logout().finally(function () {
+                        $location.path("/Login");
+                    });
+                }
             });
         };
         $scope.navigateToCustomerService = function (from) {
