@@ -57,6 +57,7 @@
                 confirmText: textResource.get("Yes"),
                 cancelText: textResource.get("No")
             }).then(function (result) {
+                alert(result.status);
                 if (result.status == "Confirm") {
                     analytics.recordClick(Y.AnalyticsEvents.Logout);
                     loginManager.logout().finally(function () {
