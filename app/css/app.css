@@ -512,6 +512,11 @@ footer button[disabled] .buttonLabel {
 .customer_service:hover {
     color: white;
     overflow: hidden;
+    
+}
+
+a.tel {
+    text-decoration: underline !important;
 }
 
     .customer_service .row {
@@ -1088,3 +1093,4 @@ ul { list-style: disc inside; }
     top: 0;
     bottom: 0;
 }
+

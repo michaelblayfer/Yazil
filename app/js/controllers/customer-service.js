@@ -6,13 +6,15 @@
             
             $scope.items = [{
                 title: "חייג",
-                text: $sce.trustAsHtml("<a href='tel:" + metadata.ServicePhone1 + "'>" + metadata.ServicePhone1 + "</a>"),
-                cssClass: "i-phone"
+                text: metadata.ServicePhone1,
+                cssClass: "i-phone",
+                type: "tel"
             },
              {
                  title: "פקס",
-                 text: $sce.trustAsHtml(metadata.ServicePhone2),
-                 cssClass: "i-fax"
+                 text:metadata.ServicePhone2,
+                 cssClass: "i-fax",
+                 type: "tel"
              },
              {
                  title: "שעות פעילות",
