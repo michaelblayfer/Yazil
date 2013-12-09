@@ -49,12 +49,12 @@
         });
         
         $rootScope.logout = function () {
+            alert("LOGOUT?");
             alertService.show({
                 message: textResource.get("LogoutMessage"),
                 confirmText: textResource.get("Yes"),
                 cancelText: textResource.get("No")
             }).then(function (result) {
-                
                 if (result.status == "Confirm") {
                     analytics.recordClick(Y.AnalyticsEvents.Logout);
                     loginManager.logout().finally(function () {
