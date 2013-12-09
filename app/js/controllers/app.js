@@ -1,6 +1,14 @@
 ﻿(function (S, C, Y) {
 
     Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService, accountManager, analytics, loginManager, alertService, textResource) {
+        alertService.show({
+            message: "test",
+            confirmText: "Yes",
+            cancelText: "No"
+        }).then(function (result) {
+            alert("s" + JSON.stringify(result));
+        });
+
         $scope.displayCalLogo = true;
         $scope.animations = {
             page: false,
