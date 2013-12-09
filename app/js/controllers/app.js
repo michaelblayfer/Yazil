@@ -49,7 +49,7 @@
         });
         
         $rootScope.logout = function () {
-            alert("LOGOUT?");
+           
             alertService.show({
                 message: textResource.get("LogoutMessage"),
                 confirmText: textResource.get("Yes"),
