@@ -10,7 +10,7 @@
         });
         function run(method, url, parameters, context, token) {
 
-            if (url.indexOf("CreditInfoByAccounts") == 0) {
+            if (url.indexOf("--CreditInfoByAccounts") == 0) {
                 var results = {
                     data: {
                         UpdateURLIOS: "google.com?q=ios",
