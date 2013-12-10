@@ -16,7 +16,7 @@
             });
         }, function (error) {
             alertService.show(error.Dialog).then(function () {
-                $scope.logout();
+                $scope.unattendedLogout();
             });
         });
 
@@ -60,7 +60,7 @@
                 }
 
                 function authenticationFailed(error) {
-                    $scope.loginError = error.Message;
+                    
                     if (C.isError(error, Y.Errors.LockedUser)) {
                         alertService.show(error.Dialog);
                     } else if (C.isError(error, Y.Errors.PasswrodChangeRequired)) {

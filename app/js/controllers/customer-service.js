@@ -13,8 +13,7 @@
              {
                  title: "פקס",
                  text:metadata.ServicePhone2,
-                 cssClass: "i-fax",
-                 type: "tel"
+                 cssClass: "i-fax"
              },
              {
                  title: "שעות פעילות",
@@ -28,7 +27,7 @@
              } ];
         }, function(error) {
             alertService.show(error.Dialog).then(function () {
-                $scope.logout();
+                $scope.unattendedLogout();
             });
         });
 

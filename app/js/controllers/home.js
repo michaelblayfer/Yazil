@@ -1,6 +1,6 @@
 ﻿(function (S, C, Y) {
     
-    Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService, analytics) {
+    Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService, analytics, textResource) {
         $rootScope.loaded = false;
 
         $scope.gotoAccountDetails = function () {
@@ -12,10 +12,19 @@
 
         function onLoadError(error) {
             if (typeof error.status !== "undefined" && error.status != 200) {
-                $rootScope.logout();
+                var messageDialog = {
+                    message: textResource.get("CommunicationError"),
+                    confirmText: textResource.get("Retry"),
+                    cancelText: textResource.get("Close")
+                };
+                alertService.show(messageDialog).then(function (result) {
+                    if (result.status == "Confirm") {
+                        load();
+                    }
+                });
             } else {
                 alertService.show(error.Dialog).then(function() {
-                    $rootScope.logout();
+                    $scope.unattendedLogout();
                 });
             }
         }
@@ -25,10 +34,14 @@
             $rootScope.loaded = true;
         }
 
-        accountManager.getAccountSummary().then(onSummaryAvailable).then(function () {
-            $scope.notifyProgressCompleted();
-            return accountManager.loadAccounts();
-        }).catch(onLoadError).finally($scope.notifyProgressCompleted);
+        function load() {
+            accountManager.getAccountSummary().then(onSummaryAvailable).then(function() {
+                $scope.notifyProgressCompleted();
+                return accountManager.loadAccounts();
+            }).catch(onLoadError).finally($scope.notifyProgressCompleted);
+        }
+
+        load();
 
     };
     
