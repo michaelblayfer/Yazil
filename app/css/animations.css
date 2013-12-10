@@ -83,14 +83,16 @@
     -webkit-transition: height 1.5s;
 }
 
-
-.swipe-animations-enabled .next-animation {
+.c_cell div {
+    width: 100%;
+}
+.swipe-animations-enabled .next-animation .c_cell div{
     position: relative;  
     -webkit-animation: left linear 0.5s;
     animation: left linear 0.5s;
 }
 
-.swipe-animations-enabled .previous-animation {
+.swipe-animations-enabled .previous-animation  .c_cell div{
     position: relative;  
     -webkit-animation: right linear 0.5s;
     animation: right linear 0.5s;
@@ -98,69 +100,69 @@
 
 @-webkit-keyframes left {
   0% {
-    left: -100%;
+    left: 10%;
   }
   10% {
-      left: -90%;
+      left: 20%;
   }
   20% {
-      left: -80%;
+      left: 30%;
   }
   30% {
-      left: -70%;
+      left: 40%;
   }
   40% {
-      left: -60%;
+      left: 50%;
   }
   50% {
-      left: -50%;
+      left: 60%;
   }
   60% {
-      left: -40%;
+      left: 70%;
   }
   70% {
-      left: -30%;
+      left: 80%;
   }
   80% {
-      left: -20%;
+      left: 90%;
   }
   90% {
-      left: -10%;
+      left: 100%;
   }
   100% {
     left: 0;
   }
 }
 @keyframes left {
-  0% {
-    left: -100%;
+   0% {
+    left: 10%;
   }
   10% {
-      left: -90%;
+      left: 20%;
   }
   20% {
-      left: -80%;
+      left: 30%;
   }
   30% {
-      left: -70%;
+      left: 40%;
   }
   40% {
-      left: -60%;
+      left: 50%;
   }
   50% {
-      left: -50%;
+      left: 60%;
   }
   60% {
-      left: -40%;
+      left: 70%;
   }
   70% {
-      left: -30%;
+      left: 80%;
   }
   80% {
-      left: -20%;
+      left: 90%;
   }
   90% {
-      left: -10%;
+      left: 100%;
   }
   100% {
     left: 0;
@@ -169,42 +171,43 @@
 
 @-webkit-keyframes right {
   0% {
-    right: -100%;
+    left: -10%;
   }
   10% {
-      right: -90%;
+      left: -20%;
   }
   20% {
-      right: -80%;
+      left: -30%;
   }
   30% {
-      right: -70%;
+      left: -40%;
   }
   40% {
-      right: -60%;
+      left: -50%;
   }
   50% {
-      right: -50%;
+      left: -60%;
   }
   60% {
-      right: -40%;
+      left: -70%;
   }
   70% {
-      right: -30%;
+      left: -80%;
   }
   80% {
-      right: -20%;
+      left: -90%;
   }
   90% {
-      right: -10%;
+      left: -100%;
   }
   100% {
-    right: 0;
+    left: 0;
   }
 }
 @keyframes right {
   0% {
     right: -100%;
+    text-align: left;
   }
   10% {
       right: -90%;
@@ -235,5 +238,6 @@
   }
   100% {
     right: 0;
+    text-align: right;
   }
 }

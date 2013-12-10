@@ -2,10 +2,11 @@
     <div class="row" ng-repeat="item in items">
         <div class="icon i {{item.cssClass}}"></div>
         <div class="content">
-        <div class="title">
-            {{item.title}}
-        </div>
-            <div class="text" ng-bind-html="item.text" >
+            <div class="title">
+                {{item.title}}
+            </div>
+            <a class='text tel' ng-href="tel:{{item.text}}" ng-show="item.type=='tel'">{{item.text}}</a>
+            <div ng-hide="item.type=='tel'" class="text" ng-bind-html="item.text" >
 
             </div>
         </div>

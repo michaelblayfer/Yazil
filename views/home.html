@@ -55,7 +55,7 @@
             <button ng-click="gotoAccountDetails()" ng-disabled="!loaded || noActiveAccounts">{{"GoToAccountDetails"|l10n}}</button>
         </div>
         <div class="lastLoginInfo">
-            שלום <span>{{ accountOwnerName }}</span>, כניסתך האחרונה לאתר בוצעה בתאריך <span>{{ lastLoginDate }}</span>
-        </div>
+            <span>שלום </span><span class="customer-name">{{ accountOwnerName }}</span>
+        </div><div class="lastLoginInfo"><span>כניסתך האחרונה בוצעה בתאריך </span><span>{{ lastLoginDate }}</span></div>
     </div>
 </div>

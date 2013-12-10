@@ -25,7 +25,8 @@
             VersionRequired: 2,
             PasswrodChangeRequired: [ 43, 44, 49 ],
             LockedUser: 48,
-            InactiveCustomer: 2
+            InactiveCustomer: 2,
+            LoginInactiveCustomer:7
         },
         AnalyticsEvents: {
             Login: { Category: "כניסה", Label: "מסך פתיחה" },

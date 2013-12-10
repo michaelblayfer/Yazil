@@ -512,6 +512,11 @@ footer button[disabled] .buttonLabel {
 .customer_service:hover {
     color: white;
     overflow: hidden;
+    
+}
+
+a.tel {
+    text-decoration: underline !important;
 }
 
     .customer_service .row {
@@ -642,6 +647,10 @@ footer button[disabled] .i-account {
 .credit_row {
     position: relative;
     height: 50%;
+}
+
+.credit_row, 
+.credit_table {
     background: rgb(9,61,118); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(9,61,118,1) 0%, rgba(3,41,85,1) 70%, rgba(1,22,45,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(9,61,118,1)), color-stop(70%,rgba(3,41,85,1)), color-stop(100%,rgba(1,22,45,1))); /* Chrome,Safari4+ */
@@ -650,8 +659,8 @@ footer button[disabled] .i-account {
     background: -ms-linear-gradient(top, rgba(9,61,118,1) 0%,rgba(3,41,85,1) 70%,rgba(1,22,45,1) 100%); /* IE10+ */
     background: linear-gradient(to bottom, rgba(9,61,118,1) 0%,rgba(3,41,85,1) 70%,rgba(1,22,45,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093d76', endColorstr='#01162d',GradientType=0 ); /* IE6-9 */
+    
 }
-
 
     .credit_row.expanded {
         height: 75%;
@@ -684,6 +693,7 @@ footer button[disabled] .i-account {
 .balance_container {
     position: absolute;
     bottom: 24px;
+    bottom: 12px;
     left: 0;
     right: 0;
 }
@@ -873,7 +883,6 @@ button:focus {
 
 .date {
     color: #9ebad2;
-    font-family: Tahoma;
 }
 
 @media(max-width:321px) {
@@ -1072,3 +1081,16 @@ ul { list-style: disc inside; }
 {
     background-image: url(../img/button_close-disabled.png);
 }
+
+.credit_row {
+    position: relative;
+}
+.account-details {
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
