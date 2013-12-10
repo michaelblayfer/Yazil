@@ -5,7 +5,7 @@
             <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="userName" ng-model="Username" placeholder="{{ 'Username' | l10n }}" r-equired="required" maxlength="8" ng-pattern="/^[a-zA-Z\d]+$/" autocomplete="off" />
             <div class="validationMessage" ng-show="Login.userName.$invalid && Login.userName.$dirty">{{"InvalidUsernameOrPassword"|l10n}}</div>
         </div>
-        <div class="center">
+        <div class="center password">
             <input type="password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="password" ng-model="Password" placeholder="{{ 'Password' | l10n }}" r-equired="required" maxlength="20" ng-pattern="/^[a-zA-Z\d]+$/" />
             <div class="validationMessage" ng-show="Login.password.$invalid && Login.password.$dirty">{{"InvalidUsernameOrPassword"|l10n}}</div>
         </div>

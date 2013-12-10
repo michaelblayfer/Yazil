@@ -60,8 +60,9 @@
                 }
 
                 function authenticationFailed(error) {
-                    
-                    if (C.isError(error, Y.Errors.LockedUser)) {
+                    if (C.isError(error, Y.Errors.InvalidUsernameOrPassword)) {
+                        $scope.loginError = error.Message;
+                    } else if (C.isError(error, Y.Errors.LockedUser)) {
                         alertService.show(error.Dialog);
                     } else if (C.isError(error, Y.Errors.PasswrodChangeRequired)) {
                         alertService.show(error.Dialog).then(function(result) {

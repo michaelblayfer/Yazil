@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>יציל</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="version" content="1.0.15">
+    <meta name="version" content="1.0.16">
     <meta name="base-url" content="https://stage-restservices.cal-online.co.il/YazilRest-Dev">
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="app/css/animations.css" />
     <script type="text/javascript" src="phonegap.js"></script>
 </head>
-<body class="rtl" ng-controllr="AppCtrl" ng-class="{'page-animations-enabled': animations.page && !isInLoginPage(), 'swipe-animations-enabled': animations.swipe }">
+<body class="rtl" ng-controller="AppCtrl" ng-class="{'page-animations-enabled': animations.page && !isInLoginPage(), 'swipe-animations-enabled': animations.swipe }">
     <div class="loading" ng-show="isInProgress">
     </div>
     

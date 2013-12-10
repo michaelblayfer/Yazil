@@ -1094,3 +1094,12 @@ ul { list-style: disc inside; }
     bottom: 0;
 }
 
+.validationMessage.ng-hide {
+    display: block !important;
+    visibility: hidden;
+}
+
+.center.password,
+.forgot_password {
+    margin-top: 3%;
+}

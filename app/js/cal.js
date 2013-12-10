@@ -21,6 +21,7 @@
     Yazil: {
         
         Errors: {
+            InvalidUsernameOrPassword: [1,2,3,42,45],
             MetadataErrors: [1, 2],
             MetadataWarning: 1,
             VersionRequired: 2,
