@@ -58,7 +58,6 @@
                 $scope.isInProgress = false;
             });
             $rootScope.$on("$routeChangeSuccess", function(scope, next, current) {
-                console.log("CUrr", current);
                 if (next && next.locals && next.locals.pageInfo) {
                     $scope.header = $filter("l10n")(next.locals.pageInfo.header);
                     $scope.hideFooter = next.locals.pageInfo.hideFooter;
