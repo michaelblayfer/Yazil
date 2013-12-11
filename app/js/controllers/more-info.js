@@ -7,7 +7,7 @@
             $scope.fax = metadata.ServicePhone2;
         }, function (error) {
             alertService.show(error.Dialog).then(function () {
-                $scope.logout();
+                $scope.unattendedLogout();
             });
         });
 

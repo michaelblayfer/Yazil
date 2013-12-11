@@ -11,7 +11,7 @@
             }
         }, function (error) {
             alertService.show(error.Dialog).then(function () {
-                $rootScope.logout();
+                $scope.unattendedLogout();
             });
         });
 

@@ -10,15 +10,15 @@
         });
         function run(method, url, parameters, context, token) {
 
-            if (url.indexOf("-sAccountCreditTransactions") == 0) {
+            if (url.indexOf("--CreditInfoByAccounts") == 0) {
                 var results = {
                     data: {
                         UpdateURLIOS: "google.com?q=ios",
                         UpdateURLAndroid: "google.com?q=android",
                         Response: {
                             Status: {
-                                SeverityCode: "W",
-                                SeverityNumber: "002",
+                                SeverityCode: "E",
+                                SeverityNumber: "001",
                                 Description: "חובה לעדכן גרסה"
                             },
                             DialogBox: {
