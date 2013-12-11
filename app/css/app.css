@@ -171,7 +171,7 @@ label {
 .balance {
     clear: both;
     padding: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 2px;
     margin-right: auto;
     margin-left: auto;
     width: 86%;
@@ -321,16 +321,6 @@ header {
 
 .credits .title {
     font-size: 12pt;
-}
-
-.balance .left {
-    width: 38.8%;
-    display: inline-block;
-}
-
-.balance .right {
-    width: 58.8%;
-    display: inline-block;
 }
 
 .comment {
@@ -484,7 +474,7 @@ footer button[disabled] .buttonLabel {
 .expand_collapse {
     width: 64px;
     position: absolute;
-    left: 0;
+    left: 2px;
     top: 0;
     bottom: 0;
     background-position: center center;
@@ -797,6 +787,7 @@ footer button[disabled] .i-account {
 table {
     border: none;
     border-collapse: collapse;
+    border-spacing: 0;
     width: 100%;
 }
 
@@ -941,7 +932,7 @@ input {
     }
 
 .lastLoginInfo {
-    font-size: 10px;
+    font-size: 8pt;
     text-align: center;
     line-height: 18px;
 }
