@@ -3,16 +3,15 @@
     Y.CustomerServiceController = function ($scope, $location, $sce, metadataService, alertService) {
             
         metadataService.getMetadata().then(function (metadata) {
-            
             $scope.items = [{
                 title: "חייג",
-                text: metadata.ServicePhone1,
+                text: $sce.trustAsHtml(metadata.ServicePhone1),
                 cssClass: "i-phone",
                 type: "tel"
             },
              {
                  title: "פקס",
-                 text:metadata.ServicePhone2,
+                 text: $sce.trustAsHtml(metadata.ServicePhone2),
                  cssClass: "i-fax"
              },
              {
