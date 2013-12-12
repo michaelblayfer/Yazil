@@ -61,8 +61,7 @@
                 error.Severity = response.Status.SeverityCode;
                 error.Number = response.Status.SeverityNumber;
                 error.Message = response.Status.Description;
-                // TODO: ASK!!!!
-                error.ReturnUrl = response.ReturnUrl;
+                error.ReturnUrl = response.Status.ReturnUrl;
 
                 if (response.DialogBox) {
                     error.Dialog = {

@@ -1,5 +1,5 @@
-(function(S, C, Y) {
-    Y.LoginController = function ($scope, $location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager, alertService, calConfiguration, analytics) {
+﻿(function(S, C, Y) {
+    Y.LoginController = function ($scope, $location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager, alertService, calConfiguration, analytics, utils) {
         $scope.displayVersion = false;
         $scope.version = calConfiguration.version;
         
@@ -20,8 +20,9 @@
             });
         });
 
+
         $scope.forgotPassword = function() {
-            window.open($scope.forgotPasswordLink);
+            utils.browser.open($scope.forgotPasswordLink);
         };
 
        
@@ -67,7 +68,7 @@
                     } else if (C.isError(error, Y.Errors.PasswrodChangeRequired)) {
                         alertService.show(error.Dialog).then(function(result) {
                             if (result.status == "Confirm") {
-                                window.open(error.ReturnUrl);
+                                utils.browser.open(error.ReturnUrl);
                             }
                         });
                     } else if (C.isError(error, Y.Errors.LoginInactiveCustomer)) {

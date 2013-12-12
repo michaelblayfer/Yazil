@@ -44,11 +44,13 @@
                 <div class="creditValue empty" ng-hide="totalBalance">{{"NoAmount"|l10n }}</div>
 
             </div>
-            <div class="left">
-                <div class="title">{{"BalanceValueDate"|l10n}}</div>
-                <div class="date">{{balanceValueDate|date:"dd/MM/yy"}}</div>
-            </div>
             <div class="comment">{{"BalanceComment"|l10n}}</div>
+        
+            <div >
+                <span class="title">{{"BalanceValueDate"|l10n}}</span>
+                <span class="date">{{balanceValueDate|date:"dd/MM/yy"}}</span>
+                
+            </div>
         </div>
 
         <div class="inner-button">

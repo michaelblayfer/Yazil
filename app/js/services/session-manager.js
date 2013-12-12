@@ -9,7 +9,7 @@
         function checkSession() {
             get("User").then(function (user) {
                 if (!isValidToken(user)) {
-                    $rootScope.logout();
+                    $rootScope.unattendedLogout();
                 }
             });
         }
