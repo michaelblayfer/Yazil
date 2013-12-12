@@ -1057,15 +1057,16 @@ td.creditValue:before {
 .underline {
     text-decoration: underline;
 }
-
 ol {
-     list-style: decimal inside;
-     
+    margin: 0;
 }
-ol li p {
-    margin-right: 24px;
+ol li{
+     list-style: decimal outside;
+    margin: 0 24px 0 0;  
 }
-ul { list-style: disc inside; }
+ul {
+     list-style: disc inside;
+}
 
 .ng-click-active .expand_collapse.collapsed
 {
