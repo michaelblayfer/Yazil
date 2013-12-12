@@ -107,26 +107,6 @@
     <script src="app/js/controllers/more-info.js"></script>
 
     <script src="app/js/app.js"></script>
-    <script>
 
-        
-
-        document.addEventListener("deviceready", onDeviceReady, false);
-        // Get the mask element as soon as possible, before phonegap
-        var maskElement = document.getElementById("mask");
-        function onDeviceReady() {
-            
-            document.addEventListener("pause", function (e) {
-                maskElement.style.display = "block";
-                $("input[type=password]").val("");
-            }, false);
-            document.addEventListener("resume", function (e) {
-                maskElement.style.display = "none";
-                $("input[type=password]").val("");
-            }, false);
-            
-
-        }
-    </script>
 </body>
 </html>
