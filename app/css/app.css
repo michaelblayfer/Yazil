@@ -798,6 +798,8 @@ table {
         vertical-align: middle;
         font-weight: normal;
         width: 44%;
+        line-height: 32px;
+        padding-right: 2px;
     }
 
         .account-details thead th:last-child {

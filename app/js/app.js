@@ -6,8 +6,10 @@
     yazilModule.service("calServiceClient", C.ServiceClient);
     yazilModule.service("sessionManager", Y.SessionManager);
     
+    var analyticsService = S.GoogleAnalyticsService('UA-18343624-8');
+    yazilModule.service("analytics", analyticsService);
     yazilModule.service("yazilServiceClient", Y.ServiceClient);
-    
+
     yazilModule.service("loginManager", Y.LoginManager);
     yazilModule.service("accountManager", Y.AccountManager);
     yazilModule.service("metadataService", Y.MetadataService);
@@ -40,6 +42,7 @@
     yazilModule.controller("CustomerServiceCtrl", Y.CustomerServiceController);
     yazilModule.controller("MoreInfoCtrl", Y.MoreInfoController);
     yazilModule.controller("SplashCtrl", Y.SplashController);
+
 
     yazilModule.config(function ($routeProvider) {
         $routeProvider
