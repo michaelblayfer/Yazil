@@ -23,7 +23,7 @@
             }
         }
 
-        metadataService.fetchMetadata().then(function() {
+        metadataService.fetchMetadata().then(function(metadata) {
             navigate();
         }, function (error) {
             if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {

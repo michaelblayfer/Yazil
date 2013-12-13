@@ -483,10 +483,7 @@ footer button[disabled] .buttonLabel {
 }
 
 .account-details .expand_collapse {
-    position: relative;
     height: 64px;
-    left: auto;
-    right: auto;
     background-position: center center;
 }
 
@@ -801,6 +798,8 @@ table {
         vertical-align: middle;
         font-weight: normal;
         width: 44%;
+        line-height: 32px;
+        padding-right: 2px;
     }
 
         .account-details thead th:last-child {
@@ -1057,15 +1056,16 @@ td.creditValue:before {
 .underline {
     text-decoration: underline;
 }
-
 ol {
-     list-style: decimal inside;
-     
+    margin: 0;
 }
-ol li p {
-    margin-right: 24px;
+ol li{
+     list-style: decimal outside;
+    margin: 0 24px 0 0;  
 }
-ul { list-style: disc inside; }
+ul {
+     list-style: disc inside;
+}
 
 .ng-click-active .expand_collapse.collapsed
 {
@@ -1082,6 +1082,7 @@ ul { list-style: disc inside; }
 }
 .account-details {
     overflow: auto;
+    overflow-x:hidden;
     position: absolute;
     left: 0;
     right: 0;
