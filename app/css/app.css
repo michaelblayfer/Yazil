@@ -483,10 +483,7 @@ footer button[disabled] .buttonLabel {
 }
 
 .account-details .expand_collapse {
-    position: relative;
     height: 64px;
-    left: auto;
-    right: auto;
     background-position: center center;
 }
 
@@ -1083,6 +1080,7 @@ ul {
 }
 .account-details {
     overflow: auto;
+    overflow-x:hidden;
     position: absolute;
     left: 0;
     right: 0;
