@@ -35,7 +35,12 @@
 
 
 
+    <script src="lib/analytics/ga.js"></script>
+    <script>
+        console.log("G", _gaq);
 
+        _gaq.push(["_trackEvent", "test", "Click", "The Test"]);
+    </script>
     <script src="lib/underscore/underscore.1.5.2.min.js"></script>
 
     <script src="lib/jquery/jquery-2.0.3.min.js"></script>
@@ -67,6 +72,7 @@
     <script src="lib/simple/services/network-service.js"></script>
     <script src="lib/simple/services/network-manager.js"></script>
     <script src="lib/simple/services/alert-service.js"></script>
+    
     <script src="lib/simple/services/analytics-service.js"></script>
     <!-- Filters -->
     <script src="lib/simple/filters/localize.js"></script>
