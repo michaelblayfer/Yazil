@@ -1,6 +1,6 @@
 (function(S, C, Y) {
 
-    Y.ServiceClient = function(calConfiguration, calServiceClient) {
+    Y.ServiceClient = function($q,calConfiguration, calServiceClient) {
 
         function authenticate(userName, password, loadDataOperation) {
             return calServiceClient.run("POST",

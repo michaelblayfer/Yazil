@@ -57,21 +57,22 @@
                 var authResult = loginManager.authenticate(userName, password);
 
                 function loginUser(user) {
+                    
                     loginManager.login(user).then(navigate);
                 }
 
                 function authenticationFailed(error) {
                     if (C.isError(error, Y.Errors.InvalidUsernameOrPassword)) {
                         $scope.loginError = error.Message;
-                    } else if (C.isError(error, Y.Errors.LockedUser)) {
-                        alertService.show(error.Dialog);
-                    } else if (C.isError(error, Y.Errors.PasswrodChangeRequired)) {
+                    }  else if (C.isError(error, Y.Errors.PasswrodChangeRequired)) {
                         alertService.show(error.Dialog).then(function(result) {
                             if (result.status == "Confirm") {
                                 utils.browser.open(error.ReturnUrl);
                             }
                         });
-                    } else if (C.isError(error, Y.Errors.LoginInactiveCustomer)) {
+                    } else {
+                        // C.isError(error, Y.Errors.LockedUser)
+                        // C.isError(error, Y.Errors.LoginInactiveCustomer)
                         alertService.show(error.Dialog);
                     }
                 }

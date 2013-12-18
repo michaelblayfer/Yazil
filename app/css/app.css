@@ -23,6 +23,9 @@ body, textarea {
     -webkit-user-drag: none;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
 .container-fluid {
     padding: 0;
 }
