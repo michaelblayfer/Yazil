@@ -1080,6 +1080,10 @@ ul {
     background-image: url(../img/button_close-disabled.png);
 }
 
+.inner-button button.ng-click-active {
+    background: #888;
+}
+
 .credit_row {
     position: relative;
 }
