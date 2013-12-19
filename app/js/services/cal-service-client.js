@@ -80,6 +80,7 @@
             function processResults(results) {
 
                 var data = results.data;
+                
                 var result = $q.defer();
                 var response = data.Response;
                 var status = response.Status;

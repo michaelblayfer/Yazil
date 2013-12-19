@@ -23,6 +23,9 @@ body, textarea {
     -webkit-user-drag: none;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
 .container-fluid {
     padding: 0;
 }
@@ -1075,6 +1078,10 @@ ul {
 .ng-click-active .expand_collapse.expanded 
 {
     background-image: url(../img/button_close-disabled.png);
+}
+
+.inner-button button.ng-click-active {
+    background: #888;
 }
 
 .credit_row {
