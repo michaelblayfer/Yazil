@@ -922,13 +922,10 @@ input {
     }
 
 .modal {
-    width: auto;
+    width: 92%;
+    margin-right: 4%;
+    margin-left: auto;
     left: auto;
-    right: auto;
-    position: absolute;
-    left: 85%;
-    top: 50%;
-    right: 4%;
     border-radius: 0;
 }
 

@@ -9,27 +9,28 @@
                 if ($scope.step < 6) {
                     $scope.step++;
                     step();
-                } else {
-                    $timeout(navigate, 750);
-                }
+                } 
             }, 250);
         }
 
         step();
 
         function navigate() {
-            if ($scope.step == 6) {
-                $location.path("/Login");
-            }
+            $location.path("/Login");
         }
-
+        
         metadataService.fetchMetadata().then(function(metadata) {
-            navigate();
+            if ($scope.step == 6) {
+                navigate();
+            } else {
+                $timeout(navigate, 2000);
+            }
         }, function (error) {
             if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
                 alertService.show(error.Dialog).then(function (result) {
                     if (result.status == "Confirm") {
-                        window.open(utils.os.isIOS() ? error.data.UpdateURLIOS : error.data.UpdateURLAndroid);
+                        var versionUpdateUrl = utils.os.isIOS() ? error.data.UpdateURLIOS : error.data.UpdateURLAndroid;
+                        utils.browser.open(versionUpdateUrl);
                     }
                 });
             } else {
