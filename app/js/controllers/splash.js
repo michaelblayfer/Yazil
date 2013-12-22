@@ -30,7 +30,7 @@
                 var dialog = error.Dialog;
                 dialog.overrideDefault = true;
                 dialog.dontDismiss = true;
-                $scope.step = 7;
+                //$scope.step = 7;
                 alertService.show(dialog).then(function (result) {
 
                     var versionUpdateUrl = error.data.UpdateURL;
