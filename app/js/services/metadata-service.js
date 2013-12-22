@@ -1,15 +1,20 @@
 ﻿(function(S, C, Y) {
 
     Y.MetadataService = function ($q, $timeout, storageService, yazilServiceClient) {
-
+        var cachedMetadata = null;
         function getMetadata() {
-            return storageService.prefix("Yazil").local("Metadata").then(function (metadata) {
-                if (metadata) {
-                    return metadata;
-                } else {
-                    return fetchMetadata().then(getMetadata);
-                }
-            });
+            if (cachedMetadata) {
+                return $q.when(cachedMetadata);
+            } else {
+                return fetchMetadata().then(getMetadata);
+            }
+            //return storageService.prefix("Yazil").local("Metadata").then(function (metadata) {
+            //    if (metadata) {
+            //        return metadata;
+            //    } else {
+            //        return fetchMetadata().then(getMetadata);
+            //    }
+            //});
         }
 
         function fetchMetadata() {
@@ -30,6 +35,8 @@
                     DisplayCalLogo: false
                 });
                 delete metadata.Response;
+                cachedMetadata = metadata;
+                return $q.when(cachedMetadata);
                 return storageService.prefix("Yazil").local("Metadata", metadata);
             });
             return $timeout(function () {

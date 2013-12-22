@@ -72,6 +72,7 @@
                 }, function () {
                     $rootScope.isLoggedIn = false;
                     if (anonymousAllowed.indexOf(next.templateUrl) >= 0) {
+                        alert("NPOT ALLOWED!");
                     } else {
                         if (!$rootScope.alreadyStarted) {
                             $location.path("/Splash");
