@@ -9,31 +9,34 @@
                 if ($scope.step < 6) {
                     $scope.step++;
                     step();
-                } else {
-                    $timeout(navigate, 750);
-                }
+                } 
             }, 250);
         }
 
         step();
 
         function navigate() {
-            if ($scope.step == 6) {
-                $location.path("/Login");
-            }
+            $location.path("/Login");
         }
-
+        
         metadataService.fetchMetadata().then(function(metadata) {
-            navigate();
-        }, function (error) {
-            if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
-                alertService.show(error.Dialog).then(function (result) {
-                    if (result.status == "Confirm") {
-                        window.open(utils.os.isIOS() ? error.data.UpdateURLIOS : error.data.UpdateURLAndroid);
-                    }
-                });
+            if ($scope.step == 6) {
+                navigate();
             } else {
-                alertService.show(error.Dialog || {});
+                $timeout(navigate, 2000);
+            }
+        }, function (error) {
+            navigator.alert("Error: " + JSON.stringify(error));
+            if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
+                var dialog = error.Dialog;
+                dialog.overrideDefault = true;
+                dialog.dontDismiss = true;
+                alertService.show(dialog).then(function (result) {
+
+                    var versionUpdateUrl = error.data.UpdateURL;
+                        utils.browser.open(versionUpdateUrl);
+                    
+                });
             }
         });
     };

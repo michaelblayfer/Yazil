@@ -1,10 +1,10 @@
 ﻿<!doctype html>
-<html lang="he-IL" ng-app="Cal.Yazil">
+<html lang="he-IL" >
 <head>
     <meta charset="utf-8">
     <title>יציל</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="version" content="1.0.21">
+    <meta name="version" content="1.0.29">
     <meta name="base-url" content="https://stage-restservices.cal-online.co.il/YazilRest-Dev">
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
@@ -109,6 +109,20 @@
     <script src="app/js/controllers/more-info.js"></script>
 
     <script src="app/js/app.js"></script>
+    
+    <script>
+        // ng-app="Cal.Yazil"
+        function onDeviceReady() {
+            angular.element(document).ready(function () {
+                angular.bootstrap(document, ['Cal.Yazil']);
+            });
+        }
 
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        } else {
+            onDeviceReady(); //this is the browser
+        }
+    </script>
 </body>
 </html>

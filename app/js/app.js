@@ -57,7 +57,7 @@
             .otherwise({ redirectTo: "/" });
     });
     
-    yazilModule.run(function ($rootScope, $location, loginManager, sessionManager, metadataService) {
+    yazilModule.run(function ($rootScope, $location, loginManager, sessionManager, metadataService, alertService, utils) {
         // register listener to watch route changes
 
         var anonymousAllowed = ["views/login.html", "views/customer-service.html", "views/splash.html"];
@@ -78,6 +78,19 @@
                         }
                     }
                 });
+            }, function (error) {
+                navigator.alert("Error: " + JSON.stringify(error));
+                if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
+                    var dialog = error.Dialog;
+                    dialog.overrideDefault = true;
+                    dialog.dontDismiss = true;
+                    alertService.show(dialog).then(function (result) {
+
+                        var versionUpdateUrl = error.data.UpdateURL;
+                        utils.browser.open(versionUpdateUrl);
+
+                    });
+                }
             });
             
         });
