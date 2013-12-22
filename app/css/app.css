@@ -924,7 +924,7 @@ input {
 .modal {
     width: 92%;
     margin-right: 4%;
-    margin-left: auto;
+    margin-left: 4%;
     left: auto;
     border-radius: 0;
 }
