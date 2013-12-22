@@ -925,10 +925,13 @@ input {
     width: auto;
     left: auto;
     right: auto;
-    position: absolute;
+    /*position: absolute;
     left: 85%;
     top: 50%;
-    right: 4%;
+    right: 4%;*/
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 0;
 }
 
