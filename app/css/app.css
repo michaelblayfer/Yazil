@@ -921,26 +921,16 @@ input {
         border-color: #eed3d7;
     }
 
-/*.modal {
-    width: auto;
-    left: auto;
-    right: auto;
-    position: absolute;
-    left: 85%;
-    top: 50%;
-    right: 4%;
-    border-radius: 0;
-    overflow: hidden;
-}*/
-
 .modal {
+    width: 92%;
+    margin-right: 4%;
+    margin-left: auto;
+    left: auto;
     border-radius: 0;
-    margin-left: 4%;
-    margin-right: 5%;
 }
 
     .modal.fade.in {
-        top: 90%;
+        top: 75%;
     }
 
 .lastLoginInfo {
