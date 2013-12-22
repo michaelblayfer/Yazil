@@ -16,7 +16,7 @@ body, textarea {
 
 .details_container, .credit_table,
 .c_row, .c_cell, .credit_row, .creditValue,
-.dock_bottom, login-box, button {
+.dock_bottom, login-box, button, .btn {
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     -webkit-user-select: none;
