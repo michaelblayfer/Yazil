@@ -33,7 +33,7 @@
                 $scope.step = 7;
                 alertService.show(dialog).then(function (result) {
 
-                    var versionUpdateUrl = utils.os.isIOS() ? error.data.UpdateURLIOS : error.data.UpdateURLAndroid;
+                    var versionUpdateUrl = error.data.UpdateURL;
                         utils.browser.open(versionUpdateUrl);
                     
                 });
