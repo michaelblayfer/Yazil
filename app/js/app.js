@@ -79,17 +79,8 @@
                     }
                 });
             }, function (error) {
-                if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
-                    var dialog = error.Dialog;
-                    dialog.overrideDefault = true;
-                    dialog.dontDismiss = true;
-                    alertService.show(dialog).then(function (result) {
-                        var versionUpdateUrl = error.data.UpdateURL;
-                        utils.browser.open(versionUpdateUrl);
-                    });
-                } else {
-                    alertService.show(error.Dialog || {});
-                }
+                $rootScope.alreadyStarted = false;
+                $location.path("/Splash");
             });
             
         });
