@@ -62,9 +62,11 @@
 
         var anonymousAllowed = ["views/login.html", "views/customer-service.html", "views/splash.html"];
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
+            alert("ROUTE???");
             metadataService.getMetadata().then(function (metadata) {
-                console.log("MD", metadata);
+                alert("MD" + JSON.stringify(metadata));
                 sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function (user) {
+                    alert("LOGGGGED IN!");
                     $rootScope.isLoggedIn = true;
                     sessionManager.start(user, metadata.SessionTimeout);
                 }, function () {
