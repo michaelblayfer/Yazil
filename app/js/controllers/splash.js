@@ -26,19 +26,17 @@
                 $timeout(navigate, 2000);
             }
         }, function (error) {
+            navigator.alert("Error: " + JSON.stringify(error));
             if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
                 var dialog = error.Dialog;
                 dialog.overrideDefault = true;
                 dialog.dontDismiss = true;
-                //$scope.step = 7;
                 alertService.show(dialog).then(function (result) {
 
                     var versionUpdateUrl = error.data.UpdateURL;
                         utils.browser.open(versionUpdateUrl);
                     
                 });
-            } else {
-                alertService.show(error.Dialog || {});
             }
         });
     };
