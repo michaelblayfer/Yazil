@@ -27,11 +27,15 @@
             }
         }, function (error) {
             if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
-                alertService.show(error.Dialog).then(function (result) {
-                    if (result.status == "Confirm") {
-                        var versionUpdateUrl = utils.os.isIOS() ? error.data.UpdateURLIOS : error.data.UpdateURLAndroid;
+                var dialog = error.Dialog;
+                dialog.overrideDefault = true;
+                dialog.dontDismiss = true;
+                $scope.step = 7;
+                alertService.show(dialog).then(function (result) {
+
+                    var versionUpdateUrl = utils.os.isIOS() ? error.data.UpdateURLIOS : error.data.UpdateURLAndroid;
                         utils.browser.open(versionUpdateUrl);
-                    }
+                    
                 });
             } else {
                 alertService.show(error.Dialog || {});
