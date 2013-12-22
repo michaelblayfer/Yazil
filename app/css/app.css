@@ -933,6 +933,12 @@ input {
     overflow: hidden;
 }*/
 
+.modal {
+    border-radius: 0;
+    margin-left: 4%;
+    margin-right: 5%;
+}
+
     .modal.fade.in {
         top: 90%;
     }
