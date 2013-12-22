@@ -2,7 +2,11 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.cal.yatzil"
+<<<<<<< HEAD
         version   = "1.0.21">
+=======
+        version   = "1.0.29">
+>>>>>>> parent of bd9fd32... 1.0.30
   <name>יציל</name>
 
   <description>
