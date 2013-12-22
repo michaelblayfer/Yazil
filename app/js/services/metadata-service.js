@@ -25,7 +25,9 @@
             //    Number: "1"
             //});
             //return result.promise;
+            alert("FETCH!");
             return yazilServiceClient.getMetadata().then(function (metadata) {
+                alert("FETCH2d!" + JSON.stringify(metadata));
                 metadata = _.defaults(metadata, {
                     AddressLine1: "רחוב תפוצות ישראל 13",
                     AddressLine2: 'אזה"ת כורוזין',
@@ -40,6 +42,8 @@
                 alert("METADATA!!!");
                 return $q.when(cachedMetadata);
                 return storageService.prefix("Yazil").local("Metadata", metadata);
+            }, function(error) {
+                alert("ERROR!" + JSON.stringify(error));
             });
             return $timeout(function () {
                 var metadata = {
