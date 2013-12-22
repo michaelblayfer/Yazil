@@ -3,6 +3,7 @@
     Y.MetadataService = function ($q, $timeout, storageService, yazilServiceClient) {
         var cachedMetadata = null;
         function getMetadata() {
+            alert("CACHE" + cachedMetadata);
             if (cachedMetadata) {
                 return $q.when(cachedMetadata);
             } else {
@@ -36,6 +37,7 @@
                 });
                 delete metadata.Response;
                 cachedMetadata = metadata;
+                alert("METADATA!!!");
                 return $q.when(cachedMetadata);
                 return storageService.prefix("Yazil").local("Metadata", metadata);
             });
