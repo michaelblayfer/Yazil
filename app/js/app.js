@@ -85,8 +85,13 @@
                     dialog.dontDismiss = true;
                     alertService.show(dialog).then(function (result) {
                         var versionUpdateUrl = error.data.UpdateURL;
-                        utils.browser.open(versionUpdateUrl);
-
+                        utils.browser.open(versionUpdateUrl).then(function() {
+                            if (navigator.app) {
+                                navigator.app.exitApp();
+                            } else if (navigator.device) {
+                                navigator.device.exitApp();
+                            }
+                        });
                     });
                 } else {
                     alertService.show(error.Dialog || {});
