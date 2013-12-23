@@ -1,7 +1,9 @@
 ﻿(function (S, C, Y) {
 
-    Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService, accountManager, analytics, loginManager, alertService, textResource, $window, phoneGap) {
- 
+    Y.AppController = function ($scope, $rootScope, $route, $location, $controller, $filter, metadataService, accountManager, analytics, loginManager, alertService, textResource, $window, phoneGap, utils) {
+
+
+
             function attachBackButton() {
                 document.addEventListener("backbutton", function(e) {
                     if (location.hash == "#/Login") {

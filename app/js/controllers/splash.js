@@ -1,6 +1,6 @@
 ﻿(function (S, C, Y) {
 
-    Y.SplashController = function ($scope, $location, accountManager, metadataService, utils, alertService, $timeout) {
+    Y.SplashController = function ($scope, $rootScope, $location, accountManager, metadataService, utils, alertService, $timeout) {
 
         $scope.step = 0;
 
@@ -15,27 +15,21 @@
 
         step();
 
+
         function navigate() {
             $location.path("/Login");
         }
-        
-        metadataService.fetchMetadata().then(function(metadata) {
-            if ($scope.step == 6) {
-                navigate();
-            } else {
-                $timeout(navigate, 2000);
-            }
+        return metadataService.fetchMetadata().then(function (metadata) {
+            navigate();
+            return metadata;
         }, function (error) {
             if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
                 var dialog = error.Dialog;
                 dialog.overrideDefault = true;
                 dialog.dontDismiss = true;
-                $scope.step = 7;
                 alertService.show(dialog).then(function (result) {
-
                     var versionUpdateUrl = error.data.UpdateURL;
-                        utils.browser.open(versionUpdateUrl);
-                    
+                    utils.browser.open(versionUpdateUrl);
                 });
             } else {
                 alertService.show(error.Dialog || {});

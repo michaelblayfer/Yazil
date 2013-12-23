@@ -5,7 +5,7 @@
         function authenticate(userName, password, loadDataOperation) {
             return calServiceClient.run("POST",
                 "YazilAuthenticator",
-                { UserName: userName, Password: password, LoadDataOperation: loadDataOperation, Version: { CurrentVersion: calConfiguration.version, OperatingSystem: calConfiguration.os == "Other" ? "Android" : calConfiguration.os } });
+                { UserName: userName, Password: password, LoadDataOperation: loadDataOperation });
         }
 
         function getMetadata() {

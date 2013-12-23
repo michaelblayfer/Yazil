@@ -57,7 +57,7 @@
             .otherwise({ redirectTo: "/" });
     });
     
-    yazilModule.run(function ($rootScope, $location, loginManager, sessionManager, metadataService) {
+    yazilModule.run(function ($rootScope, $location, loginManager, sessionManager, metadataService, alertService, utils) {
         // register listener to watch route changes
 
         var anonymousAllowed = ["views/login.html", "views/customer-service.html", "views/splash.html"];
@@ -78,6 +78,9 @@
                         }
                     }
                 });
+            }, function (error) {
+                $rootScope.alreadyStarted = false;
+                $location.path("/Splash");
             });
             
         });
