@@ -11,7 +11,8 @@
         }
         
         function login(user) {
-            return metadataService.getMetadata().then(function(metadata) {
+            return metadataService.getMetadata().then(function (metadata) {
+                navigator.notification.alert("logging in...");
                 var result = sessionManager.start(user, metadata.SessionTimeout);
                 return result;
             });

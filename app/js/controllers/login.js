@@ -5,6 +5,7 @@
 
         function navigate() {
             analytics.recordClick(Y.AnalyticsEvents.Login);
+            navigator.notification.alert("NAVIGATING TO HOME!");
             $location.path("/");
         }
 
@@ -57,7 +58,7 @@
                 var authResult = loginManager.authenticate(userName, password);
 
                 function loginUser(user) {
-                    
+                    navigator.notification.alert("LOGGED IN ");
                     loginManager.login(user).then(navigate);
                 }
 
