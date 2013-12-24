@@ -59,6 +59,7 @@
                 $location.path("/Splash");
             });
         }, function (error) {
+            $rootScope.isLoggedIn = false;
             $location.path("/Splash");
             if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
                 var dialog = error.Dialog;

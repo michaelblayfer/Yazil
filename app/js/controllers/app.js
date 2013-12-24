@@ -69,7 +69,7 @@
         };
 
         $rootScope.logout = function () {
-
+            $rootScope.isLoggedIn = false;
             alertService.show({
                 message: textResource.get("LogoutMessage"),
                 confirmText: textResource.get("Yes"),
@@ -84,7 +84,7 @@
             });
         };
         $rootScope.unattendedLogout = function () {
-
+            $rootScope.isLoggedIn = false;
             return loginManager.logout().finally(function () {
                 $location.path("/Login");
             });

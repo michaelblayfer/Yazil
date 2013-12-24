@@ -10,6 +10,7 @@
 
         $scope.forgotPasswordLink = "http://cal-online.co.il";
         metadataService.getMetadata().then(function (metadata) {
+
             $scope.forgotPasswordLink = metadata.ForgotUserPasswordURL;
             sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function () {
                 navigate();
