@@ -13,7 +13,7 @@
         function onLoadError(error) {
             
             if (typeof error.status !== "undefined" &&
-                error.status != 200) {
+                error.status == 0) {
                 var messageDialog = {
                     message: textResource.get("CommunicationError"),
                     confirmText: textResource.get("Retry"),
@@ -25,9 +25,13 @@
                     }
                 });
             } else {
-                alertService.show(error.Dialog).then(function() {
+                if (error.Dialog) {
+                    alertService.show(error.Dialog).then(function() {
+                        $scope.unattendedLogout();
+                    });
+                } else {
                     $scope.unattendedLogout();
-                });
+                }
             }
         }
 
