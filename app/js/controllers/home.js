@@ -46,7 +46,7 @@
                 return accountManager.loadAccounts();
             }).catch(onLoadError).finally($scope.notifyProgressCompleted);
         }
-
+        navigator.notification.alert("NAVIGATED TO HOME!");
         load();
 
     };

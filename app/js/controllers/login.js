@@ -58,7 +58,6 @@
                 var authResult = loginManager.authenticate(userName, password);
 
                 function loginUser(user) {
-                    navigator.notification.alert("LOGGED IN ");
                     loginManager.login(user).then(navigate);
                 }
 
