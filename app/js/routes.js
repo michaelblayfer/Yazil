@@ -8,15 +8,18 @@
             sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function (user) {
                 $rootScope.isLoggedIn = true;
                 $log.debug("User logged in, starting session");
+                navigator.notification.alert("LOGGED ON ...");
                 sessionManager.start(user, metadata.SessionTimeout);
                 result.resolve();
             }, function () {
                 $rootScope.isLoggedIn = false;
                 $log.debug("User not logged in, redirecting to splash");
+                navigator.notification.alert("NOT LOGGED ON, moving to splash ...");
                 $location.path("/Splash");
                 result.reject();
             });
         }, function (error) {
+            navigator.notification.alert("ERROR loading md");
             $location.path("/Splash");
             result.reject();
             if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
