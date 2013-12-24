@@ -1,14 +1,12 @@
 ﻿(function (S, C, Y) {
     
-    Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService, analytics, textResource) {
+    Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService, analytics, textResource, metadataService, sessionManager, utils, $log) {
         $rootScope.loaded = false;
 
         $scope.gotoAccountDetails = function () {
             analytics.recordClick(Y.AnalyticsEvents.Account);
             $location.path("/Account");
         };
-
-        $scope.notifyProgressStarted();
 
         function onLoadError(error) {
             
@@ -41,13 +39,39 @@
         }
 
         function load() {
+            $scope.notifyProgressStarted();
             accountManager.getAccountSummary().then(onSummaryAvailable).then(function() {
                 $scope.notifyProgressCompleted();
                 return accountManager.loadAccounts();
             }).catch(onLoadError).finally($scope.notifyProgressCompleted);
         }
-        navigator.notification.alert("NAVIGATED TO HOME!");
-        load();
+
+        metadataService.fetchMetadata().then(function (metadata) {
+            sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function (user) {
+                $rootScope.isLoggedIn = true;
+                sessionManager.start(user, metadata.SessionTimeout).then(function() {
+                    load();
+                });
+                
+            }, function () {
+                $rootScope.isLoggedIn = false;
+                $log.debug("User not logged in, redirecting to splash");
+                $location.path("/Splash");
+            });
+        }, function (error) {
+            $location.path("/Splash");
+            if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
+                var dialog = error.Dialog;
+                dialog.overrideDefault = true;
+                alertService.show(dialog).then(function () {
+                    var versionUpdateUrl = error.data.UpdateURL;
+                    utils.browser.open(versionUpdateUrl);
+                });
+            } else {
+                alertService.show(error.Dialog || {});
+            }
+        });
+        
 
     };
     

@@ -5,7 +5,6 @@
 
         function navigate() {
             analytics.recordClick(Y.AnalyticsEvents.Login);
-            navigator.notification.alert("NAVIGATING TO HOME!");
             $location.path("/");
         }
 
