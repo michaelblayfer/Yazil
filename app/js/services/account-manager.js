@@ -1,13 +1,15 @@
 ﻿(function (S, C, Y) {
-    Y.AccountManager = function($q, yazilServiceClient, metadataService) {
+    Y.AccountManager = function ($q, yazilServiceClient, metadataService) {
         var bankAccounts = [], loadedAt, summaryCache, maxCacheAge = 5 /*minutes*/, currentDate = new Date();
 
-        metadataService.getMetadata().then(function(metadata) {
-            currentDate = metadata.CurrentDate || new Date();
-            if (metadata && metadata.MaxCacheAge) {
-                maxCacheAge = metadata.MaxCacheAge;
-            }
-        });
+        function getMetadata() {
+            return metadataService.getMetadata().then(function (metadata) {
+                currentDate = metadata.CurrentDate || new Date();
+                if (metadata && metadata.MaxCacheAge) {
+                    maxCacheAge = metadata.MaxCacheAge;
+                }
+            });
+        }
 
         function getAccounts() {
             var result = $q.defer();
@@ -17,7 +19,8 @@
 
         function accountsCacheValid() {
             var now = new Date();
-            return summaryCache && bankAccounts && loadedAt && now < moment(loadedAt).add("m", maxCacheAge);
+            var isVAlid = summaryCache && bankAccounts && loadedAt && now < moment(loadedAt).add("m", maxCacheAge);
+            return isVAlid;
         }
 
         function mapCreditDetails(creditDetails) {
@@ -30,7 +33,7 @@
 
         function getAccountTransactions(account) {
             return yazilServiceClient.getAccountTransactions(account.bankAccountNumber, account.mislaka).then(function (transactions) {
-                
+
                 var transSummary = transactions.CreditTransactionsSummary;
                 account.totalNextCredit = transSummary.TotalNextCreditForAccount.Value;
                 account.totalPreviousCredit = transSummary.TotalPreviousCreditForAccount.Value;
@@ -49,7 +52,7 @@
         }
 
         function loadAccounts() {
-            
+
             var promises = [];
             if (bankAccounts && bankAccounts.length > 0) {
                 promises = _.map(bankAccounts, getAccountTransactions);
@@ -76,32 +79,29 @@
             summaryCache = null;
         }
 
+        function cacheAccountSummary(creditSummary) {
+            loadedAt = new Date();
+            var summary = creditSummary.BusinessCreditSummary;
+
+            bankAccounts = [];
+            _.each(creditSummary.BankAccounts, function (bankAccount) {
+                var account = {
+                    bankAccountNumber: bankAccount.AccountNumber,
+                    bankNumber: bankAccount.BankNum,
+                    bankBranchNumber: bankAccount.BankBranchNumber,
+                    mislaka: bankAccount.Mislaka
+                };
+                bankAccounts.push(account);
+            });
+            summaryCache = mapAccountSummary(summary);
+
+            return summaryCache;
+        }
+
         function getAccountSummary() {
-            if (accountsCacheValid()) {
-                var result = $q.defer();
-                result.resolve(summaryCache);
-                return result.promise;
-            } else {
-                return yazilServiceClient.getAccountSummary().then(function(creditSummary) {
-                    loadedAt = new Date();
-                    var summary = creditSummary.BusinessCreditSummary;
-
-                    bankAccounts = [];
-                    _.each(creditSummary.BankAccounts, function (bankAccount) {
-                        var account = {
-                            bankAccountNumber: bankAccount.AccountNumber,
-                            bankNumber: bankAccount.BankNum,
-                            bankBranchNumber: bankAccount.BankBranchNumber,
-                            mislaka: bankAccount.Mislaka
-                        };
-                        bankAccounts.push(account);
-                    });
-                    summaryCache = mapAccountSummary(summary);
-
-                    return summaryCache;
-                });
-            }
-
+            return getMetadata().then(function () {
+                return accountsCacheValid() ? $q.when(summaryCache) : yazilServiceClient.getAccountSummary().then(cacheAccountSummary);
+            });
         }
 
         return {

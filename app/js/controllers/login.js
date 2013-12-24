@@ -2,7 +2,7 @@
     Y.LoginController = function ($scope, $location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager, alertService, calConfiguration, analytics, utils) {
         $scope.displayVersion = false;
         $scope.version = calConfiguration.version;
-        
+
         function navigate() {
             analytics.recordClick(Y.AnalyticsEvents.Login);
             $location.path("/");

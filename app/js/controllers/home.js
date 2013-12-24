@@ -11,7 +11,9 @@
         $scope.notifyProgressStarted();
 
         function onLoadError(error) {
-            if (typeof error.status !== "undefined" && error.status != 200) {
+            
+            if (typeof error.status !== "undefined" &&
+                error.status != 200) {
                 var messageDialog = {
                     message: textResource.get("CommunicationError"),
                     confirmText: textResource.get("Retry"),
