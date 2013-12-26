@@ -34,7 +34,8 @@
             }
 
             var httpConfig = {
-                url: [calConfiguration.baseUrl, url].join("/"),
+                // calConfiguration.baseUrl
+                url: [$("meta[name=base-url]").attr("content") , url].join("/"),
                 method: method,
                 headers: {
                     "Content-Type": "application/json",

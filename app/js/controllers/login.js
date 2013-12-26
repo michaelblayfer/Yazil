@@ -9,18 +9,18 @@
         }
 
         $scope.forgotPasswordLink = "http://cal-online.co.il";
-        metadataService.getMetadata().then(function (metadata) {
-
-            $scope.forgotPasswordLink = metadata.ForgotUserPasswordURL;
-            sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function () {
-                navigate();
+        function fetchMetadata() {
+            metadataService.getMetadata().then(function (metadata) {
+                $scope.forgotPasswordLink = metadata.ForgotUserPasswordURL;
+                sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function () {
+                    navigate();
+                });
+            }, function (error) {
+                $scope.notifyError(error).then(fetchMetadata);
             });
-        }, function (error) {
-            alertService.show(error.Dialog).then(function () {
-                $scope.unattendedLogout();
-            });
-        });
+        }
 
+        fetchMetadata();
 
         $scope.forgotPassword = function() {
             utils.browser.open($scope.forgotPasswordLink);
@@ -71,9 +71,7 @@
                             }
                         });
                     } else {
-                        // C.isError(error, Y.Errors.LockedUser)
-                        // C.isError(error, Y.Errors.LoginInactiveCustomer)
-                        alertService.show(error.Dialog);
+                        $scope.notifyError(error, textResource.get("ErrorMessage"));
                     }
                 }
 

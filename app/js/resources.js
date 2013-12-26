@@ -47,7 +47,7 @@
         "MetadataError": "שגיאה בהפעלת האפליקציה",
         "Loading": "טוען",
         "Message": "הודעה",
-        "ErrorMessage": "אירעה שגיאה בלתי צפויה",
+        "ErrorMessage": "בשל תקלה לא ניתן להשלים את הפעולה. יש לנסות שנית מאוחר יותר.",
         "NoNextCredits": "זיכויים קרובים",
         "MissingUserName": "נא להזין שם משתמש",
         "MissingPassword": "נא להזין סיסמה",

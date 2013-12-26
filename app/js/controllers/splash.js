@@ -24,25 +24,31 @@
             $location.path("/Login");
         }
 
-        metadataService.getMetadata().then(function () {
-            if ($scope.step == 6) {
-                navigate();
-            } else {
-                canNavigateNext = true;
-            }
-
-        }, function (error) {
+        function onMetadataError(error) {
             if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
                 var dialog = error.Dialog;
                 dialog.overrideDefault = true;
-                alertService.show(dialog).then(function (result) {
+                alertService.show(dialog).then(function () {
                     var versionUpdateUrl = error.data.UpdateURL;
                     utils.browser.open(versionUpdateUrl);
                 });
             } else {
-                alertService.show(error.Dialog || {});
+                $scope.notifyError(error).then(fetchMetadata);
             }
-        });
+        }
+        function fetchMetadata() {
+            metadataService.getMetadata().then(function () {
+                if ($scope.step == 6) {
+                    navigate();
+                } else {
+                    canNavigateNext = true;
+                }
+
+            }, onMetadataError);
+
+        }
+
+        fetchMetadata();
     }];
 
 })(Simple, Cal, Cal.Yazil);
