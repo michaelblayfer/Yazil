@@ -4,31 +4,15 @@
         
 
         function authenticate(userName, password) {
-
             return metadataService.getMetadata().then(function (metadata) {
                 return yazilServiceClient.authenticate(userName, password, metadata.LoadDataOperation);
-                //var result = $q.defer();
-
-                //if (userName == "1") {
-                //    result.resolve({
-                //        Usernmame: "anon",
-                //        Name: "Anonymous"
-                //    });
-                //} else {
-                //    result.reject({
-                //        status: "W",
-                //        code: 7
-                //    });
-                //}
-                //return result.promise;
             });
             
         }
         
         function login(user) {
-            return metadataService.getMetadata().then(function(metadata) {
+            return metadataService.getMetadata().then(function (metadata) {
                 var result = sessionManager.start(user, metadata.SessionTimeout);
-
                 return result;
             });
         }

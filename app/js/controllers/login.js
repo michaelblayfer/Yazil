@@ -2,7 +2,7 @@
     Y.LoginController = function ($scope, $location, loginManager, network, networkManager, $log, textResource, metadataService, sessionManager, alertService, calConfiguration, analytics, utils) {
         $scope.displayVersion = false;
         $scope.version = calConfiguration.version;
-        
+
         function navigate() {
             analytics.recordClick(Y.AnalyticsEvents.Login);
             $location.path("/");
@@ -10,6 +10,7 @@
 
         $scope.forgotPasswordLink = "http://cal-online.co.il";
         metadataService.getMetadata().then(function (metadata) {
+
             $scope.forgotPasswordLink = metadata.ForgotUserPasswordURL;
             sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function () {
                 navigate();
@@ -57,7 +58,6 @@
                 var authResult = loginManager.authenticate(userName, password);
 
                 function loginUser(user) {
-                    
                     loginManager.login(user).then(navigate);
                 }
 
