@@ -19,7 +19,6 @@
         }
 
         function accountsCacheValid() {
-            return false;
             var now = new Date();
             var isVAlid = summaryCache && bankAccounts && loadedAt && now < moment(loadedAt).add("m", maxCacheAge);
             return isVAlid;
