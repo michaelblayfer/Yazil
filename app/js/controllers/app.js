@@ -69,13 +69,15 @@
         };
 
         $rootScope.logout = function () {
-            $rootScope.isLoggedIn = false;
+            
             alertService.show({
                 message: textResource.get("LogoutMessage"),
                 confirmText: textResource.get("Yes"),
                 cancelText: textResource.get("No")
             }).then(function (result) {
+                
                 if (result.status == "Confirm") {
+                    $rootScope.isLoggedIn = false;
                     analytics.recordClick(Y.AnalyticsEvents.Logout);
                     loginManager.logout().finally(function () {
                         $location.path("/Login");

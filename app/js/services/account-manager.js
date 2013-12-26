@@ -6,6 +6,7 @@
             return metadataService.getMetadata().then(function (metadata) {
                 currentDate = metadata.CurrentDate || new Date();
                 if (metadata && metadata.MaxCacheAge) {
+                    
                     maxCacheAge = metadata.MaxCacheAge;
                 }
             });
