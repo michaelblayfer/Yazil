@@ -43,4 +43,9 @@
     yazilModule.controller("MoreInfoCtrl", Y.MoreInfoController);
     yazilModule.controller("SplashCtrl", Y.SplashController);
 
+    yazilModule.run(function($location) {
+        $location.path("/Splash");
+    });
+    
+
 })(Simple, Cal, Cal.Yazil);
