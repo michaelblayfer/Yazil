@@ -16,7 +16,11 @@
         "textResource",
         "$window",
         "phoneGap",
-        function ($q, $scope, $rootScope, $route, $location, $controller, $filter, metadataService, accountManager, analytics, loginManager, alertService, textResource, $window, phoneGap) {
+        "sessionManager",
+        "utils",
+        "$log",
+        function ($q, $scope, $rootScope, $route, $location, $controller, $filter, metadataService, accountManager, analytics, loginManager, alertService, textResource, $window, phoneGap, sessionManager, utils, $log) {
+            
 
             function attachBackButton() {
                 document.addEventListener("backbutton", function (e) {
@@ -74,7 +78,9 @@
             $rootScope.$on("progress-completed", function () {
                 $scope.isInProgress = false;
             });
-            $rootScope.$on("$routeChangeSuccess", function (scope, next, current) {
+
+
+            $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
                 if (next && next.locals && next.locals.pageInfo) {
                     $scope.header = $filter("l10n")(next.locals.pageInfo.header);
                     $scope.hideFooter = next.locals.pageInfo.hideFooter;
@@ -158,8 +164,12 @@
             };
 
             $scope.isButtonSelected = function (name) {
-                return $route.current.controller == name;
+                return $route.current && $route.current.controller == name;
             };
+
+            /***/
+
+            
         }];
 
 })(Simple, Cal, Cal.Yazil);

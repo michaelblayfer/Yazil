@@ -16,13 +16,14 @@
     right: 0;
     top: 0;
     background-repeat: no-repeat;
-   
-    -webkit-transition: opacity 0.75s ease-out;
-    opacity: 0; 
+    transition: opacity 0.5s ease-out;
+    -webkit-transition: opacity 0.5s ease-out;
+    opacity: 0;
+    -webkit-opacity: 0;
 }
 .splash-container div.show {
-    
     opacity: 1;
+    -webkit-opacity: 1;
 }
 .splash-container div.yazil {
     left: 0;
