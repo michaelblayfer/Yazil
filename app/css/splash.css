@@ -18,11 +18,12 @@
     background-repeat: no-repeat;
     transition: opacity 0.75s ease-out;
     -webkit-transition: opacity 0.75s ease-out;
-    opacity: 0; 
+    opacity: 0;
+    -webkit-opacity: 0;
 }
 .splash-container div.show {
-    
     opacity: 1;
+    -webkit-opacity: 1;
 }
 .splash-container div.yazil {
     left: 0;
