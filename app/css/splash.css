@@ -16,7 +16,7 @@
     right: 0;
     top: 0;
     background-repeat: no-repeat;
-   
+    transition: opacity 0.75s ease-out;
     -webkit-transition: opacity 0.75s ease-out;
     opacity: 0; 
 }

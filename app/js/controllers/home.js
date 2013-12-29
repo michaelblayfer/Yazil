@@ -27,8 +27,7 @@
             $scope.notifyProgressStarted();
             accountManager.getAccountSummary().then(onSummaryAvailable).then(function () {
                 $scope.notifyProgressCompleted();
-                return accountManager.loadAccounts();
-            }).catch(onLoadError).finally($scope.notifyProgressCompleted);
+            }).then(accountManager.loadAccounts).catch(onLoadError).finally($scope.notifyProgressCompleted);
         }
 
 

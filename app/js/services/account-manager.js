@@ -85,18 +85,17 @@
             var summary = creditSummary.BusinessCreditSummary;
 
             bankAccounts = [];
-            _.defer(function () {
 
-                _.each(creditSummary.BankAccounts, function (bankAccount) {
-                    var account = {
-                        bankAccountNumber: bankAccount.AccountNumber,
-                        bankNumber: bankAccount.BankNum,
-                        bankBranchNumber: bankAccount.BankBranchNumber,
-                        mislaka: bankAccount.Mislaka
-                    };
-                    bankAccounts.push(account);
-                });
+            _.each(creditSummary.BankAccounts, function (bankAccount) {
+                var account = {
+                    bankAccountNumber: bankAccount.AccountNumber,
+                    bankNumber: bankAccount.BankNum,
+                    bankBranchNumber: bankAccount.BankBranchNumber,
+                    mislaka: bankAccount.Mislaka
+                };
+                bankAccounts.push(account);
             });
+
             summaryCache = mapAccountSummary(summary);
 
             return summaryCache;
