@@ -41,8 +41,10 @@
             stopSessionTimer();
             if (currentUser) {
                 return sessionInfo("User", null).then(function() {
+                    var user = currentUser;
                     currentUser = null;
-                    $rootScope.$broadcast("Cal.Yazil.SessionEnded");
+                    $rootScope.$broadcast("Cal.Yazil.SessionEnded", user);
+                    return user;
                 });
             } else {
                 return $q.when({});

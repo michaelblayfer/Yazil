@@ -20,8 +20,8 @@
 
 
         function logout() {
-            return sessionManager.end().then(function() {
-                return yazilServiceClient.logout();
+            return sessionManager.end().then(function(user) {
+                return yazilServiceClient.logout(user);
             });
         }
 

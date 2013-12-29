@@ -9,28 +9,36 @@
         };
 
         function onLoadError(error) {
-            
-            if (typeof error.status !== "undefined" &&
-                error.status == 0) {
-                var messageDialog = {
-                    message: textResource.get("CommunicationError"),
-                    confirmText: textResource.get("Retry"),
-                    cancelText: textResource.get("Close")
-                };
-                alertService.show(messageDialog).then(function (result) {
-                    if (result.status == "Confirm") {
-                        load();
-                    }
-                });
-            } else {
-                if (error.Dialog) {
-                    alertService.show(error.Dialog).then(function() {
-                        $scope.unattendedLogout();
-                    });
-                } else {
+            console.log("LOAD ERROR!");
+            $scope.notifyError(error).then(function() {
+                load();
+            }, function(e) {
+                if (e !== "Dismissed") {
                     $scope.unattendedLogout();
                 }
-            }
+            });
+            ////
+            //if (typeof error.status !== "undefined" &&
+            //    error.status == 0 || error.status == 404) {
+            //    var messageDialog = {
+            //        message: textResource.get("CommunicationError"),
+            //        confirmText: textResource.get("Retry"),
+            //        cancelText: textResource.get("Close")
+            //    };
+            //    alertService.show(messageDialog).then(function (result) {
+            //        if (result.status == "Confirm") {
+            //            load();
+            //        }
+            //    });
+            //} else {
+            //    if (error.Dialog) {
+            //        alertService.show(error.Dialog).then(function() {
+            //            $scope.unattendedLogout();
+            //        });
+            //    } else {
+            //        $scope.unattendedLogout();
+            //    }
+            //}
         }
 
         function onSummaryAvailable(summary) {
@@ -46,19 +54,7 @@
             }).catch(onLoadError).finally($scope.notifyProgressCompleted);
         }
 
-        metadataService.fetchMetadata().then(function (metadata) {
-            sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function (user) {
-                $rootScope.isLoggedIn = true;
-                sessionManager.start(user, metadata.SessionTimeout).then(function() {
-                    load();
-                });
-                
-            }, function () {
-                $rootScope.isLoggedIn = false;
-                $log.debug("User not logged in, redirecting to splash");
-                $location.path("/Splash");
-            });
-        }, function (error) {
+        function onMetadataError(error) {
             $rootScope.isLoggedIn = false;
             $location.path("/Splash");
             if (C.isError(error, Y.Errors.VersionRequired, C.Severity.Warning)) {
@@ -69,10 +65,33 @@
                     utils.browser.open(versionUpdateUrl);
                 });
             } else {
-                alertService.show(error.Dialog || {});
+                $scope.notifyError(error).then(fetchMetadata);
             }
-        });
-        
+        }
+
+        function onUserLoggedIn(metadata, user) {
+            $rootScope.isLoggedIn = true;
+            sessionManager.start(user, metadata.SessionTimeout).then(function() {
+                load();
+            });
+        }
+        function onUserNotLoggedIn() {
+            $rootScope.isLoggedIn = false;
+            $log.debug("User not logged in, redirecting to splash");
+            $location.path("/Splash");
+        }
+
+        function loadMetadata(metadata) {
+            sessionManager.isUserLoggedIn(metadata.SessionTimeout).then(function(user) {
+                onUserLoggedIn(metadata, user);
+            }, onUserNotLoggedIn);
+        }
+
+        function fetchMetadata() {
+            metadataService.getMetadata().then(loadMetadata, onMetadataError);
+        }
+
+        fetchMetadata();
 
     };
     

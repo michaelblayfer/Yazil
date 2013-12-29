@@ -20,8 +20,8 @@
             return calServiceClient.run("GET", "AccountCreditTransactions/" + number + "@" + mislaka);
         }
 
-        function logout() {
-            return calServiceClient.run("DELETE", "YazilAuthenticator");
+        function logout(user) {
+            return calServiceClient.run("DELETE", "YazilAuthenticator", null, null, user ? user.AuthenticationToken : null);
         }
 
         return {
