@@ -11,6 +11,9 @@
         "$log",
         "$rootScope",
         function ($scope, $location, $timeout, metadataService, utils, alertService, sessionManager, $log, $rootScope) {
+            if (navigator.splashscreen) {
+                navigator.splashscreen.hide();
+            }
             var canNavigateNext = false;
             $scope.step = 0;
 
