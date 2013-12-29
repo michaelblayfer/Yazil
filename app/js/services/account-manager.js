@@ -6,7 +6,7 @@
             return metadataService.getMetadata().then(function (metadata) {
                 currentDate = metadata.CurrentDate || new Date();
                 if (metadata && metadata.MaxCacheAge) {
-                    
+
                     maxCacheAge = metadata.MaxCacheAge;
                 }
             });
@@ -85,14 +85,17 @@
             var summary = creditSummary.BusinessCreditSummary;
 
             bankAccounts = [];
-            _.each(creditSummary.BankAccounts, function (bankAccount) {
-                var account = {
-                    bankAccountNumber: bankAccount.AccountNumber,
-                    bankNumber: bankAccount.BankNum,
-                    bankBranchNumber: bankAccount.BankBranchNumber,
-                    mislaka: bankAccount.Mislaka
-                };
-                bankAccounts.push(account);
+            _.defer(function () {
+
+                _.each(creditSummary.BankAccounts, function (bankAccount) {
+                    var account = {
+                        bankAccountNumber: bankAccount.AccountNumber,
+                        bankNumber: bankAccount.BankNum,
+                        bankBranchNumber: bankAccount.BankBranchNumber,
+                        mislaka: bankAccount.Mislaka
+                    };
+                    bankAccounts.push(account);
+                });
             });
             summaryCache = mapAccountSummary(summary);
 
