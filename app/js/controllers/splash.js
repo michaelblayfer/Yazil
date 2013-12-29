@@ -82,8 +82,11 @@
             }
             function onUserNotLoggedIn() {
                 $rootScope.isLoggedIn = false;
-                $log.debug("User not logged in, redirecting to login");
-                $location.path("/Login");
+                if ($scope.step == 6) {
+                    navigate();
+                } else {
+                    canNavigateNext = true;
+                }
             }
 
             function loadMetadata(metadata) {
