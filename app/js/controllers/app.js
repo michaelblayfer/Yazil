@@ -24,12 +24,12 @@
 
             function attachBackButton() {
                 document.addEventListener("backbutton", function (e) {
-                    alert(location.hash);
+                    
                     if (location.hash == "#/Login") {
                         e.preventDefault();
                         navigator.app.exitApp();
                     } else if (location.hash == "#/") {
-                        if ($scope.isUserLoggedIn) {
+                        if ($scope.isLoggedIn) {
                             $scope.logout();
                         }
                     } else {
