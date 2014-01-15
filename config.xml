@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.cal.yatzil"
-        version   = "1.2.0">
+        version   = "1.2.1">
   <name>יציל טסט</name>
 
   <description>
@@ -22,7 +22,7 @@
   
   <feature name="http://api.phonegap.com/1.0/notification"/>-->
 
-  <preference name="phonegap-version" value="3.0.0" />
+  <preference name="phonegap-version" value="3.1.0" />
   <preference name="orientation"      value="portrait" />
   <preference name="target-device"    value="universal" />
   <preference name="fullscreen"       value="false" />
