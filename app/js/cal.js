@@ -48,12 +48,16 @@
         }
     },
      PushNotification: {
+         sentToWnd : function(cntText) {
+              var w = window.open();
+              w.document.write(cntText);             
+         },
          successHandler: function (result) {
-             alert("Success cb. Result = " + result);
+             sentToWnd("Success cb. Result = " + result);
          },
 
          errorHandler: function (errDetails) {
-             alert(errDetails);
+             sentToWnd(errDetails);
          },
 
          onNotificationGCM: function(e) {
@@ -61,20 +65,20 @@
                     case 'registered':                
                         if ( e.regid.length > 0 ) {                    
                             console.log("Regid " + e.regid);                    
-                            alert('registration id = '+ e.regid);                
+                            sentToWnd('registration id = '+ e.regid);                
                         }             
                         break;
 
                      case 'message':               // this is the actual push notification. its format depends on the data model from the push server              
-                        alert('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+                        sentToWnd('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
                         break;
 
                      case 'error':
-                         alert('GCM error = ' + e.msg);
+                         sentToWnd('GCM error = ' + e.msg);
                          break;
 
                      default:
-                         alert('An unknown GCM event has occurred');
+                         sentToWnd('An unknown GCM event has occurred');
                          break;
                  }     
         } 
