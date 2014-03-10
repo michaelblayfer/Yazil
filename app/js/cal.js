@@ -48,40 +48,32 @@
         }
     },
      PushNotification: {
-         sentToWnd : function(cntText) {
-              var w = window.open("", "_blank");
-              w.document.write(cntText);             
-         },
          successHandler: function (result) {
-             var $this = Cal.PushNotification;
-             $this.sentToWnd("Success cb. Result = " + result);
+             console.log("Success cb. Result = " + result);
          },
 
          errorHandler: function (errDetails) {
-             var $this = Cal.PushNotification;
-             $this.sentToWnd(errDetails);
+             console.log(errDetails);
          },
 
          onNotificationGCM: function(e) {
-                 var $this = Cal.PushNotification;
-
                  switch( e.event ) {             
                     case 'registered':                
                         if ( e.regid.length > 0 ) {                    
-                            $this.sentToWnd('registration id = '+ e.regid);                
+                            console.log('registration id = '+ e.regid);                
                         }             
                         break;
 
                      case 'message':               // this is the actual push notification. its format depends on the data model from the push server              
-                        $this.sentToWnd('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
-                        break;
+                         console.log('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+                         break;
 
                      case 'error':
-                         $this.sentToWnd('GCM error = ' + e.msg);
+                         console.log('GCM error = ' + e.msg);
                          break;
 
                      default:
-                         $this.sentToWnd('An unknown GCM event has occurred');
+                         console.log('An unknown GCM event has occurred');
                          break;
                  }     
         } 
