@@ -11,7 +11,10 @@
     <link rel="stylesheet" type="text/css" href="app/css/app.css" />
     <link rel="stylesheet" type="text/css" href="app/css/splash.css" />
     <link rel="stylesheet" type="text/css" href="app/css/animations.css" />
+    
     <script type="text/javascript" src="phonegap.js"></script>
+    <!-- Push notification -->
+    <script type="text/javascript" src="PushNotification.js"></script>    
 </head>
 <body class="rtl" ng-controller="AppCtrl" ng-class="{'page-animations-enabled': animations.page && !isInLoginPage(), 'swipe-animations-enabled': animations.swipe }">
     <div class="loading" ng-show="isInProgress">
@@ -112,9 +115,6 @@
     <script src="app/js/resources.js"></script>
     <script src="app/js/routes.js"></script>
     
-    <!-- Push notification -->
-    <script type="text/javascript" src="app/js/PushNotification.js"></script>
-
     <script>
         // ng-app="Cal.Yazil"
         function onDeviceReady() {
