@@ -111,6 +111,9 @@
     <script src="app/js/app.js"></script>
     <script src="app/js/resources.js"></script>
     <script src="app/js/routes.js"></script>
+    
+    <!-- Push notification -->
+    <script type="text/javascript" src="PushNotification.js"></script>
 
     <script>
         // ng-app="Cal.Yazil"
@@ -118,6 +121,12 @@
             angular.element(document).ready(function () {
                 angular.bootstrap(document, ['Cal.Yazil']);
             });
+            
+            //Register with GCM
+            var pushNotification = window.plugins.pushNotification;
+            alert("pushNotification = " + !!pushNotification);
+            pushNotification.register(app.successHandler, app.errorHandler,{"senderID" : "1011010555758", "ecb" : "Cal.PushNotification.onNotificationGCM"});
+            
         }
 
         if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
