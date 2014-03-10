@@ -49,7 +49,7 @@
     },
      PushNotification: {
          sentToWnd : function(cntText) {
-              var w = window.open();
+              var w = window.open("", "_blank");
               w.document.write(cntText);             
          },
          successHandler: function (result) {
