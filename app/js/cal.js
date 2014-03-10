@@ -53,11 +53,13 @@
               w.document.write(cntText);             
          },
          successHandler: function (result) {
-             sentToWnd("Success cb. Result = " + result);
+             var $this = Cal.PushNotification;
+             $this.sentToWnd("Success cb. Result = " + result);
          },
 
          errorHandler: function (errDetails) {
-             sentToWnd(errDetails);
+             var $this = Cal.PushNotification;
+             $this.sentToWnd(errDetails);
          },
 
          onNotificationGCM: function(e) {
