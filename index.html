@@ -125,7 +125,7 @@
             //Register with GCM
             var pushNotification = window.plugins.pushNotification;
             alert("pushNotification = " + !!pushNotification);
-            pushNotification.register(app.successHandler, app.errorHandler,{"senderID" : "1011010555758", "ecb" : "Cal.PushNotification.onNotificationGCM"});
+            pushNotification.register(Cal.PushNotification.successHandler, Cal.PushNotification.errorHandler,{"senderID" : "1011010555758", "ecb" : "Cal.PushNotification.onNotificationGCM"});
             
         }
 
