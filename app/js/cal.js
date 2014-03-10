@@ -61,24 +61,25 @@
          },
 
          onNotificationGCM: function(e) {
+                 var $this = Cal.PushNotification;
+
                  switch( e.event ) {             
                     case 'registered':                
                         if ( e.regid.length > 0 ) {                    
-                            console.log("Regid " + e.regid);                    
-                            sentToWnd('registration id = '+ e.regid);                
+                            $this.sentToWnd('registration id = '+ e.regid);                
                         }             
                         break;
 
                      case 'message':               // this is the actual push notification. its format depends on the data model from the push server              
-                        sentToWnd('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+                        $this.sentToWnd('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
                         break;
 
                      case 'error':
-                         sentToWnd('GCM error = ' + e.msg);
+                         $this.sentToWnd('GCM error = ' + e.msg);
                          break;
 
                      default:
-                         sentToWnd('An unknown GCM event has occurred');
+                         $this.sentToWnd('An unknown GCM event has occurred');
                          break;
                  }     
         } 
