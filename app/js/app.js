@@ -44,7 +44,7 @@
     yazilModule.controller("SplashCtrl", Y.SplashController);
 
     yazilModule.run(function($location) {
-        $location.path("/Splash");
+        $location.path("/");
     });
     
 
