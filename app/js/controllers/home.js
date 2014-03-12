@@ -1,6 +1,7 @@
 ﻿(function (S, C, Y) {
 
-    Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService, analytics, textResource, metadataService, sessionManager, utils, $log) {
+    Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService, analytics, 
+                                 textResource, metadataService, sessionManager, utils, $log, pushNotificationService) {
         $rootScope.loaded = false;
 
         $scope.gotoAccountDetails = function () {
@@ -31,7 +32,8 @@
         }
 
 
-        load();
+        //load();
+        pushNotificationService.registerPN();
 
     };
 
