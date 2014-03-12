@@ -46,36 +46,5 @@
             MoreInfo: { Category: "עוד", Label: "ניווט תחתון" }
             
         }
-    },
-     PushNotification: {
-         successHandler: function (result) {
-             console.log("Success cb. Result = " + result);
-         },
-
-         errorHandler: function (errDetails) {
-             console.log(errDetails);
-         },
-
-         onNotificationGCM: function(e) {
-                 switch( e.event ) {             
-                    case 'registered':                
-                        if ( e.regid.length > 0 ) {                    
-                            console.log('registration id = '+ e.regid);                
-                        }             
-                        break;
-
-                     case 'message':               // this is the actual push notification. its format depends on the data model from the push server              
-                         console.log('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
-                         break;
-
-                     case 'error':
-                         console.log('GCM error = ' + e.msg);
-                         break;
-
-                     default:
-                         console.log('An unknown GCM event has occurred');
-                         break;
-                 }     
-        } 
     }
 };
