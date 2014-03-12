@@ -6,14 +6,14 @@
                     <div class="c_row">
                         <div class="c_cell">
                             <div>
-                                <div class="title next">{{"NextCredit"|l10n}}</div>
-                                <div class="date next">{{nextCreditDate|date:"dd/MM/yy"}}</div>
+                                <div class="title next">{{"האם ההרשמה הצליחה:"}}</div>
+                                <div class="date next">{{isPNRegistrationSucceeded}}</div>
                             </div>
 
                         </div>
                         <div class="c_cell">
-                            <div class="creditValue next" ng-show="nextCreditAmount">{{nextCreditAmount|intCurrency:"" }}</div>
-                            <div class="creditValue next empty" ng-hide="nextCreditAmount">{{"NoAmount"|l10n }}</div>
+                                <div class="title next">{{"מזהה רישום:"}}</div>
+                                <div class="date next">{{registrationID}}</div>
                         </div>
                     </div>
                 </div>
@@ -35,29 +35,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="balance_container">
-        <div class=" balance">
-            <div class="right">
-                <div class="title">{{"TotalBalance"|l10n}}</div>
-                <div class="creditValue" ng-show="totalBalance">{{totalBalance|intCurrency:""}}</div>
-                <div class="creditValue empty" ng-hide="totalBalance">{{"NoAmount"|l10n }}</div>
-
-            </div>
-            <div class="comment">{{"BalanceComment"|l10n}}</div>
-        
-            <div >
-                <span class="title">{{"BalanceValueDate"|l10n}}</span>
-                <span class="date">{{balanceValueDate|date:"dd/MM/yy"}}</span>
-                
-            </div>
-        </div>
-
-        <div class="inner-button">
-            <button type="button" ng-click="gotoAccountDetails()" ng-disabled="!loaded || noActiveAccounts">{{"GoToAccountDetails"|l10n}}</button>
-        </div>
-        <div class="lastLoginInfo">
-            <span>שלום </span><span class="customer-name">{{ accountOwnerName }}</span>
-        </div><div class="lastLoginInfo"><span>כניסתך האחרונה בוצעה בתאריך </span><span>{{ lastLoginDate }}</span></div>
     </div>
 </div>
