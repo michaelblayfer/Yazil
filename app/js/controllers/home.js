@@ -46,6 +46,7 @@
         });        
 
         //load();
+        console.log("pushNotificationService : " + pushNotificationService);
         pushNotificationService.registerPN();
 
     };
