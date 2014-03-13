@@ -1,6 +1,4 @@
 (function (S, C, Y) {
-    "use strict";
-
     Y.PushNotificationService = function ($q, $rootScope, calConfiguration) {
         var regsitartionID;
         var registrationSuccess;
