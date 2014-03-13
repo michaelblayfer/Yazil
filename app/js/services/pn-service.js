@@ -72,7 +72,7 @@
                         };
                         
                         pushNotification.register.call(PNHandlerWrapper, PNSuccessHandler, PNErrorHandler, {
-                            senderID: "calConfiguration.senderID",
+                            senderID: calConfiguration.senderID,
                             ecb: "this.PNHandler"
                         });
                     }
