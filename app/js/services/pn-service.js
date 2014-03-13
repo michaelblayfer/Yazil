@@ -61,6 +61,8 @@
         }
 
         function registerPN() {
+            console.log("isPNRegistrationSucceeded : " + isPNRegistrationSucceeded);
+            
             if (!isPNRegistrationSucceeded()) {
                 var pushNotification = window.plugins.pushNotification;
                 if (pushNotification) {
