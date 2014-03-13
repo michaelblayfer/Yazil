@@ -72,7 +72,7 @@
                     if (pushNotification) {
                         pushNotification.register(PNSuccessHandler, PNErrorHandler, {
                             senderID: calConfiguration.senderID,
-                            ecb: PNHandler
+                            ecb: "Y.PNHandler"
                         });
                     }
                 }
@@ -82,8 +82,9 @@
         return {
             isPNRegistrationSucceeded: isPNRegistrationSucceeded,
             registerPN: registerPN,
+            PNHandler : PNHandler,
             getPNRegistrationID: getPNRegistrationID,
-            getLastPNMessage : getLastPNMessage,
+            getLastPNMessage: getLastPNMessage,
             getPNRegistrationErrDetails: getPNRegistrationErrDetails
         };
     };
