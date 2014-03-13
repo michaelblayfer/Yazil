@@ -71,7 +71,7 @@
                     
                     if (pushNotification) {
                         pushNotification.register(PNSuccessHandler, PNErrorHandler, {
-                            senderID: calConfiguration.senderID,
+                            senderID: "calConfiguration.senderID",
                             ecb: "Y.PNHandler"
                         });
                     }
