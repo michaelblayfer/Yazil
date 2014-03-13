@@ -6,10 +6,12 @@
             ePNLastEvent;
 
         function PNSuccessHandler(result) {
+            console.log("PNSuccessHandler : " + result);
             registrationSuccess = true;
         }
 
         function PNErrorHandler(errDetails) {
+            console.log("PNErrorHandler : " + errDetails);
             registrationErrDetails = errDetails;
             registrationSuccess = false;
         }
