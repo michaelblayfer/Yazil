@@ -46,9 +46,11 @@
         });        
 
         //load();
-        console.log("pushNotificationService : " + pushNotificationService);
-        pushNotificationService.registerPN();
-
+        
+        window.setTimeout(function() {
+            console.log("pushNotificationService : " + pushNotificationService);
+            pushNotificationService.registerPN();
+        }, 2000);
     };
 
 })(Simple, Cal, Cal.Yazil);
