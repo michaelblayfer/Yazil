@@ -14,7 +14,9 @@
     yazilModule.service("accountManager", Y.AccountManager);
     yazilModule.service("metadataService", Y.MetadataService);
 
+    console.log("Before PN service registration");
     yazilModule.service("pushNotificationService", Y.PushNotificationService);
+    console.log("After PN service registration");
 
     yazilModule.directive("toolbar", function () {
         return Y.ToolbarDirective;
