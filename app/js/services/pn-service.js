@@ -37,23 +37,23 @@
                 case 'registered':
                     if (e.regid.length > 0) {
                         $rootScope.$emit("PN_registered", e.regid);
-                        //console.log('registration id = ' + e.regid);
+                        console.log('registration id = ' + e.regid);
                     }
                     break;
 
                 case 'message':               // this is the actual push notification. its format depends on the data model from the push server              
                     $rootScope.$emit("PN_message", e);
-                    //console.log('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+                    console.log('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
                     break;
 
                 case 'error':
                     $rootScope.$emit("PN_error", e.msg);
-                    //console.log('GCM error = ' + e.msg);
+                    console.log('GCM error = ' + e.msg);
                     break;
 
                 default:
                     $rootScope.$emit("PN_unknown_event", e.msg);
-                    //console.log('An unknown GCM event has occurred');
+                    console.log('An unknown GCM event has occurred');
                     break;
             }
         }
