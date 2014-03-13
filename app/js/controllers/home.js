@@ -2,7 +2,7 @@
 
     Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService, analytics, 
                                  textResource, metadataService, sessionManager, utils, $log, pushNotificationService) {
-        /* $rootScope.loaded = false;
+        $rootScope.loaded = false;
 
         $scope.gotoAccountDetails = function () {
             analytics.recordClick(Y.AnalyticsEvents.Account);
@@ -29,7 +29,10 @@
             accountManager.getAccountSummary().then(onSummaryAvailable).then(function () {
                 $scope.notifyProgressCompleted();
             }).then(accountManager.loadAccounts).catch(onLoadError).finally($scope.notifyProgressCompleted);
-        } */
+        }
+        
+        console.log("Got to HomeController");
+        
         $scope.isPNRegistrationSucceeded = true;
         
         $rootScope.$on('PN_registered', function(e) {
