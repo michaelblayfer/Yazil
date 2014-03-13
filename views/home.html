@@ -6,30 +6,13 @@
                     <div class="c_row">
                         <div class="c_cell">
                             <div>
-                                <div class="title next">{{"האם ההרשמה הצליחה:"}}</div>
+                                <div class="title next">"האם ההרשמה הצליחה:"</div>
                                 <div class="date next">{{isPNRegistrationSucceeded}}</div>
                             </div>
-
                         </div>
                         <div class="c_cell">
-                                <div class="title next">{{"מזהה רישום:"}}</div>
+                                <div class="title next">"מזהה רישום:"</div>
                                 <div class="date next">{{registrationID}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="credit_row">
-                <div class="c_credit">
-                    <div class="c_row">
-                        <div class="c_cell">
-                            <div>
-                                <div class="title previous">{{"PreviousCredit"|l10n}}</div>
-                                <div class="date previous">{{previousCreditDate|date:"dd/MM/yy"}}</div>
-                            </div>
-                        </div>
-                        <div class="c_cell">
-                            <div class="creditValue previous" ng-show="previousCreditAmount">{{previousCreditAmount |intCurrency:""}}</div>
-                            <div class="creditValue previous empty" ng-hide="previousCreditAmount">{{"NoAmount"|l10n }}</div>
                         </div>
                     </div>
                 </div>
