@@ -32,7 +32,8 @@
             return !!registrationSuccess;
         }
 
-        function PNHandler(e) {
+        function PNHandler(e)
+            console.log('PNHandler event= ' + e);{
             ePNLastEvent = e;
 
             switch (e.event) {
