@@ -105,11 +105,6 @@
             angular.element(document).ready(function () {
                 angular.bootstrap(document, ['Cal.Yazil']);
             });
-            
-            //Register with GCM
-            var pushNotification = window.plugins.pushNotification;
-            pushNotification.register(Cal.PushNotification.successHandler, Cal.PushNotification.errorHandler,{"senderID" : "1011010555758", "ecb" : "Cal.PushNotification.onNotificationGCM"});
-            
         }
 
         if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
