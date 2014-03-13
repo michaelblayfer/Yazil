@@ -59,17 +59,19 @@
         }
 
         function registerPN() {
-            console.log("isPNRegistrationSucceeded : " + isPNRegistrationSucceeded);
-            
-            if (!isPNRegistrationSucceeded()) {
-                var pushNotification = window.plugins.pushNotification;
-                if (pushNotification) {
-                    pushNotification.register(PNSuccessHandler, PNErrorHandler, {
-                        senderID: calConfiguration.senderID,
-                        ecb: PNHandler
-                    });
+            window.setTimeout(function() {
+                console.log("isPNRegistrationSucceeded : " + isPNRegistrationSucceeded);
+                
+                if (!isPNRegistrationSucceeded()) {
+                    var pushNotification = window.plugins.pushNotification;
+                    if (pushNotification) {
+                        pushNotification.register(PNSuccessHandler, PNErrorHandler, {
+                            senderID: calConfiguration.senderID,
+                            ecb: PNHandler
+                        });
+                    }
                 }
-            }
+            }, 3000);
         }
 
         return {
