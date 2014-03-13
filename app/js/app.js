@@ -14,6 +14,8 @@
     yazilModule.service("accountManager", Y.AccountManager);
     yazilModule.service("metadataService", Y.MetadataService);
 
+    yazilModule.service("pushNotificationService", Y.PushNotificationService);
+
     yazilModule.directive("toolbar", function () {
         return Y.ToolbarDirective;
     });
