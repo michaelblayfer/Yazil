@@ -68,13 +68,14 @@
                     
                     if (pushNotification) {
                         var PNHandlerWrapper = {
-                            PNHandler :  PNHandler
+                            PNHandler:  PNHandler,
+                            PublisherID: calConfiguration.senderID
                         };
                         
-                        console.log("Pub ID : "  + calConfiguration.senderID);
+                        console.log("Pub ID : "  + PNHandlerWrapper.PublisherID);
                         
                         pushNotification.register.call(PNHandlerWrapper, PNSuccessHandler, PNErrorHandler, {
-                            senderID: calConfiguration.senderID,
+                            senderID: "this.PublisherID",
                             ecb: "this.PNHandler"
                         });
                     }
