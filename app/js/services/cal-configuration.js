@@ -7,7 +7,8 @@
         var config = {
             baseUrl: getValue("base-url"),
             version: getValue("version"),
-            os: utils.os.isIOS() ? "IOS" : utils.os.isAndroid()? "Android" : "Other"
+            os: utils.os.isIOS() ? "IOS" : utils.os.isAndroid()? "Android" : "Other",
+            senderID: ""
         };
         
         return config;
