@@ -43,7 +43,6 @@
     yazilModule.controller("AccountCtrl", Y.AccountController);
     yazilModule.controller("CustomerServiceCtrl", Y.CustomerServiceController);
     yazilModule.controller("MoreInfoCtrl", Y.MoreInfoController);
-    yazilModule.controller("SplashCtrl", Y.SplashController);
 
     yazilModule.run(function($location) {
         $location.path("/");
