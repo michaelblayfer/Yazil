@@ -18,7 +18,7 @@
                     City: "גבעתיים",
                     MaxCacheAge: 6,
                     PageAnimationEnabled: false,
-                    SwipeAnimationEnabled: true
+                    SwipeAnimationEnabled: false
                 });
                 delete metadata.Response;
                 cachedMetadata = metadata;
