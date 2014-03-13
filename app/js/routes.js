@@ -18,7 +18,6 @@
             .when("/LegalTerms", { templateUrl: "views/legal-terms.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "LegalTerms", displayBack: true }; } } })
             .when("/Security", { templateUrl: "views/security.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "InfoSecurity", displayBack: true }; } } })
             .when("/MoreInfo", { templateUrl: "views/more-info.html", controller: "MoreInfoCtrl", resolve: { pageInfo: function () { return { header: "MoreInfo" }; } } })
-            .when("/Splash", { templateUrl: "views/splash.html", controller: "SplashCtrl", resolve: { pageInfo: function () { return { header: false }; } } })
             .when("/CustomerService", { templateUrl: "views/customer-service.html", controller: "CustomerServiceCtrl", resolve: { pageInfo: function () { return { header: "CustomerService" }; } } })
             .otherwise({ redirectTo: "/" });
     });
