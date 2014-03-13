@@ -3,10 +3,10 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.cal.envelope"
         version   = "1.0.0">
-  <name>מ</name>
+  <name>מעטפת</name>
 
   <description>
-    יציל טסט
+    מעטפת טסט
   </description>
 
   <author href="http://icc.co.il" email="support@icc.co.il">
