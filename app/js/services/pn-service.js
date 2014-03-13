@@ -71,6 +71,8 @@
                             PNHandler :  PNHandler
                         };
                         
+                        console.log("Pub ID : "  + calConfiguration.senderID);
+                        
                         pushNotification.register.call(PNHandlerWrapper, PNSuccessHandler, PNErrorHandler, {
                             senderID: calConfiguration.senderID,
                             ecb: "this.PNHandler"
