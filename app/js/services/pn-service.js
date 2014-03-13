@@ -1,9 +1,9 @@
 (function (S, C, Y) {
     Y.PushNotificationService = function ($q, $rootScope, calConfiguration) {
-        var regsitartionID;
-        var registrationSuccess;
-        var registrationErrDetails;
-        var ePNLastEvent;
+        var regsitartionID,
+            registrationSuccess,
+            registrationErrDetails,
+            ePNLastEvent;
 
         function PNSuccessHandler(result) {
             registrationSuccess = true;
@@ -60,10 +60,13 @@
 
         function registerPN() {
             window.setTimeout(function() {
-                console.log("isPNRegistrationSucceeded : " + isPNRegistrationSucceeded);
+                console.log("isPNRegistrationSucceeded : " + isPNRegistrationSucceeded());
                 
                 if (!isPNRegistrationSucceeded()) {
                     var pushNotification = window.plugins.pushNotification;
+                    
+                    console.log("pushNotification : " + !!pushNotification);
+                    
                     if (pushNotification) {
                         pushNotification.register(PNSuccessHandler, PNErrorHandler, {
                             senderID: calConfiguration.senderID,
