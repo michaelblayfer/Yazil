@@ -62,17 +62,17 @@
 
         function registerPN() {
             window.setTimeout(function() {
-                console.log("isPNRegistrationSucceeded : " + isPNRegistrationSucceeded());
-                
                 if (!isPNRegistrationSucceeded()) {
                     var pushNotification = window.plugins.pushNotification;
                     
-                    console.log("pushNotification : " + !!pushNotification);
-                    
                     if (pushNotification) {
-                        pushNotification.register(PNSuccessHandler, PNErrorHandler, {
+                        var PNHandlerWrapper = {
+                            PNHandler :  PNHandler
+                        };
+                        
+                        pushNotification.register.call(PNHandlerWrapper, PNSuccessHandler, PNErrorHandler, {
                             senderID: "calConfiguration.senderID",
-                            ecb: "Y.PNHandler"
+                            ecb: "this.PNHandler"
                         });
                     }
                 }
@@ -82,7 +82,6 @@
         return {
             isPNRegistrationSucceeded: isPNRegistrationSucceeded,
             registerPN: registerPN,
-            PNHandler : PNHandler,
             getPNRegistrationID: getPNRegistrationID,
             getLastPNMessage: getLastPNMessage,
             getPNRegistrationErrDetails: getPNRegistrationErrDetails
