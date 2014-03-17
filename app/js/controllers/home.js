@@ -35,9 +35,11 @@
         
         $scope.isPNRegistrationSucceeded = true;
         
-        $rootScope.$on('PN_registered', function(regid) {
-            console.log("PN_registered : " + regid);
-            $scope.registrationID = regid;
+        $rootScope.$on('PN_registered', function(e) {
+            console.log("PN_registered : ");
+            for (p in e) console.log(p);
+            
+            $scope.registrationID = e.regid;
         });
         
         $rootScope.$on('PN_error', function(e) {
