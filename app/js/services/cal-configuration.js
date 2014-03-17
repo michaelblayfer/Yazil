@@ -5,7 +5,7 @@
         }
 
         var config = {
-            senderID: "AIzaSyBx_A3WoFVRYE9dqVkvwkmGuSV0SmJ5pzU",
+            senderID: "1011010555758",
             baseUrl: getValue("base-url"),
             version: getValue("version"),
             os: utils.os.isIOS() ? "IOS" : utils.os.isAndroid()? "Android" : "Other"
