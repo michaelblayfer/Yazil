@@ -4,15 +4,21 @@
             return $("head meta[name='" + name + "']").attr("content");
         }
         
-        var _os = "Other";
-        if (utils.os.isIOS()) _os = "IOS";
-        if (utils.os.isAndroid() _os = "Android";
+        var _opSystem = "Other";
+
+        if (utils.os.isIOS()) {
+            _opSystem = "IOS";
+        }
+        
+        if (utils.os.isAndroid()) {
+            _opSystem = "Android";
+        }
         
         var config = {
             senderID: "1011010555758",
             baseUrl: getValue("base-url"),
             version: getValue("version"),
-            os: _os
+            os: _opSystem
         };
         
         return config;
