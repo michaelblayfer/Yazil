@@ -1,6 +1,6 @@
 (function (S, C, Y) {
     Y.PushNotificationService = function ($q, $rootScope, calConfiguration) {
-        var regsitartionID,
+        var registrationID = null,
             registrationSuccess,
             registrationErrDetails,
             ePNLastEvent;
@@ -21,7 +21,7 @@
         }
 
         function getPNRegistrationID() {
-            return regsitartionID;
+            return $q.when(registrationID);
         }
 
         function getLastPNMessage() {
@@ -40,7 +40,7 @@
                 case 'registered':
                     if (e.regid.length > 0) {
                         $rootScope.$emit("PN_registered", e.regid);
-                        console.log('registration id = ' + e.regid);
+                        registrationID = regid;
                     }
                     break;
 
@@ -52,6 +52,7 @@
                 case 'error':
                     $rootScope.$emit("PN_error", e.msg);
                     console.log('GCM error = ' + e.msg);
+                    registrationID = "none";
                     break;
 
                 default:
