@@ -67,16 +67,12 @@
                     var pushNotification = window.plugins.pushNotification;
                     
                     if (pushNotification) {
-                        var PNHandlerWrapper = {
-                            PNHandler:  PNHandler,
-                            PublisherID: calConfiguration.senderID
-                        };
-                        
-                        console.log("Pub ID : "  + PNHandlerWrapper.PublisherID);
+                        console.log("Pub ID : "  + calConfiguration.senderID);
+                        Cal.Configuration._PNHandler = PNHandler;
                         
                         pushNotification.register.call(PNHandlerWrapper, PNSuccessHandler, PNErrorHandler, {
-                            senderID: "this.PublisherID",
-                            ecb: "this.PNHandler"
+                            'senderID': calConfiguration.senderID,
+                            'ecb': "Cal.Configuration._PNHandler"
                         });
                     }
                 }
