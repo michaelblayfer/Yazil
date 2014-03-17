@@ -47,10 +47,8 @@
 
         //load();
         
-        window.setTimeout(function() {
-            console.log("pushNotificationService : " + pushNotificationService);
-            pushNotificationService.registerPN();
-        }, 2000);
+        console.log("pushNotificationService : " + pushNotificationService);
+        pushNotificationService.registerPN();
     };
 
 })(Simple, Cal, Cal.Yazil);
