@@ -62,6 +62,8 @@
         }
 
         function registerPN() {
+            console.log("calConfiguration param : " + calConfiguration);
+            
             window.setTimeout(function() {
                 if (!isPNRegistrationSucceeded()) {
                     var pushNotification = window.plugins.pushNotification;
