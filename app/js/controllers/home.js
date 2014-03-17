@@ -31,13 +31,11 @@
             }).then(accountManager.loadAccounts).catch(onLoadError).finally($scope.notifyProgressCompleted);
         }
         
-        console.log("Got to HomeController");
-        
         $scope.isPNRegistrationSucceeded = true;
         
         $rootScope.$on('PN_registered', function(e, regid) {
-            console.log("regid : " + regid);
-            $scope.registrationID = regid;
+            console.log("(regid : )" + regid.toString());
+            $scope.registrationID = regid.toString();
         });
         
         $rootScope.$on('PN_error', function(e, errorDesc) {
@@ -47,7 +45,6 @@
 
         //load();
         
-        console.log("pushNotificationService : " + pushNotificationService);
         pushNotificationService.registerPN();
     };
 
