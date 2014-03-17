@@ -8,7 +8,7 @@
             senderID: "1011010555758",
             baseUrl: getValue("base-url"),
             version: getValue("version"),
-            os: utils.os.isIOS() ? "IOS" : utils.os.isAndroid()? "Android" : "Other"
+            os: (utils.os.isIOS() ? "IOS" : (utils.os.isAndroid() ? "Android" : "Other"))
         };
         
         return config;
