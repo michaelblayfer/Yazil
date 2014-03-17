@@ -64,21 +64,19 @@
         function registerPN() {
             console.log("calConfiguration param : " + calConfiguration);
             
-            window.setTimeout(function() {
-                if (!isPNRegistrationSucceeded()) {
-                    var pushNotification = window.plugins.pushNotification;
+            if (!isPNRegistrationSucceeded()) {
+                var pushNotification = window.plugins.pushNotification;
+                
+                if (pushNotification) {
+                    console.log("Pub ID : "  + calConfiguration.senderID);
+                    Cal.Configuration._PNHandler = PNHandler;
                     
-                    if (pushNotification) {
-                        console.log("Pub ID : "  + calConfiguration.senderID);
-                        Cal.Configuration._PNHandler = PNHandler;
-                        
-                        pushNotification.register.call(PNHandlerWrapper, PNSuccessHandler, PNErrorHandler, {
-                            'senderID': calConfiguration.senderID,
-                            'ecb': "Cal.Configuration._PNHandler"
-                        });
-                    }
+                    pushNotification.register.call(PNHandlerWrapper, PNSuccessHandler, PNErrorHandler, {
+                        'senderID': calConfiguration.senderID,
+                        'ecb': "Cal.Configuration._PNHandler"
+                    });
                 }
-            }, 3000);
+            }
         }
 
         return {
