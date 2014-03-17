@@ -21,6 +21,7 @@
         }
 
         function getPNRegistrationID() {
+            console.log("got to getPNRegistrationID");
             return $q.when(registrationID);
         }
 
