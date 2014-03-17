@@ -10,9 +10,9 @@
     //}]);
 
 
-    yazilModule.config(function ($routeProvider) {
+    yazilModule.config(function ($routeProvider, $q, pushNotificationService) {
         $routeProvider
-            .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { pageInfo: function () { return { header: "MyAccountsTitle" }; } } })
+            .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { pageInfo: function () { return { isRegistered: pushNotificationService.getPNRegistrationID() }; } } })
             .otherwise({ redirectTo: "/" });
     });
 
