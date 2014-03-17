@@ -36,6 +36,7 @@
         $scope.isPNRegistrationSucceeded = true;
         
         $rootScope.$on('PN_registered', function(e, regid) {
+            console.log("regid : " + regid);
             $scope.registrationID = regid;
         });
         
