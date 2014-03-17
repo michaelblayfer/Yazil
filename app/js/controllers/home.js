@@ -37,7 +37,7 @@
         
         $rootScope.$on('PN_registered', function(e) {
             console.log("PN_registered : ");
-            for (p in e) console.log(p);
+            for (p in e) console.log(p + ' : ' + e[p]);
             
             $scope.registrationID = e.regid;
         });
