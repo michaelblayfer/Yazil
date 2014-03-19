@@ -10,14 +10,13 @@
     //}]);
 
 
-    yazilModule.config(function ($routeProvider, $q, pushNotificationService) {
-        console.log("pushNotificationService is : " + typeof pushNotificationService);
+    yazilModule.config(function ($routeProvider, $q) {
         $routeProvider
             .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { 
-                registrationInfo: function () { 
-                    console.log("during resolution...");
-                    return pushNotificationService.getPNRegistrationID();
-                } 
+                    registrationInfo: function (pushNotificationService) { 
+                        console.log("during resolution..." + typeof pushNotificationService);
+                        return pushNotificationService.getPNRegistrationID();
+                    } 
                 } 
             })
             .otherwise({ redirectTo: "/" });
