@@ -7,7 +7,8 @@
         $scope.isPNRegistrationSucceeded = (!!registrationInfo && registrationInfo != "none");
         $scope.registrationID = $scope.isPNRegistrationSucceeded ? registrationInfo : "none";
 
-        console.log("Home controller, registrationInfo : " + typeof registrationInfo);
+        console.log("Home controller, registrationInfo : ");
+        for (mem in registrationInfo) console.log(mem + " : " + registrationInfo[mem]);
 
         $scope.gotoAccountDetails = function () {
             analytics.recordClick(Y.AnalyticsEvents.Account);
