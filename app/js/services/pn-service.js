@@ -14,6 +14,7 @@
             console.log("PNErrorHandler : " + errDetails);
             registrationErrDetails = errDetails;
             registrationSuccess = false;
+            registrationID = "none";
         }
 
         function getPNRegistrationErrDetails() {
