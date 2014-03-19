@@ -2,9 +2,11 @@
 
     Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService, analytics, 
                                  textResource, metadataService, sessionManager, utils, $log, 
-                                 pushNotificationService, registrationInfo) {
-        $rootScope.loaded = false;
-        
+                                 registrationInfo) {
+
+        $scope.isPNRegistrationSucceeded = (!!registrationInfo && registrationInfo != "none");
+        $scope.registrationID = $scope.isPNRegistrationSucceeded ? registrationInfo : "none";
+
         console.log("Home controller, registrationInfo : " + typeof registrationInfo);
 
         $scope.gotoAccountDetails = function () {
@@ -34,21 +36,7 @@
             }).then(accountManager.loadAccounts).catch(onLoadError).finally($scope.notifyProgressCompleted);
         }
         
-        $scope.isPNRegistrationSucceeded = true;
-        
-        $rootScope.$on('PN_registered', function(e, regid) {
-            console.log("(regid : )" + regid.toString());
-            $scope.registrationID = regid.toString();
-        });
-        
-        $rootScope.$on('PN_error', function(e, errorDesc) {
-            console.log("PN_error : " + errorDesc);
-            $scope.isPNRegistrationSucceeded = false;
-        });        
-
         //load();
-        
-        pushNotificationService.registerPN();
     };
 
 })(Simple, Cal, Cal.Yazil);
