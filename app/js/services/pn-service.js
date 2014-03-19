@@ -42,7 +42,7 @@
                 case 'registered':
                     if (e.regid.length > 0) {
                         $rootScope.$emit("PN_registered", e.regid);
-                        registrationID = regid;
+                        registrationID = e.regid;
                     }
                     break;
 
