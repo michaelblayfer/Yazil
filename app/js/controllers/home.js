@@ -1,8 +1,11 @@
 ﻿(function (S, C, Y) {
 
     Y.HomeController = function ($scope, $location, $rootScope, accountManager, alertService, analytics, 
-                                 textResource, metadataService, sessionManager, utils, $log, pushNotificationService) {
+                                 textResource, metadataService, sessionManager, utils, $log, 
+                                 pushNotificationService, registrationInfo) {
         $rootScope.loaded = false;
+        
+        console.log("Home controller, registrationInfo : " + typeof registrationInfo);
 
         $scope.gotoAccountDetails = function () {
             analytics.recordClick(Y.AnalyticsEvents.Account);
