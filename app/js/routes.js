@@ -13,7 +13,13 @@
     yazilModule.config(function ($routeProvider, $q, pushNotificationService) {
         console.log("pushNotificationService is : " + typeof pushNotificationService);
         $routeProvider
-            .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { pageInfo: function () { return { isRegistered: pushNotificationService.getPNRegistrationID() }; } } })
+            .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { 
+                registrationInfo: function () { 
+                    console.log("during resolution...");
+                    return pushNotificationService.getPNRegistrationID();
+                } 
+                } 
+            })
             .otherwise({ redirectTo: "/" });
     });
 
