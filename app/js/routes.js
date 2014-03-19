@@ -15,7 +15,7 @@
             .when("/", { templateUrl: "views/home.html", controller: "HomeCtrl", resolve: { 
                     registrationInfo: function (pushNotificationService) { 
                         console.log("during resolution..." + typeof pushNotificationService);
-                        return pushNotificationService.getPNRegistrationID();
+                        return "sdfsdfsdf"; //pushNotificationService.getPNRegistrationID();
                     } 
                 } 
             })
