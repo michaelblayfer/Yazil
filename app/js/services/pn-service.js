@@ -3,7 +3,8 @@
         var registrationID = null,
             registrationSuccess,
             registrationErrDetails,
-            ePNLastEvent;
+            ePNLastEvent,
+            dfr;
 
         function PNSuccessHandler(result) {
             console.log("PNSuccessHandler : " + result);
@@ -15,6 +16,7 @@
             registrationErrDetails = errDetails;
             registrationSuccess = false;
             registrationID = "none";
+            dfr.reject("registration failed");
         }
 
         function getPNRegistrationErrDetails() {
@@ -23,7 +25,8 @@
 
         function getPNRegistrationID() {
             console.log("got to getPNRegistrationID");
-            return $q.when(registrationID);
+            dfr = $q.defer();
+            return dfr.promise;
         }
 
         function getLastPNMessage() {
@@ -43,6 +46,7 @@
                     if (e.regid.length > 0) {
                         $rootScope.$emit("PN_registered", e.regid);
                         registrationID = e.regid;
+                        dfr.resolve(registrationID);
                     }
                     break;
 
@@ -55,6 +59,7 @@
                     $rootScope.$emit("PN_error", e.msg);
                     console.log('GCM error = ' + e.msg);
                     registrationID = "none";
+                    dfr.resolve(registrationID);
                     break;
 
                 default:
