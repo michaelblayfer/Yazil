@@ -46,7 +46,8 @@
     yazilModule.controller("CustomerServiceCtrl", Y.CustomerServiceController);
     yazilModule.controller("MoreInfoCtrl", Y.MoreInfoController);
 
-    yazilModule.run(function($location) {
+    yazilModule.run(function($location, pushNotificationService) {
+        pushNotificationService.registerPN();
         $location.path("/");
     });
     
