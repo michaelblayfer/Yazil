@@ -47,6 +47,7 @@
     yazilModule.controller("MoreInfoCtrl", Y.MoreInfoController);
 
     yazilModule.run(function($location, pushNotificationService) {
+        console.log("pushNotificationService in run : " + typeof pushNotificationService);
         pushNotificationService.registerPN();
         $location.path("/");
     });
