@@ -12,7 +12,7 @@
   <author href="http://icc.co.il" email="support@icc.co.il">
     כ.א.ל מעטפת
   </author>
-<feature name="http://api.phonegap.com/1.0/network"/>
+  <feature name="http://api.phonegap.com/1.0/network"/>
    <!--<feature name="http://api.phonegap.com/1.0/device" />
  <feature name="http://api.phonegap.com/1.0/camera"/>
   <feature name="http://api.phonegap.com/1.0/contacts"/>
@@ -60,7 +60,11 @@
 
   <!-- Push notification plugin -->
   <gap:plugin name="com.phonegap.plugins.pushplugin" />
-
+  
+  <gap:url-scheme name="cal.mobilepg.arnakcal" role="None">      
+    <scheme>arnkenvlp</scheme>    
+  </gap:url-scheme>
+    
   <gap:platform name="ios" />
   <gap:platform name="android" />
   <gap:platform name="winphone" />
