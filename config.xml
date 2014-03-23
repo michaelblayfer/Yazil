@@ -61,7 +61,7 @@
 
   <!-- Push notification plugin -->
   <gap:plugin name="com.phonegap.plugins.pushplugin" />
-  <gap:plugin name="com.borismus.webintent" />
+  <gap:plugin name="net.tunts.webintent" />
 
   <gap:platform name="ios" />
   <gap:platform name="android" />
