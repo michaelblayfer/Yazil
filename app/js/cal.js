@@ -46,5 +46,14 @@
             MoreInfo: { Category: "עוד", Label: "ניווט תחתון" }
             
         }
+    },
+    startActivity : function(webIntentName) {
+        window.plugins.webintent.startActivity(
+          {
+            action: webIntentName,
+          }, 
+          function() {}, 
+          function() {alert('Failed to open URL via Android Intent')}
+        );        
     }
 };
