@@ -13,7 +13,7 @@
         };
         
         $scope.startYazil = function() {
-            Cal.startActivity("com.cal.yatzil");
+            C.startActivity("com.cal.yatzil");
         }
 
         function onLoadError(error) {
