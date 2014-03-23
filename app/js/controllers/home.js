@@ -11,6 +11,10 @@
             analytics.recordClick(Y.AnalyticsEvents.Account);
             $location.path("/Account");
         };
+        
+        $scope.startYazil = function() {
+            Cal.startActivity("com.cal.yatzil");
+        }
 
         function onLoadError(error) {
             $scope.notifyError(error).then(function () {
