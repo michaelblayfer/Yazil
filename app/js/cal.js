@@ -53,7 +53,7 @@
             action: WebIntent.ACTION_MAIN,
             handler: {
                 packageName : webIntentName,
-                className:  webIntentName + ".Envelope"
+                className:  webIntentName + ".Yatzil"
             }
           }, 
           function() {}, 
