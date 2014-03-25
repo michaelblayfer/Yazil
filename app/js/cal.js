@@ -52,7 +52,8 @@
           {
             action: WebIntent.ACTION_MAIN,
             handler: {
-                packageName : webIntentName + "/" + webIntentName + ".Envelope"
+                packageName : webIntentName,
+                className:  webIntentName + ".Envelope"
             }
           }, 
           function() {}, 
