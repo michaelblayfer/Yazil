@@ -47,12 +47,12 @@
         }
 
         function IOS_PNHandler(event) {
+            var bh = function(e) {
+                console.log("IOS icon badge handler : " + e);
+            }
+                
             try
             {
-                var bh = function(e) {
-                    console.log("IOS icon badge handler : " + e);
-                }
-                
                 if ( event.alert )
                 {
                     navigator.notification.alert(event.alert);
