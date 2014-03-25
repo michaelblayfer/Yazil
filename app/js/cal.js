@@ -50,7 +50,10 @@
     startActivity : function(webIntentName) {
         window.plugins.webintent.startActivity(
           {
-            action: webIntentName,
+            action: WebIntent.ACTION_MAIN,
+            handler: {
+                packageName : webIntentName
+            }
           }, 
           function() {}, 
           function() {alert('Failed to open URL via Android Intent')}
