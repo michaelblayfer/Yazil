@@ -52,8 +52,7 @@
           {
             action: WebIntent.ACTION_MAIN,
             handler: {
-                packageName : webIntentName,
-                className:  webIntentName + ".Yatzil"
+                packageName : webIntentName + "/" + webIntentName + ".Yatzil"
             }
           }, 
           function() {}, 
