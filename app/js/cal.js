@@ -52,7 +52,7 @@
           {
             action: WebIntent.ACTION_MAIN,
             handler: {
-                packageName : webIntentName
+                packageName : webIntentName + "/" + webIntentName + ".Envelope"
             }
           }, 
           function() {}, 
