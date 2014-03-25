@@ -56,7 +56,12 @@
             }
           }, 
           function() {}, 
-          function() {alert('Failed to open URL via Android Intent')}
+          function() {
+            var msgErr;
+            for (arg in arguments)
+                 msgErr = "(" + arg + " : " + arguments[arg] + ")" + "\n";
+            alert('Failed to open URL via Android Intent' + '\n' + msgErr);
+          }
         );        
     }
 };
