@@ -53,7 +53,7 @@
             action: "android.intent.action.MAIN",
             handler: {
                 packageName : webIntentName,
-                className: webIntentName
+                className: webIntentName + ".Yatzil"
             }
           }, 
           function() {}, 
