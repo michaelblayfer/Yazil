@@ -1,5 +1,5 @@
 (function (S, C, Y) {
-    Y.PushNotificationService = function ($q, $rootScope, calConfiguration) {
+    Y.PushNotificationService = function ($q, $rootScope, calConfiguration, utils) {
         var registrationID = null,
             registrationSuccess,
             registrationErrDetails,
@@ -9,6 +9,15 @@
         function PNSuccessHandler(result) {
             console.log("PNSuccessHandler : " + result);
             registrationSuccess = true;
+        }
+        
+        function PNSuccessHandler_IOS(result) {
+            console.log("IOS PNSuccessHandler : " + result);
+            registrationSuccess = true;
+            
+            $rootScope.$emit("PN_registered", result);
+            registrationID = result;
+            dfr.resolve(registrationID);            
         }
 
         function PNErrorHandler(errDetails) {
@@ -35,6 +44,35 @@
 
         function isPNRegistrationSucceeded() {
             return !!registrationSuccess;
+        }
+
+        function IOS_PNHandler(event) {
+            try
+            {
+                var bh = function(e) {
+                    console.log("IOS icon badge handler : " + e);
+                }
+                
+                if ( event.alert )
+                {
+                    navigator.notification.alert(event.alert);
+                }
+            
+                if ( event.sound )
+                {
+                    var snd = new Media(event.sound);
+                    snd.play();
+                }
+
+                if ( event.badge )
+                {
+                    var pushNotification = window.plugins.pushNotification;
+                    pushNotification.setApplicationIconBadgeNumber(bh, bh, event.badge);
+                }
+            }
+            catch(exc) {
+                console.log("IOS PHandler exception : " + exc);
+            }
         }
 
         function PNHandler(e) {
@@ -70,20 +108,33 @@
         }
 
         function registerPN() {
-            console.log("calConfiguration param : " + calConfiguration);
-            
             if (!isPNRegistrationSucceeded()) {
                 var pushNotification = window.plugins.pushNotification;
                 
                 if (pushNotification) {
-                    console.log("Pub ID : "  + calConfiguration.senderID);
-                    Cal.Configuration._PNHandler = PNHandler;
-                    
-                    pushNotification.register(PNSuccessHandler, PNErrorHandler, {
-                        'senderID': calConfiguration.senderID,
-                        'ecb': "Cal.Configuration._PNHandler"
-                    });
-                }
+                    if (utils.os.isAndroid()) {
+                        console.log("(GCM) Sender ID : "  + calConfiguration.senderID);
+                        Cal.Configuration._PNHandler = PNHandler;
+                        
+                        pushNotification.register(PNSuccessHandler, PNErrorHandler, {
+                            'senderID': calConfiguration.senderID,
+                            'ecb': "Cal.Configuration._PNHandler"
+                        });
+                    } else if (utils.os.isIOS()) {
+                               console.log("(APN) Sender ID : doesn't apply");
+                               Cal.Configuration._PNHandler = IOS_PNHandler;
+                                
+                               pushNotification.register(PNSuccessHandler_IOS, PNErrorHandler, {
+                                                            "badge": "true",
+                                                            "sound": "true",
+                                                            "alert": "true",
+                                                            "ecb": "Cal.Configuration._PNHandler"
+                                                        });
+                                           
+                           } else {
+                                    console.log('Not supported platform for PN!');
+                             }
+                } 
             }
         }
 
