@@ -50,7 +50,7 @@
     startActivity : function(webIntentName) {
         window.plugins.webintent.startActivity(
           {
-            action: WebIntent.ACTION_MAIN,
+            action: "android.intent.action.MAIN",
             handler: {
                 packageName : webIntentName,
                 className: webIntentName
