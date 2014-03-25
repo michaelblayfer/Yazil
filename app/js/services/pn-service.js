@@ -15,8 +15,8 @@
             console.log("IOS PNSuccessHandler : " + result);
             registrationSuccess = true;
             
-            $rootScope.$emit("PN_registered", result);
             registrationID = result;
+            $rootScope.$emit("PN_registered", result);            
             dfr.resolve(registrationID);            
         }
 
@@ -109,6 +109,7 @@
 
         function registerPN() {
             if (!isPNRegistrationSucceeded()) {
+                console.log("...");
                 var pushNotification = window.plugins.pushNotification;
                 
                 if (pushNotification) {
