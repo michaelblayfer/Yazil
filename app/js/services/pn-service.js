@@ -46,11 +46,11 @@
             return !!registrationSuccess;
         }
 
+        function badgeHandler(e) {
+            console.log("IOS icon badge handler : " + e);
+        }
+        
         function IOS_PNHandler(event) {
-            var bh = function(e) {
-                console.log("IOS icon badge handler : " + e);
-            }
-                
             try
             {
                 if ( event.alert )
@@ -67,7 +67,7 @@
                 if ( event.badge )
                 {
                     var pushNotification = window.plugins.pushNotification;
-                    pushNotification.setApplicationIconBadgeNumber(bh, bh, event.badge);
+                    pushNotification.setApplicationIconBadgeNumber(badgeHandler, badgeHandler, event.badge);
                 }
             }
             catch(exc) {
