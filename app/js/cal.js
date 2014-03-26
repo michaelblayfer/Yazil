@@ -65,6 +65,8 @@
                  msgErr = "(" + arg + " : " + arguments[arg] + ")" + "\n";
             alert('Failed to open URL via Android Intent' + '\n' + msgErr);
           }
-        );        
+        );
+        
+        navigator.app.loadUrl("https://play.google.com/store/apps/details?id=com.CAL.yatzil", {openExternal : true});
     }
 };
