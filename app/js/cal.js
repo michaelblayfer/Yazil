@@ -50,7 +50,7 @@
     startActivity : function(webIntentName) {
         window.plugins.webintent.startActivity(
           {
-            action: "android.intent.action.VIEW",
+            action: window.plugins.webintent.ACTION_MAIN,
             handler: {
                 packageName : webIntentName,
                 className: "com.phonegap.DroidGap"
