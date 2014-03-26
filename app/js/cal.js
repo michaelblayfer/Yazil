@@ -53,7 +53,7 @@
             action: window.plugins.webintent.ACTION_MAIN,
             handler: {
                 packageName : webIntentName,
-                className: "com.phonegap.DroidGap"
+                className: "org.apache.cordova.CordovaWebView"
             }
           }, 
           function() {
