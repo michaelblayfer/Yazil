@@ -53,10 +53,12 @@
             action: window.plugins.webintent.ACTION_MAIN,
             handler: {
                 packageName : webIntentName,
-                className: "org.apache.cordova.DroidGap"
+                className: "com.phonegap.DroidGap"
             }
           }, 
-          function() {}, 
+          function() {
+              alert("Launching succeeded!");
+          }, 
           function() {
             var msgErr;
             for (arg in arguments)
