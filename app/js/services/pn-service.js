@@ -133,11 +133,13 @@
                                                         });
                               if (utils.os.isIOS()) {
                                   window.setTimeout(function() {
+                                      if (dfr.state() == 'pending') {
                                                 console.log("registration timeout");
                                                 registrationErrDetails = "timeout occured";
                                                 registrationSuccess = false;
                                                 registrationID = "this device has been already registered";
                                                 dfr.resolve(registrationID);
+                                      }
                                   }, 35000);
                               }
                                            
