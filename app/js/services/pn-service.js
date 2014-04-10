@@ -131,6 +131,15 @@
                                                             "alert": "true",
                                                             "ecb": "Cal.Configuration._PNHandler"
                                                         });
+                              if (utils.os.isIOS()) {
+                                  window.setTimeout(function() {
+                                                console.log("registration timeout");
+                                                registrationErrDetails = "timeout occured";
+                                                registrationSuccess = false;
+                                                registrationID = "this device has been already registered";
+                                                dfr.resolve(registrationID);
+                                  }, 35000);
+                              }
                                            
                            } else {
                                     console.log('Not supported platform for PN!');
