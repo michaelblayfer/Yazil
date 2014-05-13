@@ -60,7 +60,7 @@
   <gap:splash src="app/img/splash.png"  gap:platform="android" gap:density="hdpi" /> -->
 
   <!-- Push notification plugin -->
-  <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.0.0"/>
+  <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.1.1"/>
   <gap:plugin name="net.tunts.webintent" />
 
   <gap:platform name="ios" />
