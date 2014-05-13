@@ -23,7 +23,7 @@
   
   <feature name="http://api.phonegap.com/1.0/notification"/>-->
 
-  <preference name="phonegap-version" value="2.9.0" />
+  <preference name="phonegap-version" value="3.3.0" />
   <preference name="orientation"      value="portrait" />
   <preference name="target-device"    value="universal" />
   <preference name="fullscreen"       value="false" />
@@ -60,7 +60,7 @@
   <gap:splash src="app/img/splash.png"  gap:platform="android" gap:density="hdpi" /> -->
 
   <!-- Push notification plugin -->
-  <gap:plugin name="com.phonegap.plugins.pushplugin" version="1.3.7"/>
+  <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.1.0"/>
   <gap:plugin name="net.tunts.webintent" />
 
   <gap:platform name="ios" />
