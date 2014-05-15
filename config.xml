@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<widget id="Com.Cal.WalletTest" 
-        version="1.2.2" 
+<widget id="com.phonegap.Cal4U" 
+        version="1.0.0" 
         xmlns="http://www.w3.org/ns/widgets" 
         xmlns:gap="http://phonegap.com/ns/1.0">
   
-    <name>Cal Envelopy</name>
+    <name>Cal Wallet</name>
     <description>
-       Cal Envelopy Test
+       Cal Digital Wallet
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
-      Cal Internet Team
-    </author>  
-  
+      Cal Digital Team
+    </author>
+
   <feature name="http://api.phonegap.com/1.0/network"/>
    <!--<feature name="http://api.phonegap.com/1.0/device" />
  <feature name="http://api.phonegap.com/1.0/camera"/>
