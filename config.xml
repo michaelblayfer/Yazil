@@ -3,7 +3,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android   = "http://schemas.android.com/apk/res/android"
         id        = "Com.Cal.WalletTest"
-        version   = "1.2.1">
+        version   = "1.2.2">
   <name>מעטפת</name>
 
   <description>
@@ -62,7 +62,8 @@
   <!-- Push notification plugin -->
 
   <gap:plugin name="net.tunts.webintent" />
-
+  <gap:plugin name="com.phonegap.plugins.pushplugin" />
+  
   <gap:platform name="ios" />
   <gap:platform name="android" />
   <gap:platform name="winphone" />
