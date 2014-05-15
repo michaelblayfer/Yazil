@@ -78,7 +78,7 @@
         }
 
         function PNHandler(e) {
-            console.log('PNHandler event= ' + e);
+            console.log('PNHandler event= ' + JSON.stringify(e));
             ePNLastEvent = e;
 
             switch (e.event) {
