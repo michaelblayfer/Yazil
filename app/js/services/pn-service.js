@@ -17,10 +17,11 @@
             
             registrationID = result;
             $rootScope.$emit("PN_registered", result);            
-            dfr.resolve(registrationID);
 
             yazilServiceClient.postSubscriptionInfo(registrationID)
             .catch(setPushSubscribeError);
+            
+            dfr.resolve(registrationID);
         }
 
         function setPushSubscribeError(errdetails) {
@@ -93,10 +94,11 @@
                     if (e.regid.length > 0) {
                         $rootScope.$emit("PN_registered", e.regid);
                         registrationID = e.regid;
-                        dfr.resolve(registrationID);
-                        
+
                         yazilServiceClient.postSubscriptionInfo(registrationID)
                         .catch(setPushSubscribeError);
+
+                        dfr.resolve(registrationID);
                     }
                     break;
 
