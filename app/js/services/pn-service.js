@@ -24,7 +24,7 @@ try {
 }
 
 catch (errDetails) {
-    console.log("catch : " + JSON.stringify(errDetails));
+    console.log("catchy : " + JSON.stringify(errDetails));
 }
             
             dfr.resolve(registrationID);
@@ -107,7 +107,9 @@ try {
 }
 
 catch (errDetails) {
-    console.log("catch : " + JSON.stringify(errDetails));
+    console.log(typeof yazilServiceClient);
+    console.log(typeof yazilServiceClient.postSubscriptionInfo);
+    console.log("catchy : " + JSON.stringify(errDetails));
 }
 
                         dfr.resolve(registrationID);
