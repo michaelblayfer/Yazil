@@ -19,6 +19,13 @@
         function getAccountTransactions(number, mislaka) {
             return calServiceClient.run("GET", "AccountCreditTransactions/" + number + "@" + mislaka);
         }
+        
+        function postSubscriptionInfo(registrationid) {
+            return calServiceClient.run("POST", 
+                   "PushSubscription",
+                   {RegistrationId : registrationid, CalApplicationId : calConfiguration.appid, 1}
+            );
+        }    
 
         function logout(user) {
             return calServiceClient.run("DELETE", "YazilAuthenticator", null, null, user ? user.AuthenticationToken : null);
