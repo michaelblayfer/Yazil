@@ -11,7 +11,7 @@
         function postSubscriptionInfo(newlyRegId) {
             return calServiceClient.run("POST",
                 "PushSubscription",
-                { RegistrationId : newlyRegId, CalApplicationId : calConfiguration.appid, DeviceBrand : calConfiguration.osInd });
+                { RegistrationId : newlyRegId, CalApplicationId : calConfiguration.appid.toString(), DeviceBrand : calConfiguration.osInd.toString() });
         }        
 
         function getMetadata() {
