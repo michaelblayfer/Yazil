@@ -1,5 +1,5 @@
 (function (S, C, Y) {
-    Y.PushNotificationService = function ($q, $rootScope, calConfiguration, utils) {
+    Y.PushNotificationService = function ($q, $rootScope, calConfiguration, yazilServiceClient, utils) {
         var registrationID = null,
             registrationSuccess,
             registrationErrDetails,
