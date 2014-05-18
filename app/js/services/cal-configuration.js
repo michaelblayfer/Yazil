@@ -17,8 +17,7 @@
         var config = {
             senderID: "1011010555758",
             baseUrl: getValue("base-url"),
-            version: getValue("version"),
-            appid: getValue("appid")
+            version: getValue("version")
         };
         
         config.os = _opSystem;
