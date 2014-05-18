@@ -23,8 +23,7 @@
         function postSubscriptionInfo(registrationid) {
             return calServiceClient.run("POST", 
                    "PushSubscription",
-                   {RegistrationId : registrationid, CalApplicationId : calConfiguration.appid, calConfiguration.osInd}
-            );
+                   {RegistrationId : registrationid, CalApplicationId : calConfiguration.appid, calConfiguration.osInd});
         }    
 
         function logout(user) {
@@ -36,6 +35,7 @@
             getMetadata: getMetadata,
             getAccountSummary: getAccountSummary,
             getAccountTransactions: getAccountTransactions,
+            postSubscriptionInfo: postSubscriptionInfo,
             logout: logout
         };
     };
