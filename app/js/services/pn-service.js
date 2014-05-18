@@ -17,16 +17,6 @@
             
             registrationID = result;
             $rootScope.$emit("PN_registered", result);            
-
-/* try {
-            yazilServiceClient.postSubscriptionInfo(registrationID)
-            .catch(setPushSubscribeError);
-}
-
-catch (errDetails) {
-    console.log("catch : " + JSON.stringify(errDetails));
-}*/
-            
             dfr.resolve(registrationID);
         }
 
@@ -100,16 +90,6 @@ catch (errDetails) {
                     if (e.regid.length > 0) {
                         $rootScope.$emit("PN_registered", e.regid);
                         registrationID = e.regid;
-
-/* try {
-                        yazilServiceClient.postSubscriptionInfo(registrationID)
-                        .catch(setPushSubscribeError);
-}
-
-catch (errDetails) {
-    console.log("catch : " + JSON.stringify(errDetails));
-} */
-
                         dfr.resolve(registrationID);
                     }
                     break;
