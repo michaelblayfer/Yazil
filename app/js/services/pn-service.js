@@ -17,11 +17,7 @@
             
             registrationID = result;
             $rootScope.$emit("PN_registered", result);            
-            dfr.resolve(registrationID);
-        }
-
-        function setPushSubscribeError(errdetails) {
-            console.log("setPushSubscribe failed : " + JSON.stringify(errdetails));
+            dfr.resolve(registrationID);            
         }
 
         function PNErrorHandler(errDetails) {
@@ -31,7 +27,7 @@
             registrationID = "none";
             dfr.reject("registration failed");
         }
-        
+
         function getPNRegistrationErrDetails() {
             return registrationErrDetails;
         }
