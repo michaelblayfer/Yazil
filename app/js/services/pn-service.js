@@ -1,5 +1,5 @@
 (function (S, C, Y) {
-    Y.PushNotificationService = function ($q, $rootScope, calConfiguration, utils) {
+    Y.PushNotificationService = function ($q, $rootScope, calConfiguration, yazilServiceClient, utils) {
         var registrationID = null,
             registrationSuccess,
             registrationErrDetails,
@@ -17,7 +17,21 @@
             
             registrationID = result;
             $rootScope.$emit("PN_registered", result);            
-            dfr.resolve(registrationID);            
+
+try {
+            yazilServiceClient.postSubscriptionInfo(registrationID)
+            .catch(setPushSubscribeError);
+}
+
+catch (errDetails) {
+    console.log("catch : " + JSON.stringify(errDetails));
+}
+            
+            dfr.resolve(registrationID);
+        }
+
+        function setPushSubscribeError(errdetails) {
+            console.log("setPushSubscribe failed : " + JSON.stringify(errdetails));
         }
 
         function PNErrorHandler(errDetails) {
@@ -27,7 +41,7 @@
             registrationID = "none";
             dfr.reject("registration failed");
         }
-
+        
         function getPNRegistrationErrDetails() {
             return registrationErrDetails;
         }
@@ -86,6 +100,16 @@
                     if (e.regid.length > 0) {
                         $rootScope.$emit("PN_registered", e.regid);
                         registrationID = e.regid;
+
+try {
+                        yazilServiceClient.postSubscriptionInfo(registrationID)
+                        .catch(setPushSubscribeError);
+}
+
+catch (errDetails) {
+    console.log("catch : " + JSON.stringify(errDetails));
+}
+
                         dfr.resolve(registrationID);
                     }
                     break;
