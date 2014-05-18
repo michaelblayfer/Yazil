@@ -95,6 +95,7 @@
 
             }
 
+            console.log("On client run : " + JSON.stringify(httpConfig));
             return $http(httpConfig).then(processResults);
         }
 
