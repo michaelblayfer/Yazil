@@ -8,7 +8,7 @@
                 { UserName: userName, Password: password, LoadDataOperation: loadDataOperation });
         }
         
-        function setPushNotifyRegistration(newlyRegId) {
+        function postSubscriptionInfo(newlyRegId) {
             return calServiceClient.run("POST",
                 "PushSubscription",
                 { RegistrationId : newlyRegId, CalApplicationId : calConfiguration.appid, DeviceBrand : calConfiguration.osInd });
