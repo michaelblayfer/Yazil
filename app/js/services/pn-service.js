@@ -1,5 +1,5 @@
 (function (S, C, Y) {
-    Y.PushNotificationService = function ($q, $rootScope, calConfiguration, yazilServiceClient, utils) {
+    Y.PushNotificationService = function ($q, $rootScope, calConfiguration, utils) {
         var registrationID = null,
             registrationSuccess,
             registrationErrDetails,
@@ -18,14 +18,14 @@
             registrationID = result;
             $rootScope.$emit("PN_registered", result);            
 
-try {
+/* try {
             yazilServiceClient.postSubscriptionInfo(registrationID)
             .catch(setPushSubscribeError);
 }
 
 catch (errDetails) {
     console.log("catch : " + JSON.stringify(errDetails));
-}
+}*/
             
             dfr.resolve(registrationID);
         }
@@ -101,14 +101,14 @@ catch (errDetails) {
                         $rootScope.$emit("PN_registered", e.regid);
                         registrationID = e.regid;
 
-try {
+/* try {
                         yazilServiceClient.postSubscriptionInfo(registrationID)
                         .catch(setPushSubscribeError);
 }
 
 catch (errDetails) {
     console.log("catch : " + JSON.stringify(errDetails));
-}
+} */
 
                         dfr.resolve(registrationID);
                     }
