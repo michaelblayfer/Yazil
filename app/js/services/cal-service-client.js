@@ -96,7 +96,9 @@
             }
 
             console.log("On client run : " + JSON.stringify(httpConfig));
-            return $http(httpConfig).then(processResults);
+            return $http(httpConfig).then(processResults).catch(function(err) {
+                console.log("On client run failure : " + JSON.strigify(err));
+            });
         }
 
         return {
