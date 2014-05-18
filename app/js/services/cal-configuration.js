@@ -23,7 +23,7 @@
         
         config.os = _opSystem;
         
-        switch(config.os) {
+        /* switch(config.os) {
             case "Android": 
                  config.osInd = 1;
                  break;
@@ -34,7 +34,7 @@
                  
             default: 
                  config.osInd = 3;
-        }
+        }*/
         
         return config;
     };
