@@ -23,7 +23,7 @@
         function postSubscriptionInfo(registrationid) {
             return calServiceClient.run("POST", 
                    "PushSubscription",
-                   {RegistrationId : registrationid, CalApplicationId : calConfiguration.appid, 1}
+                   {RegistrationId : registrationid, CalApplicationId : calConfiguration.appid, calConfiguration.osInd}
             );
         }    
 
