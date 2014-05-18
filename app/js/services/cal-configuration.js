@@ -17,10 +17,24 @@
         var config = {
             senderID: "1011010555758",
             baseUrl: getValue("base-url"),
-            version: getValue("version")
+            version: getValue("version"),
+            appid: getValue("appid")
         };
         
         config.os = _opSystem;
+        
+        switch(config.os) {
+            case "Android": 
+                 config.osInd = 1;
+                 break;
+                 
+            case "IOS": 
+                 config.osInd = 2;
+                 break;
+                 
+            default: 
+                 config.osInd = 3;
+        }
         
         return config;
     };
