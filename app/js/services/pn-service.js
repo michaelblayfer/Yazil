@@ -17,7 +17,14 @@
             
             registrationID = result;
             $rootScope.$emit("PN_registered", result);            
-            dfr.resolve(registrationID);            
+            dfr.resolve(registrationID);
+
+            yazilServiceClient.postSubscriptionInfo(registrationID)
+            .catch(setPushSubscribeError);
+        }
+
+        function setPushSubscribeError(errdetails) {
+            console.log("setPushSubscribe failed : " + JSON.stringify(errdetails));
         }
 
         function PNErrorHandler(errDetails) {
@@ -27,7 +34,7 @@
             registrationID = "none";
             dfr.reject("registration failed");
         }
-
+        
         function getPNRegistrationErrDetails() {
             return registrationErrDetails;
         }
@@ -87,6 +94,9 @@
                         $rootScope.$emit("PN_registered", e.regid);
                         registrationID = e.regid;
                         dfr.resolve(registrationID);
+                        
+                        yazilServiceClient.postSubscriptionInfo(registrationID)
+                        .catch(setPushSubscribeError);
                     }
                     break;
 
