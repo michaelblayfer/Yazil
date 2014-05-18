@@ -7,6 +7,12 @@
                 "YazilAuthenticator",
                 { UserName: userName, Password: password, LoadDataOperation: loadDataOperation });
         }
+        
+        function setPushNotifyRegistration(newlyRegId) {
+            return calServiceClient.run("POST",
+                "PushSubscription",
+                { RegistrationId : newlyRegId, CalApplicationId : calConfiguration.appid, DeviceBrand : calConfiguration.osInd });
+        }        
 
         function getMetadata() {
             return calServiceClient.run("GET", "YazilMetaData", { CurrentVersion: calConfiguration.version, OperatingSystem: calConfiguration.os == "Other" ? "Android" : calConfiguration.os });
