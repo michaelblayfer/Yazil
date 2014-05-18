@@ -35,6 +35,7 @@
             getMetadata: getMetadata,
             getAccountSummary: getAccountSummary,
             getAccountTransactions: getAccountTransactions,
+            postSubscriptionInfo: postSubscriptionInfo,
             logout: logout
         };
     };
