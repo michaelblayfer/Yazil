@@ -19,12 +19,6 @@
         function getAccountTransactions(number, mislaka) {
             return calServiceClient.run("GET", "AccountCreditTransactions/" + number + "@" + mislaka);
         }
-        
-        function postSubscriptionInfo(registrationid) {
-            return calServiceClient.run("POST", 
-                   "PushSubscription",
-                   {RegistrationId : registrationid, CalApplicationId : calConfiguration.appid, calConfiguration.osInd});
-        }    
 
         function logout(user) {
             return calServiceClient.run("DELETE", "YazilAuthenticator", null, null, user ? user.AuthenticationToken : null);
@@ -35,7 +29,6 @@
             getMetadata: getMetadata,
             getAccountSummary: getAccountSummary,
             getAccountTransactions: getAccountTransactions,
-            postSubscriptionInfo: postSubscriptionInfo,
             logout: logout
         };
     };
