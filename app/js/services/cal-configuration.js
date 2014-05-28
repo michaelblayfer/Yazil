@@ -25,11 +25,11 @@
         
         switch(config.os) {
             case "Android": 
-                 config.osInd = 1;
+                 config.osInd = 2;
                  break;
                  
             case "IOS": 
-                 config.osInd = 2;
+                 config.osInd = 1;
                  break;
                  
             default: 
